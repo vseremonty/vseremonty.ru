@@ -28,8 +28,6 @@
             margin: 0 auto;
             padding: 0 20px 30px;
         }
-
-        /* Верхняя планка */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -86,8 +84,6 @@
             border-radius: 40px;
             border: 1px solid rgba(0, 136, 204, 0.1);
         }
-
-        /* Главный экран */
         .hero {
             position: relative;
             border-radius: 48px;
@@ -140,7 +136,6 @@
             font-size: 17px;
             border: 1px solid rgba(255, 215, 0, 0.15);
         }
-
         .section-title {
             text-align: center;
             font-size: 46px;
@@ -154,8 +149,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        /* Услуги */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -190,8 +183,6 @@
             font-size: 14px;
             color: rgba(255,255,255,0.5);
         }
-
-        /* Портфолио */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -239,8 +230,6 @@
             font-size: 14px;
             opacity: 0.7;
         }
-
-        /* Преимущества */
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -275,54 +264,6 @@
             font-size: 13px;
             opacity: 0.6;
         }
-
-        /* Команда */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
-        }
-        .team-card {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 30px 20px;
-            border-radius: 28px;
-            text-align: center;
-            transition: all 0.5s;
-            box-shadow: 0 12px 50px rgba(0,0,0,0.15);
-            cursor: default;
-        }
-        .team-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: rgba(247,151,30,0.15);
-        }
-        .team-card .avatar {
-            font-size: 76px;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .team-card h4 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #fff;
-        }
-        .team-card p {
-            color: rgba(255,255,255,0.4);
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-        .team-card .role {
-            display: inline-block;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            color: #0b0b1a;
-            padding: 5px 22px;
-            border-radius: 40px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        /* ===== КАЛЬКУЛЯТОР ===== */
         .calculator {
             background: rgba(255,255,255,0.03);
             backdrop-filter: blur(16px);
@@ -384,8 +325,50 @@
             margin-top: 4px;
             font-size: 14px;
         }
-
-        /* Кнопка */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+        }
+        .team-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 30px 20px;
+            border-radius: 28px;
+            text-align: center;
+            transition: all 0.5s;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.15);
+            cursor: default;
+        }
+        .team-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(247,151,30,0.15);
+        }
+        .team-card .avatar {
+            font-size: 76px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .team-card h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .team-card p {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .team-card .role {
+            display: inline-block;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #0b0b1a;
+            padding: 5px 22px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 700;
+        }
         .cta {
             text-align: center;
             margin: 60px 0 40px;
@@ -411,8 +394,6 @@
             color: rgba(255,255,255,0.3);
             font-size: 15px;
         }
-
-        /* Футер */
         .footer {
             text-align: center;
             padding: 30px 0 15px;
@@ -421,7 +402,6 @@
             border-top: 1px solid rgba(255,255,255,0.03);
             margin-top: 40px;
         }
-
         @media (max-width: 600px) {
             .top-bar {
                 flex-direction: column;
@@ -464,7 +444,6 @@
 </head>
 <body>
 
-<!-- ===== ВЕРХНЯЯ ПЛАНКА ===== -->
 <div class="top-bar">
     <div class="logo">🔧 <span>Ремонт</span> под ключ</div>
     <div class="top-right">
@@ -475,7 +454,6 @@
 
 <div class="container">
 
-    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
     <div class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -485,7 +463,6 @@
         </div>
     </div>
 
-    <!-- ===== УСЛУГИ ===== -->
     <h2 class="section-title">🛠️ Наши <span>услуги</span></h2>
     <div class="services-grid">
         <div class="service-card"><span class="icon">🧱</span><h3>Шпаклёвка</h3><p>Выравнивание стен и потолков</p></div>
@@ -498,7 +475,6 @@
         <div class="service-card"><span class="icon">🛠️</span><h3>Отделка</h3><p>Стены, полы, потолки</p></div>
     </div>
 
-    <!-- ===== ПОРТФОЛИО ===== -->
     <h2 class="section-title">🏗️ Наши <span>работы</span></h2>
     <div class="portfolio-grid">
         <div class="portfolio-item">
@@ -527,7 +503,6 @@
         </div>
     </div>
 
-    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
     <h2 class="section-title">🌟 Наши <span>преимущества</span></h2>
     <div class="advantages">
         <div class="advantage-item"><span class="icon">📏</span><h4>Бесплатный замер</h4><p>Выезд мастера</p></div>
@@ -538,7 +513,6 @@
         <div class="advantage-item"><span class="icon">🧹</span><h4>Чистота на объекте</h4><p>Ежедневная уборка</p></div>
     </div>
 
-    <!-- ===== КАЛЬКУЛЯТОР ===== -->
     <h2 class="section-title">🧮 Калькулятор <span>ремонта</span></h2>
     <div class="calculator">
 
@@ -578,7 +552,6 @@
         </div>
     </div>
 
-    <!-- ===== КОМАНДА ===== -->
     <h2 class="section-title">👷 Наша <span>команда</span></h2>
     <div class="team-grid">
         <div class="team-card"><span class="avatar">🧑‍🔧</span><h4>Алексей</h4><p>Мастер</p><span class="role">8 лет опыта</span></div>
@@ -589,20 +562,17 @@
         <div class="team-card"><span class="avatar">👨‍💻</span><h4>Анна</h4><p>Сметчик</p><span class="role">5 лет опыта</span></div>
     </div>
 
-    <!-- ===== КНОПКА ===== -->
     <div class="cta">
         <a href="tel:+79001234567">📞 Заказать звонок</a>
         <p>Звоните с 9:00 до 21:00 без выходных</p>
     </div>
 
-    <!-- ===== ФУТЕР ===== -->
     <div class="footer">
         © 2026 Ремонт под ключ. Все права защищены.
     </div>
 
 </div>
 
-<!-- ===== СКРИПТ КАЛЬКУЛЯТОРА ===== -->
 <script>
     function calculatePrice() {
         const roomType = parseFloat(document.getElementById('roomType').value);

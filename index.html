@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ремонт под ключ</title>
     <style>
-        /* ===== ОБЩИЕ СТИЛИ ===== */
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +29,6 @@
             padding: 0 20px 30px;
         }
 
-        /* ===== ВЕРХНЯЯ ПЛАНКА СТЕКЛО ===== */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -38,7 +36,6 @@
             padding: 18px 50px;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid rgba(255, 215, 0, 0.08);
             position: sticky;
             top: 0;
@@ -70,12 +67,10 @@
             text-decoration: none;
             transition: 0.3s;
             display: inline-block;
-            text-shadow: 0 0 30px rgba(247,151,30,0.1);
         }
         .top-right .phone:hover {
             color: #f7971e;
             transform: scale(1.05);
-            text-shadow: 0 0 60px rgba(247,151,30,0.3);
         }
         .top-right .telegram {
             font-size: 16px;
@@ -91,7 +86,6 @@
             border: 1px solid rgba(0, 136, 204, 0.1);
         }
 
-        /* ===== ГЛАВНЫЙ ЭКРАН С ВИДЕОФОНОМ ===== */
         .hero {
             position: relative;
             border-radius: 48px;
@@ -104,15 +98,7 @@
             text-align: center;
             padding: 80px 40px;
             box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-        }
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
         }
         .hero-overlay {
             position: absolute;
@@ -131,7 +117,6 @@
             font-size: 72px;
             font-weight: 900;
             letter-spacing: -2px;
-            text-shadow: 0 0 80px rgba(247,151,30,0.15);
         }
         .hero h1 span {
             background: linear-gradient(135deg, #f7971e, #ffd200);
@@ -143,7 +128,6 @@
             font-size: 26px;
             opacity: 0.85;
             margin: 20px 0 32px;
-            text-shadow: 0 0 40px rgba(0,0,0,0.5);
         }
         .hero .badge {
             display: inline-block;
@@ -153,10 +137,8 @@
             border-radius: 60px;
             font-size: 17px;
             border: 1px solid rgba(255, 215, 0, 0.15);
-            letter-spacing: 0.4px;
         }
 
-        /* ===== ЗАГОЛОВКИ ===== */
         .section-title {
             text-align: center;
             font-size: 46px;
@@ -171,7 +153,6 @@
             background-clip: text;
         }
 
-        /* ===== УСЛУГИ СТЕКЛО ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -180,18 +161,16 @@
         .service-card {
             background: rgba(255,255,255,0.04);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255,255,255,0.06);
             padding: 36px 20px;
             border-radius: 28px;
             text-align: center;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.5s;
             box-shadow: 0 12px 50px rgba(0,0,0,0.2);
         }
         .service-card:hover {
             transform: translateY(-16px) scale(1.02);
             border-color: rgba(247,151,30,0.3);
-            box-shadow: 0 30px 80px rgba(247,151,30,0.08), inset 0 0 80px rgba(247,151,30,0.02);
         }
         .service-card .icon {
             font-size: 56px;
@@ -208,7 +187,6 @@
             color: rgba(255,255,255,0.5);
         }
 
-        /* ===== ПОРТФОЛИО ===== */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -219,13 +197,12 @@
             border-radius: 28px;
             overflow: hidden;
             box-shadow: 0 16px 60px rgba(0,0,0,0.3);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.6s;
             border: 1px solid rgba(255,255,255,0.04);
         }
         .portfolio-item:hover {
             transform: scale(1.05);
             box-shadow: 0 30px 90px rgba(247,151,30,0.1);
-            border-color: rgba(247,151,30,0.15);
         }
         .portfolio-item img {
             width: 100%;
@@ -257,7 +234,6 @@
             opacity: 0.7;
         }
 
-        /* ===== ПРЕИМУЩЕСТВА ===== */
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -292,7 +268,6 @@
             opacity: 0.6;
         }
 
-        /* ===== КОМАНДА ===== */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -305,13 +280,12 @@
             padding: 30px 20px;
             border-radius: 28px;
             text-align: center;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.5s;
             box-shadow: 0 12px 50px rgba(0,0,0,0.15);
         }
         .team-card:hover {
             transform: translateY(-12px) scale(1.02);
             border-color: rgba(247,151,30,0.15);
-            box-shadow: 0 30px 80px rgba(247,151,30,0.05);
         }
         .team-card .avatar {
             font-size: 76px;
@@ -338,7 +312,6 @@
             font-weight: 700;
         }
 
-        /* ===== КНОПКА ===== */
         .cta {
             text-align: center;
             margin: 60px 0 40px;
@@ -353,8 +326,7 @@
             font-weight: 800;
             text-decoration: none;
             box-shadow: 0 18px 60px rgba(247,151,30,0.25);
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            letter-spacing: 0.5px;
+            transition: all 0.5s;
         }
         .cta a:hover {
             transform: scale(1.08);
@@ -366,7 +338,6 @@
             font-size: 15px;
         }
 
-        /* ===== ФУТЕР ===== */
         .footer {
             text-align: center;
             padding: 30px 0 15px;
@@ -376,7 +347,6 @@
             margin-top: 40px;
         }
 
-        /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 600px) {
             .top-bar {
                 flex-direction: column;
@@ -416,7 +386,6 @@
 </head>
 <body>
 
-<!-- ===== ВЕРХНЯЯ ПЛАНКА ===== -->
 <div class="top-bar">
     <div class="logo">🔧 <span>Ремонт</span> под ключ</div>
     <div class="top-right">
@@ -427,11 +396,7 @@
 
 <div class="container">
 
-    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
     <div class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="https://cdn.pixabay.com/video/2022/04/01/112824-699959316_large.mp4" type="video/mp4"/>
-        </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>🚀 <span>Ремонт</span> под ключ</h1>
@@ -440,7 +405,6 @@
         </div>
     </div>
 
-    <!-- ===== УСЛУГИ ===== -->
     <h2 class="section-title">🛠️ Наши <span>услуги</span></h2>
     <div class="services-grid">
         <div class="service-card"><span class="icon">🏠</span><h3>Ремонт квартир</h3><p>Косметический и капитальный</p></div>
@@ -451,36 +415,34 @@
         <div class="service-card"><span class="icon">🎨</span><h3>Дизайн интерьера</h3><p>Стиль и уют для вас</p></div>
     </div>
 
-    <!-- ===== ПОРТФОЛИО ===== -->
     <h2 class="section-title">🏗️ Наши <span>работы</span></h2>
     <div class="portfolio-grid">
         <div class="portfolio-item">
-            <img src="https://avatars.mds.yandex.net/i?id=3e2d4f2b2f5d3c5c8e6a8d5c4b3a2f1e-5234567-resize" alt="Ремонт квартиры">
+            <img src="https://i.pinimg.com/564x/1a/4f/4b/1a4f4b8f7c9e2d3f5a6b7c8d9e0f1a2b.jpg" alt="Ремонт квартиры">
             <div class="portfolio-overlay"><h3>Современная квартира</h3><p>Дизайн-проект + ремонт</p></div>
         </div>
         <div class="portfolio-item">
-            <img src="https://avatars.mds.yandex.net/i?id=4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c-8765432-resize" alt="Ремонт дома">
+            <img src="https://i.pinimg.com/564x/2b/5e/6c/2b5e6c7d8e9f0a1b2c3d4e5f6a7b8c9d.jpg" alt="Ремонт дома">
             <div class="portfolio-overlay"><h3>Загородный дом</h3><p>Отделка коттеджа 200 м²</p></div>
         </div>
         <div class="portfolio-item">
-            <img src="https://avatars.mds.yandex.net/i?id=7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d-2345678-resize" alt="Гостиная">
+            <img src="https://i.pinimg.com/564x/3c/6f/7a/3c6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b.jpg" alt="Гостиная">
             <div class="portfolio-overlay"><h3>Гостиная в скандинавском стиле</h3><p>Перепланировка и отделка</p></div>
         </div>
         <div class="portfolio-item">
-            <img src="https://avatars.mds.yandex.net/i?id=5f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c-9876543-resize" alt="Кухня">
+            <img src="https://i.pinimg.com/564x/4d/7a/8b/4d7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c.jpg" alt="Кухня">
             <div class="portfolio-overlay"><h3>Кухня-гостиная 40 м²</h3><p>Современный стиль</p></div>
         </div>
         <div class="portfolio-item">
-            <img src="https://avatars.mds.yandex.net/i?id=2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a-3456789-resize" alt="Ванная">
+            <img src="https://i.pinimg.com/564x/5e/8b/9c/5e8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d.jpg" alt="Ванная">
             <div class="portfolio-overlay"><h3>Ванная с джакузи</h3><p>Полная замена сантехники</p></div>
         </div>
         <div class="portfolio-item">
-            <img src="https://avatars.mds.yandex.net/i?id=6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d1c-6543210-resize" alt="Офис">
+            <img src="https://i.pinimg.com/564x/6f/9c/0d/6f9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e.jpg" alt="Офис">
             <div class="portfolio-overlay"><h3>Офис в бизнес-центре</h3><p>Ремонт за 4 недели</p></div>
         </div>
     </div>
 
-    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
     <h2 class="section-title">🌟 Наши <span>преимущества</span></h2>
     <div class="advantages">
         <div class="advantage-item"><span class="icon">📏</span><h4>Бесплатный замер</h4><p>Выезд мастера</p></div>
@@ -491,7 +453,6 @@
         <div class="advantage-item"><span class="icon">🧹</span><h4>Чистота на объекте</h4><p>Ежедневная уборка</p></div>
     </div>
 
-    <!-- ===== КОМАНДА ===== -->
     <h2 class="section-title">👷 Наша <span>команда</span></h2>
     <div class="team-grid">
         <div class="team-card"><span class="avatar">🧑‍🔧</span><h4>Алексей</h4><p>Мастер</p><span class="role">8 лет опыта</span></div>
@@ -502,13 +463,11 @@
         <div class="team-card"><span class="avatar">👨‍💻</span><h4>Анна</h4><p>Сметчик</p><span class="role">5 лет опыта</span></div>
     </div>
 
-    <!-- ===== КНОПКА ===== -->
     <div class="cta">
         <a href="tel:+79001234567">📞 Заказать звонок</a>
         <p>Звоните с 9:00 до 21:00 без выходных</p>
     </div>
 
-    <!-- ===== ФУТЕР ===== -->
     <div class="footer">
         © 2026 Ремонт под ключ. Все права защищены.
     </div>

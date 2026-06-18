@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
@@ -29,7 +29,6 @@
             padding: 0 20px 30px;
         }
 
-        /* ===== ВЕРХНЯЯ ПЛАНКА ===== */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -123,7 +122,6 @@
             color: #f7971e;
         }
 
-        /* ===== БАННЕР СКИДКИ ===== */
         .discount-banner {
             background: linear-gradient(135deg, #f7971e, #ffd200);
             color: #0b0b1a;
@@ -151,7 +149,6 @@
             100% { transform: scale(1); }
         }
 
-        /* ===== ГЕРОЙ ===== */
         .hero {
             position: relative;
             border-radius: 48px;
@@ -205,7 +202,6 @@
             border: 1px solid rgba(255, 215, 0, 0.15);
         }
 
-        /* ===== ЗАГОЛОВКИ ===== */
         .section-title {
             text-align: center;
             font-size: 46px;
@@ -220,39 +216,6 @@
             background-clip: text;
         }
 
-          <!-- ===== КАК ОПЛАТИТЬ ===== -->
-<h2 class="section-title">💳 Как <span>оплатить</span></h2>
-<div class="payment-grid">
-    <div class="payment-item">
-        <span class="icon">💳</span>
-        <h4>Картой</h4>
-        <p>Visa / Mastercard / МИР</p>
-    </div>
-    <div class="payment-item">
-        <span class="icon">📱</span>
-        <h4>СБП</h4>
-        <p>Система быстрых платежей</p>
-    </div>
-    <div class="payment-item">
-        <span class="icon">🏦</span>
-        <h4>Кредит</h4>
-        <p>Банковский кредит</p>
-    </div>
-    <div class="payment-item">
-        <span class="icon">📊</span>
-        <h4>Рассрочка</h4>
-        <p>0% на 6–12 месяцев</p>
-    </div>
-    <div class="payment-item">
-        <span class="icon">💸</span>
-        <h4>Наличные</h4>
-        <p>Оплата на объекте</p>
-    </div>
-</div>
-
-
-        
-        /* ===== УСЛУГИ ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -267,7 +230,6 @@
             text-align: center;
             transition: all 0.5s;
             box-shadow: 0 12px 50px rgba(0, 0, 0, 0.2);
-            cursor: default;
         }
         .service-card:hover {
             transform: translateY(-16px) scale(1.02);
@@ -288,7 +250,6 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* ===== ПОРТФОЛИО ===== */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -301,7 +262,6 @@
             box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
             transition: all 0.6s;
             border: 1px solid rgba(255, 255, 255, 0.04);
-            cursor: default;
         }
         .portfolio-item:hover {
             transform: scale(1.05);
@@ -337,7 +297,6 @@
             opacity: 0.7;
         }
 
-        /* ===== НАГРАДЫ ===== */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -375,43 +334,6 @@
             margin-top: 4px;
         }
 
-        /* ===== СЧЁТЧИКИ ДОСТИЖЕНИЙ ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin: 20px 0 30px;
-        }
-        .stat-item {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(247, 151, 30, 0.06);
-            padding: 28px 20px;
-            border-radius: 28px;
-            text-align: center;
-            transition: 0.3s;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        }
-        .stat-item:hover {
-            transform: translateY(-6px);
-            border-color: rgba(247, 151, 30, 0.15);
-        }
-        .stat-item .number {
-            font-size: 42px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-        }
-        .stat-item .label {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 4px;
-        }
-
-        /* ===== КОМАНДА ===== */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -427,7 +349,6 @@
             text-align: center;
             transition: all 0.5s;
             box-shadow: 0 12px 50px rgba(0, 0, 0, 0.15);
-            cursor: default;
         }
         .team-card:hover {
             transform: translateY(-12px) scale(1.02);
@@ -458,65 +379,6 @@
             font-weight: 700;
         }
 
-        /* ===== СОТРУДНИК МЕСЯЦА ===== */
-        .employee-month {
-            background: linear-gradient(135deg, rgba(247, 151, 30, 0.08), rgba(255, 210, 0, 0.03));
-            backdrop-filter: blur(16px);
-            border: 2px solid rgba(247, 151, 30, 0.2);
-            border-radius: 32px;
-            padding: 40px 30px;
-            margin: 30px 0 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            box-shadow: 0 20px 60px rgba(247, 151, 30, 0.05);
-            transition: 0.3s;
-        }
-        .employee-month:hover {
-            border-color: rgba(247, 151, 30, 0.35);
-            box-shadow: 0 30px 80px rgba(247, 151, 30, 0.08);
-        }
-        .employee-month .avatar {
-            font-size: 100px;
-            position: relative;
-            flex-shrink: 0;
-        }
-        .employee-month .avatar .crown {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 40px;
-        }
-        .employee-month .info {
-            text-align: left;
-        }
-        .employee-month .info .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            color: #0b0b1a;
-            padding: 6px 22px;
-            border-radius: 40px;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .employee-month .info h3 {
-            font-size: 34px;
-            font-weight: 800;
-            color: #fff;
-        }
-        .employee-month .info h3 span {
-            color: #f7971e;
-        }
-        .employee-month .info p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 4px;
-        }
-
-        /* ===== ПРЕИМУЩЕСТВА ===== */
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -532,7 +394,6 @@
         .advantage-item {
             text-align: center;
             transition: 0.3s;
-            cursor: default;
         }
         .advantage-item:hover {
             transform: scale(1.08);
@@ -552,7 +413,42 @@
             opacity: 0.6;
         }
 
-        /* ===== КАЛЬКУЛЯТОР ===== */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 24px;
+            margin-top: 10px;
+        }
+        .payment-item {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(247, 151, 30, 0.06);
+            padding: 28px 20px;
+            border-radius: 28px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+        .payment-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(247, 151, 30, 0.15);
+        }
+        .payment-item .icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .payment-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .payment-item p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 4px;
+        }
+
         .calculator {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(16px);
@@ -617,7 +513,6 @@
             font-size: 14px;
         }
 
-        /* ===== ОТЗЫВЫ ===== */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -660,7 +555,6 @@
             margin-top: 4px;
         }
 
-        /* ===== FAQ ===== */
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -691,7 +585,6 @@
             line-height: 1.5;
         }
 
-        /* ===== КНОПКА ===== */
         .cta {
             text-align: center;
             margin: 60px 0 40px;
@@ -718,7 +611,6 @@
             font-size: 15px;
         }
 
-        /* ===== ФУТЕР ===== */
         .footer {
             text-align: center;
             padding: 30px 0 15px;
@@ -773,43 +665,29 @@
             .faq-grid {
                 grid-template-columns: 1fr;
             }
-            .stat-item .number {
-                font-size: 32px;
-            }
-            .employee-month {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 20px;
-            }
-            .employee-month .info {
-                text-align: center;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== ВЕРХНЯЯ ПЛАНКА ===== -->
     <div class="top-bar">
         <div class="logo-block">
             <div class="logo-icon">Р</div>
             <div class="logo-text">🔧 <span>Ремонт</span> под ключ</div>
         </div>
         <div class="top-right">
-            <a href="tel:+79858180910" class="phone">📞 +7 (985) 818 09 10</a>
+            <a href="tel:+79005275628" class="phone">📞 +7 (900) 527 56-28</a>
             <div class="telegram">✉️ <span>@remontpodklyc1</span></div>
-            <div class="email">📧 <a href="mailto:remontopodklyc1@gmail.com">remontopodklyc1@gmail.com</a></div>
+            <div class="email">📧 <a href="mailto:remontopodklyc@gmail.com">remontopodklyc@gmail.com</a></div>
         </div>
     </div>
 
     <div class="container">
 
-        <!-- ===== БАННЕР СКИДКИ ===== -->
         <div class="discount-banner">
             🎁 <span>🔥 СКИДКА 15%</span> на все виды работ до конца месяца!
         </div>
 
-        <!-- ===== ГЕРОЙ ===== -->
         <div class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -819,7 +697,6 @@
             </div>
         </div>
 
-        <!-- ===== УСЛУГИ ===== -->
         <h2 class="section-title">🛠️ Наши <span>услуги</span></h2>
         <div class="services-grid">
             <div class="service-card"><span class="icon">🧱</span><h3>Шпаклёвка</h3><p>Выравнивание стен и потолков</p></div>
@@ -832,7 +709,6 @@
             <div class="service-card"><span class="icon">🛠️</span><h3>Отделка</h3><p>Стены, полы, потолки</p></div>
         </div>
 
-        <!-- ===== ПОРТФОЛИО ===== -->
         <h2 class="section-title">🏗️ Наши <span>работы</span></h2>
         <div class="portfolio-grid">
             <div class="portfolio-item">
@@ -861,7 +737,6 @@
             </div>
         </div>
 
-        <!-- ===== НАГРАДЫ ===== -->
         <h2 class="section-title">🏆 Наши <span>награды</span> и <span>сертификаты</span></h2>
         <div class="cert-grid">
             <div class="cert-item"><span class="icon">📜</span><h4>Сертификат качества</h4><p>Соответствие ГОСТ</p></div>
@@ -872,27 +747,6 @@
             <div class="cert-item"><span class="icon">📊</span><h4>Лицензия МЧС</h4><p>Пожарная безопасность</p></div>
         </div>
 
-        <!-- ===== СЧЁТЧИКИ ДОСТИЖЕНИЙ ===== -->
-        <div class="stats-grid">
-            <div class="stat-item">
-                <span class="number">120+</span>
-                <span class="label">🏠 Квартир отремонтировано</span>
-            </div>
-            <div class="stat-item">
-                <span class="number">4.9</span>
-                <span class="label">⭐ Средняя оценка</span>
-            </div>
-            <div class="stat-item">
-                <span class="number">5 лет</span>
-                <span class="label">📅 На рынке</span>
-            </div>
-            <div class="stat-item">
-                <span class="number">15+</span>
-                <span class="label">👷 Мастеров в команде</span>
-            </div>
-        </div>
-
-        <!-- ===== КОМАНДА ===== -->
         <h2 class="section-title">👷 Наша <span>команда</span></h2>
         <div class="team-grid">
             <div class="team-card"><span class="avatar">🧑‍🔧</span><h4>Алексей</h4><p>Мастер</p><span class="role">8 лет опыта</span></div>
@@ -903,20 +757,6 @@
             <div class="team-card"><span class="avatar">👨‍💻</span><h4>Анна</h4><p>Сметчик</p><span class="role">5 лет опыта</span></div>
         </div>
 
-        <!-- ===== СОТРУДНИК МЕСЯЦА ===== -->
-        <div class="employee-month">
-            <div class="avatar">
-                🧑‍🔧
-                <span class="crown">👑</span>
-            </div>
-            <div class="info">
-                <span class="badge">🏆 Лучший сотрудник месяца</span>
-                <h3>Алексей <span>Мастер</span></h3>
-                <p>8 лет опыта, 50+ довольных клиентов</p>
-            </div>
-        </div>
-
-        <!-- ===== ПРЕИМУЩЕСТВА ===== -->
         <h2 class="section-title">🌟 Наши <span>преимущества</span></h2>
         <div class="advantages">
             <div class="advantage-item"><span class="icon">📏</span><h4>Бесплатный замер</h4><p>Выезд мастера</p></div>
@@ -927,140 +767,10 @@
             <div class="advantage-item"><span class="icon">🧹</span><h4>Чистота на объекте</h4><p>Ежедневная уборка</p></div>
         </div>
 
-        <!-- ===== КАЛЬКУЛЯТОР ===== -->
-        <h2 class="section-title">🧮 Калькулятор <span>ремонта</span></h2>
-        <div class="calculator">
-
-            <label for="roomType">Тип помещения</label>
-            <select id="roomType">
-                <option value="1.0">Квартира</option>
-                <option value="1.2">Дом / Коттедж</option>
-                <option value="0.9">Офис</option>
-            </select>
-
-            <label for="area">Площадь (м²)</label>
-            <input type="number" id="area" placeholder="Например: 40" value="40">
-
-            <label for="repairType">Тип ремонта</label>
-            <select id="repairType">
-                <option value="3000">Косметический</option>
-                <option value="6000" selected>Капитальный</option>
-                <option value="9000">Дизайнерский</option>
-            </select>
-
-            <label for="walls">Шпаклёвка стен</label>
-            <select id="walls">
-                <option value="0">Нет</option>
-                <option value="500" selected>Да (+500 ₽/м²)</option>
-            </select>
-
-            <label for="floor">Стяжка пола</label>
-            <select id="floor">
-                <option value="0">Нет</option>
-                <option value="700" selected>Да (+700 ₽/м²)</option>
-            </select>
-
-            <div class="result">
-                <p>💰 Примерная стоимость</p>
-                <span id="totalPrice">0 ₽</span>
-                <p>*Цена может меняться в зависимости от материалов</p>
-            </div>
-        </div>
-
-        <!-- ===== ОТЗЫВЫ ===== -->
-        <h2 class="section-title">💬 Отзывы <span>клиентов</span></h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>«Сделали ремонт в квартире за 2 недели! Всё супер, рекомендую!»</p>
-                <div class="author">— Елена</div>
-                <span class="date">Квартира 45 м², январь 2025</span>
-            </div>
-            <div class="review-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>«Профессиональный подход, все работы выполнены чётко и в срок. Спасибо!»</p>
-                <div class="author">— Сергей</div>
-                <span class="date">Коттедж 200 м², март 2025</span>
-            </div>
-            <div class="review-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>«Дизайн просто огонь! Всё сделали как мы хотели, даже лучше!»</p>
-                <div class="author">— Анна</div>
-                <span class="date">Квартира 70 м², февраль 2025</span>
-            </div>
-            <div class="review-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>«Ремонт офиса сделали за 3 недели. Всё идеально!»</p>
-                <div class="author">— Олег</div>
-                <span class="date">Офис 80 м², апрель 2025</span>
-            </div>
-        </div>
-
-        <!-- ===== FAQ ===== -->
-        <h2 class="section-title">❓ Часто задаваемые <span>вопросы</span></h2>
-        <div class="faq-grid">
-            <div class="faq-item">
-                <h4>Сколько длится ремонт?</h4>
-                <p>Всё зависит от объёма. Обычно квартира 40 м² — 2–3 недели, дом 100+ м² — 1,5–2 месяца.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Даёте ли гарантию?</h4>
-                <p>Да, мы даём гарантию на все виды работ — до 5 лет!</p>
-            </div>
-            <div class="faq-item">
-                <h4>Можно ли посмотреть объекты?</h4>
-                <p>Да, у нас есть портфолио и мы можем организовать показ готовых объектов по договорённости.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Работаете ли вы с материалами заказчика?</h4>
-                <p>Да, мы работаем как с нашими материалами, так и с материалами заказчика.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Нужен ли дизайн-проект?</h4>
-                <p>Дизайн-проект не обязателен, но мы рекомендуем его для точного понимания результата.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Как рассчитать стоимость?</h4>
-                <p>Используйте наш калькулятор на сайте или закажите бесплатный замер — мы всё рассчитаем.</p>
-            </div>
-        </div>
-
-        <!-- ===== КНОПКА ===== -->
-        <div class="cta">
-            <a href="tel:+79005275628">📞 Заказать звонок</a>
-            <p>Звоните с 9:00 до 21:00 без выходных</p>
-        </div>
-
-        <!-- ===== ФУТЕР ===== -->
-        <div class="footer">
-            © 2026 Ремонт под ключ. Все права защищены.
-        </div>
-
-    </div>
-
-    <script>
-        function calculatePrice() {
-            const roomType = parseFloat(document.getElementById('roomType').value);
-            const area = parseFloat(document.getElementById('area').value) || 0;
-            const repairType = parseFloat(document.getElementById('repairType').value);
-            const walls = parseFloat(document.getElementById('walls').value);
-            const floor = parseFloat(document.getElementById('floor').value);
-
-            const basePrice = area * repairType;
-            const wallsTotal = walls * area;
-            const floorTotal = floor * area;
-            const total = (basePrice + wallsTotal + floorTotal) * roomType;
-
-            document.getElementById('totalPrice').innerHTML = total.toLocaleString('ru-RU') + ' ₽';
-        }
-
-        document.querySelectorAll('.calculator select, .calculator input').forEach(el => {
-            el.addEventListener('input', calculatePrice);
-            el.addEventListener('change', calculatePrice);
-        });
-
-        calculatePrice();
-    </script>
-
-</body>
-</html>
+        <h2 class="section-title">💳 Как <span>оплатить</span></h2>
+        <div class="payment-grid">
+            <div class="payment-item"><span class="icon">💳</span><h4>Картой</h4><p>Visa / Mastercard / МИР</p></div>
+            <div class="payment-item"><span class="icon">📱</span><h4>СБП</h4><p>Система быстрых платежей</p></div>
+            <div class="payment-item"><span class="icon">🏦</span><h4>Кредит</h4><p>Банковский кредит</p></div>
+            <div class="payment-item"><span class="icon">📊</span><h4>Рассрочка</h4><p>0% на 6–12 месяцев</p></div>
+            <

@@ -37,7 +37,7 @@
             padding: 16px 50px;
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 215, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 999;
@@ -61,13 +61,13 @@
             font-size: 28px;
             font-weight: 900;
             color: #0b0b1a;
-            box-shadow: 0 0 40px rgba(247, 151, 30, 0.15);
+            box-shadow: 0 0 40px rgba(247, 151, 30, 0.2);
             transition: 0.3s;
             flex-shrink: 0;
         }
         .logo-icon:hover {
             transform: scale(1.05) rotate(-3deg);
-            box-shadow: 0 0 60px rgba(247, 151, 30, 0.25);
+            box-shadow: 0 0 70px rgba(247, 151, 30, 0.3);
         }
         .logo-text {
             font-size: 30px;
@@ -92,10 +92,14 @@
             text-decoration: none;
             transition: 0.3s;
             display: inline-block;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .top-right .phone:hover {
-            color: #f7971e;
             transform: scale(1.03);
+            filter: brightness(1.2);
         }
         .top-right .telegram {
             font-size: 15px;
@@ -126,7 +130,9 @@
 
         /* ===== БАННЕР СКИДКИ ===== */
         .discount-banner {
-            background: linear-gradient(135deg, #f7971e, #ffd200);
+            background: linear-gradient(135deg, #f7971e, #e88a1a, #ffd200);
+            background-size: 200% 200%;
+            animation: grad 4s ease infinite;
             color: #0b0b1a;
             padding: 18px 30px;
             border-radius: 60px;
@@ -134,9 +140,9 @@
             font-size: 24px;
             font-weight: 800;
             margin: 30px 0 10px;
-            box-shadow: 0 0 50px rgba(247, 151, 30, 0.12);
+            box-shadow: 0 0 60px rgba(247, 151, 30, 0.15);
             letter-spacing: 0.5px;
-            animation: pulse 2s infinite ease-in-out;
+            animation: pulse 2s infinite ease-in-out, grad 4s ease infinite;
         }
         .discount-banner span {
             background: #0b0b1a;
@@ -150,6 +156,11 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.01); }
             100% { transform: scale(1); }
+        }
+        @keyframes grad {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* ===== ГЕРОЙ ===== */
@@ -172,7 +183,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 40%, rgba(247, 151, 30, 0.04), transparent 70%);
+            background: radial-gradient(circle at 30% 40%, rgba(247, 151, 30, 0.06), transparent 70%);
             z-index: 0;
         }
         .hero-overlay {
@@ -213,7 +224,7 @@
             padding: 12px 36px;
             border-radius: 60px;
             font-size: 17px;
-            border: 1px solid rgba(255, 215, 0, 0.06);
+            border: 1px solid rgba(255, 215, 0, 0.08);
         }
 
         /* ===== ЗАГОЛОВКИ ===== */
@@ -223,12 +234,22 @@
             font-weight: 800;
             margin: 70px 0 40px;
             letter-spacing: -0.5px;
+            position: relative;
         }
         .section-title span {
             background: linear-gradient(135deg, #f7971e, #ffd200);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            margin: 12px auto 0;
+            border-radius: 4px;
         }
 
         /* ===== УСЛУГИ ===== */
@@ -244,18 +265,19 @@
             padding: 36px 20px;
             border-radius: 28px;
             text-align: center;
-            transition: all 0.4s;
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
         }
         .service-card:hover {
-            transform: translateY(-14px);
+            transform: translateY(-14px) scale(1.02);
             border-color: rgba(247, 151, 30, 0.15);
-            box-shadow: 0 30px 80px rgba(247, 151, 30, 0.03);
+            box-shadow: 0 30px 80px rgba(247, 151, 30, 0.04);
         }
         .service-card .icon {
             font-size: 56px;
             display: block;
             margin-bottom: 12px;
+            filter: drop-shadow(0 0 20px rgba(247, 151, 30, 0.05));
         }
         .service-card h3 {
             font-size: 22px;
@@ -278,12 +300,13 @@
             border-radius: 28px;
             overflow: hidden;
             box-shadow: 0 16px 60px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid rgba(255, 255, 255, 0.02);
         }
         .portfolio-item:hover {
             transform: scale(1.03);
             box-shadow: 0 30px 90px rgba(247, 151, 30, 0.04);
+            border-color: rgba(247, 151, 30, 0.08);
         }
         .portfolio-item img {
             width: 100%;
@@ -309,6 +332,7 @@
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 4px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         .portfolio-overlay p {
             font-size: 14px;
@@ -330,11 +354,12 @@
             border-radius: 28px;
             text-align: center;
             transition: 0.4s;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
         }
         .cert-item:hover {
             transform: translateY(-8px);
-            border-color: rgba(247, 151, 30, 0.1);
+            border-color: rgba(247, 151, 30, 0.12);
+            box-shadow: 0 20px 60px rgba(247, 151, 30, 0.03);
         }
         .cert-item .icon {
             font-size: 64px;
@@ -367,11 +392,11 @@
             border-radius: 28px;
             text-align: center;
             transition: 0.4s;
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.06);
         }
         .team-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(247, 151, 30, 0.06);
+            border-color: rgba(247, 151, 30, 0.08);
         }
         .team-card .avatar {
             font-size: 76px;
@@ -409,7 +434,7 @@
             padding: 60px 40px;
             border-radius: 36px;
             color: #fff;
-            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.08);
         }
         .advantage-item {
             text-align: center;
@@ -479,7 +504,7 @@
             border-radius: 36px;
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.06);
         }
         .calculator label {
             display: block;
@@ -624,8 +649,23 @@
             font-weight: 800;
             text-decoration: none;
             box-shadow: 0 18px 60px rgba(247, 151, 30, 0.08);
-            transition: all 0.4s;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+        .cta a:hover::before {
+            left: 100%;
         }
         .cta a:hover {
             transform: scale(1.05);
@@ -643,7 +683,7 @@
             padding: 30px 0 15px;
             color: rgba(255, 255, 255, 0.08);
             font-size: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            border-top: 2px solid rgba(247, 151, 30, 0.05);
             margin-top: 40px;
         }
 
@@ -793,4 +833,159 @@
 
         <!-- ===== ПРЕИМУЩЕСТВА ===== -->
         <h2 class="section-title">🌟 Наши <span>преимущества</span></h2>
-       
+        <div class="advantages">
+            <div class="advantage-item"><span class="icon">📏</span><h4>Бесплатный замер</h4><p>Выезд мастера</p></div>
+            <div class="advantage-item"><span class="icon">💰</span><h4>Фиксированная цена</h4><p>Без скрытых доплат</p></div>
+            <div class="advantage-item"><span class="icon">🛡️</span><h4>Гарантия 5 лет</h4><p>На все работы</p></div>
+            <div class="advantage-item"><span class="icon">📊</span><h4>Рассрочка 0%</h4><p>Оплата частями</p></div>
+            <div class="advantage-item"><span class="icon">👀</span><h4>Авторский надзор</h4><p>Личный контроль</p></div>
+            <div class="advantage-item"><span class="icon">🧹</span><h4>Чистота на объекте</h4><p>Ежедневная уборка</p></div>
+        </div>
+
+        <!-- ===== ОПЛАТА ===== -->
+        <h2 class="section-title">💳 Как <span>оплатить</span></h2>
+        <div class="payment-grid">
+            <div class="payment-item"><span class="icon">💳</span><h4>Картой</h4><p>Visa / Mastercard / МИР</p></div>
+            <div class="payment-item"><span class="icon">📱</span><h4>СБП</h4><p>Система быстрых платежей</p></div>
+            <div class="payment-item"><span class="icon">🏦</span><h4>Кредит</h4><p>Банковский кредит</p></div>
+            <div class="payment-item"><span class="icon">📊</span><h4>Рассрочка</h4><p>0% на 6–12 месяцев</p></div>
+            <div class="payment-item"><span class="icon">💸</span><h4>Наличные</h4><p>Оплата на объекте</p></div>
+        </div>
+
+        <!-- ===== КАЛЬКУЛЯТОР ===== -->
+        <h2 class="section-title">🧮 Калькулятор <span>ремонта</span></h2>
+        <div class="calculator">
+
+            <label for="roomType">Тип помещения</label>
+            <select id="roomType">
+                <option value="1.0">Квартира</option>
+                <option value="1.2">Дом / Коттедж</option>
+                <option value="0.9">Офис</option>
+            </select>
+
+            <label for="area">Площадь (м²)</label>
+            <input type="number" id="area" placeholder="Например: 40" value="40">
+
+            <label for="repairType">Тип ремонта</label>
+            <select id="repairType">
+                <option value="3000">Косметический</option>
+                <option value="6000" selected>Капитальный</option>
+                <option value="9000">Дизайнерский</option>
+            </select>
+
+            <label for="walls">Шпаклёвка стен</label>
+            <select id="walls">
+                <option value="0">Нет</option>
+                <option value="500" selected>Да (+500 ₽/м²)</option>
+            </select>
+
+            <label for="floor">Стяжка пола</label>
+            <select id="floor">
+                <option value="0">Нет</option>
+                <option value="700" selected>Да (+700 ₽/м²)</option>
+            </select>
+
+            <div class="result">
+                <p>💰 Примерная стоимость</p>
+                <span id="totalPrice">0 ₽</span>
+                <p>*Цена может меняться в зависимости от материалов</p>
+            </div>
+        </div>
+
+        <!-- ===== ОТЗЫВЫ ===== -->
+        <h2 class="section-title">💬 Отзывы <span>клиентов</span></h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Сделали ремонт в квартире за 2 недели! Всё супер, рекомендую!»</p>
+                <div class="author">— Елена</div>
+                <span class="date">Квартира 45 м², январь 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Профессиональный подход, все работы выполнены чётко и в срок. Спасибо!»</p>
+                <div class="author">— Сергей</div>
+                <span class="date">Коттедж 200 м², март 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Дизайн просто огонь! Всё сделали как мы хотели, даже лучше!»</p>
+                <div class="author">— Анна</div>
+                <span class="date">Квартира 70 м², февраль 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Ремонт офиса сделали за 3 недели. Всё идеально!»</p>
+                <div class="author">— Олег</div>
+                <span class="date">Офис 80 м², апрель 2025</span>
+            </div>
+        </div>
+
+        <!-- ===== FAQ ===== -->
+        <h2 class="section-title">❓ Часто задаваемые <span>вопросы</span></h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Сколько длится ремонт?</h4>
+                <p>Всё зависит от объёма. Обычно квартира 40 м² — 2–3 недели, дом 100+ м² — 1,5–2 месяца.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Даёте ли гарантию?</h4>
+                <p>Да, мы даём гарантию на все виды работ — до 5 лет!</p>
+            </div>
+            <div class="faq-item">
+                <h4>Можно ли посмотреть объекты?</h4>
+                <p>Да, у нас есть портфолио и мы можем организовать показ готовых объектов по договорённости.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Работаете ли вы с материалами заказчика?</h4>
+                <p>Да, мы работаем как с нашими материалами, так и с материалами заказчика.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Нужен ли дизайн-проект?</h4>
+                <p>Дизайн-проект не обязателен, но мы рекомендуем его для точного понимания результата.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Как рассчитать стоимость?</h4>
+                <p>Используйте наш калькулятор на сайте или закажите бесплатный замер — мы всё рассчитаем.</p>
+            </div>
+        </div>
+
+        <!-- ===== КНОПКА ===== -->
+        <div class="cta">
+            <a href="tel:+79005275628">📞 Заказать звонок</a>
+            <p>Звоните с 9:00 до 21:00 без выходных</p>
+        </div>
+
+        <!-- ===== ФУТЕР ===== -->
+        <div class="footer">
+            © 2026 Ремонт под ключ. Все права защищены.
+        </div>
+
+    </div>
+
+    <script>
+        function calculatePrice() {
+            const roomType = parseFloat(document.getElementById('roomType').value);
+            const area = parseFloat(document.getElementById('area').value) || 0;
+            const repairType = parseFloat(document.getElementById('repairType').value);
+            const walls = parseFloat(document.getElementById('walls').value);
+            const floor = parseFloat(document.getElementById('floor').value);
+
+            const basePrice = area * repairType;
+            const wallsTotal = walls * area;
+            const floorTotal = floor * area;
+            const total = (basePrice + wallsTotal + floorTotal) * roomType;
+
+            document.getElementById('totalPrice').innerHTML = total.toLocaleString('ru-RU') + ' ₽';
+        }
+
+        document.querySelectorAll('.calculator select, .calculator input').forEach(el => {
+            el.addEventListener('input', calculatePrice);
+            el.addEventListener('change', calculatePrice);
+        });
+
+        calculatePrice();
+    </script>
+
+</body>
+</html>

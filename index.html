@@ -1,391 +1,85 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ВсеРемонты.ру - Ремонт квартир и домов</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f2ed;color:#1a1a2e}
-        .container{max-width:1200px;margin:0 auto;padding:0 20px}
-        
-        /* ШАПКА */
-        .header{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);padding:15px 0;position:sticky;top:0;z-index:100;border-bottom:2px solid #f0e8e0}
-        .header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
-        .logo{font-size:28px;font-weight:800;color:#1a1a2e;text-decoration:none}
-        .logo i{color:#e06b1e;margin-right:8px}
-        .logo span{color:#e06b1e}
-        .nav{display:flex;gap:25px;font-weight:600}
-        .nav a{text-decoration:none;color:#2d2d3a;transition:0.3s}
-        .nav a:hover{color:#e06b1e}
-        .phone{background:#e06b1e;color:#fff;padding:10px 25px;border-radius:50px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;transition:0.3s}
-        .phone:hover{background:#c45a14;transform:scale(1.05)}
-        
-        /* ГЛАВНЫЙ ЭКРАН */
-        .hero{background:linear-gradient(135deg,#f0e8e0,#e8ddd0);padding:70px 0;border-radius:0 0 50px 50px;margin-bottom:30px}
-        .hero-grid{display:flex;align-items:center;gap:50px;flex-wrap:wrap}
-        .hero-text{flex:1;min-width:300px}
-        .hero-text .badge{background:rgba(224,107,30,0.15);color:#e06b1e;padding:5px 18px;border-radius:50px;font-weight:600;font-size:13px;display:inline-block;margin-bottom:15px}
-        .hero-text h1{font-size:48px;font-weight:800;line-height:1.1;margin-bottom:20px}
-        .hero-text h1 span{color:#e06b1e}
-        .hero-text p{font-size:20px;color:#4a4a5a;margin-bottom:30px;max-width:500px}
-        .btn{display:inline-block;padding:16px 40px;border-radius:50px;font-weight:700;font-size:17px;text-decoration:none;transition:0.3s;border:none;cursor:pointer}
-        .btn-orange{background:#e06b1e;color:#fff;box-shadow:0 8px 25px rgba(224,107,30,0.3)}
-        .btn-orange:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(224,107,30,0.4)}
-        .btn-outline{background:transparent;color:#1a1a2e;border:2px solid #1a1a2e}
-        .btn-outline:hover{background:#1a1a2e;color:#fff}
-        .hero-buttons{display:flex;gap:15px;flex-wrap:wrap}
-        .hero-image{flex:1;min-height:300px;background:linear-gradient(135deg,#d5cec0,#c8bfaf);border-radius:40px;min-width:280px;display:flex;align-items:center;justify-content:center;font-size:80px;color:#b0a494}
-        
-        /* СТАТИСТИКА */
-        .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;background:#fff;border-radius:30px;padding:30px;border:1px solid #edeae4;margin-bottom:40px}
-        .stat-item{text-align:center}
-        .stat-item .number{font-size:36px;font-weight:800;color:#e06b1e}
-        .stat-item .label{color:#6a6a7a;font-size:14px}
-        
-        /* УСЛУГИ */
-        .section-title{font-size:36px;font-weight:700;text-align:center;margin-bottom:10px}
-        .section-sub{text-align:center;color:#6a6a7a;font-size:18px;margin-bottom:40px}
-        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
-        .service-card{background:#fff;padding:35px 25px;border-radius:30px;border:1px solid #edeae4;text-align:center;transition:0.3s}
-        .service-card:hover{transform:translateY(-8px);border-color:#e06b1e40;box-shadow:0 20px 50px rgba(0,0,0,0.06)}
-        .service-card .icon{font-size:40px;color:#e06b1e;background:rgba(224,107,30,0.08);width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}.service-card h3{font-size:20px;margin-bottom:8px}
-        .service-card p{color:#4a4a5a;font-size:15px;line-height:1.6}
-        .service-card .price{display:inline-block;margin-top:14px;background:#f3ede6;padding:5px 20px;border-radius:50px;font-weight:700;color:#e06b1e}
-
-        <h2>Наши специалисты</h2>
-
-<div style="display:flex; gap:20px; flex-wrap:wrap;">
-
-    <div style="border:1px solid #ddd; border-radius:10px; padding:15px; width:200px; text-align:center;">
-        <img src="sotrudnik1.jpg" alt="Сотрудник" style="width:100%; border-radius:50%;">
-        <h3>Алексей</h3>
-        <p>Мастер по ремонту, 8 лет опыта</p>
+<h1>🚧 Ремонт под ключ</h1>
+        <p>Качественно, быстро, с гарантией</p>
+        <a href="tel:+79001234567" class="phone">📞 +7 (900) 123-45-67</a>
+        <br>
+        <span class="highlight">🔥 Работаем по всему городу</span>
     </div>
 
-    <div style="border:1px solid #ddd; border-radius:10px; padding:15px; width:200px; text-align:center;">
-        <img src="sotrudnik2.jpg" alt="Сотрудник" style="width:100%; border-radius:50%;">
-        <h3>Дмитрий</h3>
-        <p>Электрик, 6 лет опыта</p>
+    <!-- УСЛУГИ -->
+    <div class="section">
+        <h2>🛠️ Наши услуги</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🏠</div>
+                <h3>Ремонт квартир</h3>
+                <p>Косметический и капитальный</p>
+            </div>
+            <div class="card">
+                <div class="icon">🏢</div>
+                <h3>Ремонт офисов</h3>
+                <p>Под ключ, быстро</p>
+            </div>
+            <div class="card">
+                <div class="icon">🛠️</div>
+                <h3>Отделка</h3>
+                <p>Стены, полы, потолки</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔌</div>
+                <h3>Электрика</h3>
+                <p>Проводка, свет, розетки</p>
+            </div>
+            <div class="card">
+                <div class="icon">🚽</div>
+                <h3>Сантехника</h3>
+                <p>Водопровод, канализация</p>
+            </div>
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>Дизайн интерьера</h3>
+                <p>Поможем с выбором стиля</p>
+            </div>
+        </div>
     </div>
 
-    <div style="border:1px solid #ddd; border-radius:10px; padding:15px; width:200px; text-align:center;">
-        <img src="sotrudnik3.jpg" alt="Сотрудник" style="width:100%; border-radius:50%;">
-        <h3>Сергей</h3>
-        <p>Отделочник, 10 лет опыта</p>
+    <!-- ПРЕИМУЩЕСТВА -->
+    <div class="section" style="background:#f0f7ff;">
+        <h2>🌟 Почему выбирают нас</h2>
+        <div class="grid">
+            <div class="card"><div class="icon">📏</div><h3>Бесплатный замер</h3><p>Выезд мастера</p></div>
+            <div class="card"><div class="icon">💰</div><h3>Фиксированная цена</h3><p>Без скрытых доплат</p></div>
+            <div class="card"><div class="icon">🛡️</div><h3>Гарантия 5 лет</h3><p>На все работы</p></div>
+            <div class="card"><div class="icon">📊</div><h3>Рассрочка 0%</h3><p>Оплата частями</p></div>
+            <div class="card"><div class="icon">👀</div><h3>Авторский надзор</h3><p>Личный контроль</p></div>
+            <div class="card"><div class="icon">🧹</div><h3>Чистота на объекте</h3><p>Ежедневная уборка</p></div>
+        </div>
+    </div>
+
+    <!-- СОТРУДНИКИ -->
+    <div class="section">
+        <h2>👷 Наша команда</h2>
+        <div class="grid">
+            <div class="employee"><div class="avatar">🧑‍🔧</div><h3>Алексей</h3><p>Мастер, 8 лет</p></div>
+            <div class="employee"><div class="avatar">👨‍🔧</div><h3>Дмитрий</h3><p>Электрик, 7 лет</p></div>
+            <div class="employee"><div class="avatar">🧑‍🎨</div><h3>Екатерина</h3><p>Дизайнер, 6 лет</p></div>
+            <div class="employee"><div class="avatar">👷</div><h3>Сергей</h3><p>Отделочник, 10 лет</p></div>
+            <div class="employee"><div class="avatar">🧑‍🔧</div><h3>Михаил</h3><p>Сантехник, 9 лет</p></div>
+            <div class="employee"><div class="avatar">👨‍💻</div><h3>Анна</h3><p>Сметчик, 5 лет</p></div>
+        </div>
+    </div>
+
+    <!-- КНОПКА ЗАЯВКА -->
+    <div style="text-align:center; margin-top:30px;">
+        <a href="tel:+79001234567" class="btn">📞 Позвонить сейчас</a>
+        <p style="font-size:14px; color:#999; margin-top:10px;">Звоните с 9:00 до 21:00 без выходных</p>
+    </div>
+
+    <!-- ФУТЕР -->
+    <div class="footer">
+        © 2025 Ремонт под ключ. Все права защищены.
     </div>
 
 </div>
-        
-        /* ПРЕИМУЩЕСТВА */
-        .benefits{background:#1a1a2e;padding:70px 0;border-radius:50px 50px 0 0;margin-top:40px}
-        .benefits .section-title{color:#fff}
-        .benefits .section-sub{color:#b0b0c0}
-        .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
-        .benefit-item{background:rgba(255,255,255,0.04);padding:25px;border-radius:24px;border:1px solid rgba(255,255,255,0.05);transition:0.3s}
-        .benefit-item:hover{background:rgba(255,255,255,0.07)}
-        .benefit-item .icon{font-size:30px;color:#e06b1e;background:rgba(224,107,30,0.12);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-        .benefit-item h4{color:#fff;font-size:19px;margin-bottom:4px}
-        .benefit-item p{color:#b0b0c0;font-size:15px}
-        
-        /* ПОРТФОЛИО */
-        .portfolio{padding:60px 0}
-        .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-        .portfolio-item{background:#fff;border-radius:28px;overflow:hidden;border:1px solid #edeae4;transition:0.3s}
-        .portfolio-item:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.08)}
-        .portfolio-img{height:200px;background:linear-gradient(135deg,#ddd6c8,#c8bfaf);display:flex;align-items:center;justify-content:center;font-size:50px;color:#a09480}
-        .portfolio-item .info{padding:20px}
-        .portfolio-item .info h4{font-size:18px;margin-bottom:2px}
-        .portfolio-item .info .type{font-size:13px;color:#e06b1e;font-weight:600;background:rgba(224,107,30,0.08);padding:2px 14px;border-radius:50px;display:inline-block}
-        .portfolio-item .info p{font-size:14px;color:#5a5a6a;margin-top:8px}
-        
-        /* ОТЗЫВЫ */
-        .testimonials{background:#f0e8e0;padding:60px 0;border-radius:50px 50px 0 0}
-        .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
-        .testimonial-card{background:#fff;padding:28px;border-radius:28px;border:1px solid #edeae4}
-        .testimonial-card .stars{color:#f5b342;font-size:18px;letter-spacing:3px;margin-bottom:10px}
-        .testimonial-card p{font-size:15px;color:#2d2d3a;font-style:italic;line-height:1.6}
-        .testimonial-card .author{font-weight:700;margin-top:14px;font-size:15px}
-        .testimonial-card .project{font-size:13px;color:#7a7a8a}
-        
-        /* ВОПРОСЫ */
-        .faq{padding:60px 0}
-        .faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
-        .faq-item{background:#fff;padding:20px 25px;border-radius:20px;border:1px solid #edeae4;cursor:pointer;transition:0.3s}
-        .faq-item:hover{border-color:#e06b1e60}
-        .faq-item .q{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:17px}
-        .faq-item .q i{color:#e06b1e;transition:0.3s}
-        .faq-item .a{max-height:0;overflow:hidden;transition:0.4s;color:#4a4a5a;font-size:15px;line-height:1.6}
-        .faq-item.open .a{max-height:300px;padding-top:14px}
-        .faq-item.open .q i{transform:rotate(180deg)}
-        
-        /* КОНТАКТЫ */
-        .contact{background:#1a1a2e;padding:60px 0;border-radius:50px 50px 0 0}
-        .contact .section-title{color:#fff}
-        .contact .section-sub{color:#b0b0c0}
-        .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px}
-        .contact-item{display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);padding:18px 22px;border-radius:20px;border:1px solid rgba(255,255,255,0.04)}.contact-item .icon{font-size:24px;color:#e06b1e;width:50px;height:50px;background:rgba(224,107,30,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center}
-        .contact-item .label{font-size:13px;color:#8a8a9a}
-        .contact-item .value{font-weight:600;font-size:17px;color:#fff}
-        
-        /* ПОДВАЛ */
-        .footer{background:#12121e;padding:40px 0;text-align:center;color:#8a8a9a;font-size:14px}
-        .footer .socials{display:flex;justify-content:center;gap:18px;margin-bottom:16px}
-        .footer .socials a{color:#8a8a9a;font-size:22px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:0.3s}
-        .footer .socials a:hover{color:#e06b1e;background:rgba(224,107,30,0.12)}
-        .footer a{color:#e06b1e;text-decoration:none}
-        .footer .links{margin-top:10px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;font-size:13px}
-        
-        @media(max-width:768px){
-            .hero-text h1{font-size:32px}
-            .hero-grid{flex-direction:column}
-            .stats-grid{grid-template-columns:repeat(2,1fr)}
-            .nav{flex-wrap:wrap;justify-content:center}
-            .header-inner{flex-direction:column}
-        }
-        @media(max-width:500px){
-            .hero-text h1{font-size:26px}
-            .services-grid{grid-template-columns:1fr}
-            .portfolio-grid{grid-template-columns:1fr}
-            .testimonial-grid{grid-template-columns:1fr}
-            .benefits-grid{grid-template-columns:1fr}
-            .stats-grid{grid-template-columns:1fr 1fr}
-        }
-    </style>
-</head>
-<body>
 
-<!-- ШАПКА -->
-<header class="header">
-    <div class="container header-inner">
-        <a href="#" class="logo"><i class="fas fa-hammer"></i>Все<span>Ремонты</span>.ру</a>
-        <nav class="nav">
-            <a href="#services">Услуги</a>
-            <a href="#portfolio">Портфолио</a>
-            <a href="#testimonials">Отзывы</a>
-            <a href="#faq">Вопросы</a>
-            <a href="#contact">Контакты</a>
-        </nav>
-        <a href="tel:+74951234567" class="phone"><i class="fas fa-phone"></i>+7 (495) 123-45-67</a>
-    </div>
-</header>
-
-<!-- ГЛАВНЫЙ ЭКРАН -->
-<section class="hero">
-    <div class="container hero-grid">
-        <div class="hero-text">
-            <div class="badge"><i class="fas fa-star"></i> Более 700 объектов</div>
-            <h1>Ремонт квартир и домов <span>под ключ</span></h1>
-            <p>Дизайн, отделка, инженерные системы — всё в одном месте. Гарантия 5 лет, рассрочка 0%.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-orange"><i class="fas fa-calculator"></i> Рассчитать стоимость</a>
-                <a href="#portfolio" class="btn btn-outline"><i class="fas fa-images"></i> Наши работы</a>
-            </div>
-        </div>
-        <div class="hero-image">🏠</div>
-    </div>
-</section>
-
-<!-- СТАТИСТИКА -->
-<section class="container">
-    <div class="stats-grid">
-        <div class="stat-item"><div class="number">700+</div><div class="label">Объектов сдано</div></div>
-        <div class="stat-item"><div class="number">5 лет</div><div class="label">Гарантия</div></div>
-        <div class="stat-item"><div class="number">98%</div><div class="label">Довольных клиентов</div></div>
-        <div class="stat-item"><div class="number">12 лет</div><div class="label">Опыта</div></div>
-    </div>
-</section>
-
-<!-- УСЛУГИ -->
-<section class="container" id="services">
-    <h2 class="section-title">Наши услуги</h2>
-    <p class="section-sub">Выберите вид ремонта под ваш бюджет</p>
-    <div class="services-grid">
-        <div class="service-card">
-            <div class="icon"><i class="fas fa-paint-roller"></i></div>
-            <h3>Косметический ремонт</h3>
-            <p>Обновление стен, полов, потолков, замена сантехники.</p>
-            <span class="price">от 2 500 ₽/м²</span>
-        </div><div class="service-card">
-            <div class="icon"><i class="fas fa-screwdriver-wrench"></i></div>
-            <h3>Капитальный ремонт</h3>
-            <p>Перепланировка, стяжка, замена всех коммуникаций.</p>
-            <span class="price">от 5 800 ₽/м²</span>
-        </div>
-        <div class="service-card">
-            <div class="icon"><i class="fas fa-pen-ruler"></i></div>
-            <h3>Дизайн-проект</h3>
-            <p>3D-визуализация, планировка, подбор материалов.</p>
-            <span class="price">от 1 400 ₽/м²</span>
-        </div>
-        <div class="service-card">
-            <div class="icon"><i class="fas fa-house-chimney"></i></div>
-            <h3>Отделка домов</h3>
-            <p>Коттеджи, таунхаусы и дачи под ключ.</p>
-            <span class="price">от 5 000 ₽/м²</span>
-        </div>
-        <div class="service-card">
-            <div class="icon"><i class="fas fa-bolt"></i></div>
-            <h3>Инженерные системы</h3>
-            <p>Отопление, водоснабжение, электрика, вентиляция.</p>
-            <span class="price">от 2 200 ₽/точка</span>
-        </div>
-        <div class="service-card">
-            <div class="icon"><i class="fas fa-volume-high"></i></div>
-            <h3>Звукоизоляция</h3>
-            <p>Шумоизоляция стен, полов и потолков.</p>
-            <span class="price">от 3 400 ₽/м²</span>
-        </div>
-    </div>
-</section>
-
-<!-- ПРЕИМУЩЕСТВА -->
-<section class="benefits">
-    <div class="container">
-        <h2 class="section-title">Почему выбирают нас</h2>
-        <p class="section-sub">Мы делаем ремонт прозрачным и комфортным</p>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <div class="icon"><i class="fas fa-ruler-combined"></i></div>
-                <h4>Бесплатный замер</h4>
-                <p>Выезд в день обращения</p>
-            </div>
-            <div class="benefit-item">
-                <div class="icon"><i class="fas fa-file-signature"></i></div>
-                <h4>Фиксированная цена</h4>
-                <p>Без скрытых платежей</p>
-            </div>
-            <div class="benefit-item">
-                <div class="icon"><i class="fas fa-award"></i></div>
-                <h4>Гарантия 5 лет</h4>
-                <p>На все работы</p>
-            </div>
-            <div class="benefit-item">
-                <div class="icon"><i class="fas fa-credit-card"></i></div>
-                <h4>Рассрочка 0%</h4>
-                <p>До 12 месяцев</p>
-            </div>
-            <div class="benefit-item">
-                <div class="icon"><i class="fas fa-clipboard-list"></i></div>
-                <h4>Авторский надзор</h4>
-                <p>Дизайнер на каждом этапе</p>
-            </div>
-            <div class="benefit-item">
-                <div class="icon"><i class="fas fa-broom"></i></div>
-                <h4>Чистота на объекте</h4>
-                <p>Уборка и вывоз мусора</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ПОРТФОЛИО -->
-<section class="container portfolio" id="portfolio">
-    <h2 class="section-title">Наши работы</h2>
-    <p class="section-sub">Реальные проекты наших клиентов</p>
-    <div class="portfolio-grid">
-        <div class="portfolio-item">
-            <div class="portfolio-img">🏢</div>
-            <div class="info">
-                <h4>Квартира 78 м²</h4>
-                <span class="type">Капитальный ремонт</span>
-                <p>Перепланировка, тёплый пол, современный стиль</p>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="portfolio-img">🏡</div>
-            <div class="info">
-                <h4>Загородный дом 210 м²</h4>
-                <span class="type">Отделка под ключ</span>
-                <p>Фасад из термодревесины, умный дом</p>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="portfolio-img">🏠</div>
-            <div class="info">
-                <h4>Студия 40 м²</h4><span class="type">Косметический ремонт</span>
-                <p>Скандинавский стиль, трансформируемая мебель</p>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="portfolio-img">🏢</div>
-            <div class="info">
-                <h4>Офис 150 м²</h4>
-                <span class="type">Коммерческий ремонт</span>
-                <p>Открытое планирование, стиль лофт</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ОТЗЫВЫ -->
-<section class="testimonials" id="testimonials">
-    <div class="container">
-        <h2 class="section-title">Отзывы клиентов</h2>
-        <p class="section-sub">Реальные люди о нашей работе</p>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p>"Ремонт сделали качественно и в срок. Особо хочу отметить чистоту на объекте."</p>
-                <div class="author">Александр П.</div>
-                <div class="project">Квартира 95 м²</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p>"Отличная команда! Всё сделали под ключ, даже помогли с выбором мебели."</p>
-                <div class="author">Марина К.</div>
-                <div class="project">Коттедж 185 м²</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">★★★★☆</div>
-                <p>"Быстро, недорого и со вкусом. Дизайнер предложила отличное решение."</p>
-                <div class="author">Игорь Д.</div>
-                <div class="project">Квартира 56 м²</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ВОПРОСЫ -->
-<section class="container faq" id="faq">
-    <h2 class="section-title">Частые вопросы</h2>
-    <p class="section-sub">Коротко о главном</p>
-    <div class="faq-list">
-        <div class="faq-item open" onclick="this.classList.toggle('open')">
-            <div class="q"><span>Сколько времени занимает ремонт?</span><i class="fas fa-chevron-down"></i></div>
-            <div class="a">Косметический — 2–6 недель, капитальный — 1,5–4 месяца.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-            <div class="q"><span>Можно ли использовать свои материалы?</span><i class="fas fa-chevron-down"></i></div>
-            <div class="a">Да, вы можете приобрести материалы самостоятельно.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-            <div class="q"><span>Как происходит оплата?</span><i class="fas fa-chevron-down"></i></div>
-            <div class="a">Предоплата 30%, далее поэтапно по акту выполненных работ.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-            <div class="q"><span>Есть ли гарантия?</span><i class="fas fa-chevron-down"></i></div>
-            <div class="a">Да, официальная гарантия 5 лет на все работы.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-            <div class="q"><span>Выезжаете ли вы за город?</span><i class="fas fa-chevron-down"></i></div>
-            <div class="a">Да, работаем по Москве и области в радиусе 50 км.</div>
-        </div>
-    </div>
-</section>
-
-<!-- КОНТАКТЫ -->
-<section class="contact" id="contact">
-    <div class="container">
-        <h2 class="section-title">Свяжитесь с нами</h2>
-        <p class="section-sub">Оставьте заявку — мы перезвоним в течение 15 минут</p>
-        <div class="contact-grid">
-            <div class="contact-item">
-                <div class="icon"><i class="fas fa-phone"></i></div>
-                <div><div class="label">Телефон</div><div class="value">+7 (495) 123-45-67</div></div>
-            </div>
-            <div class="contact-item">
-                <div class="icon"><i class="fas fa-envelope"></i></div><div><div class="label">Email</div><div class="value">info@vseremonty.ru</div></div>
-            </div>
-            <div class="con
+</body>
+</html>

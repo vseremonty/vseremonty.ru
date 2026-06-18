@@ -320,7 +320,7 @@
             margin-top: 4px;
         }
 
-        /* ===== КОМАНДА (теперь после наград) ===== */
+        /* ===== КОМАНДА ===== */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -710,7 +710,7 @@
             <div class="cert-item"><span class="icon">📊</span><h4>Лицензия МЧС</h4><p>Пожарная безопасность</p></div>
         </div>
 
-        <!-- ===== КОМАНДА (теперь после наград) ===== -->
+        <!-- ===== КОМАНДА ===== -->
         <h2 class="section-title">👷 Наша <span>команда</span></h2>
         <div class="team-grid">
             <div class="team-card"><span class="avatar">🧑‍🔧</span><h4>Алексей</h4><p>Мастер</p><span class="role">8 лет опыта</span></div>
@@ -768,3 +768,104 @@
             <div class="result">
                 <p>💰 Примерная стоимость</p>
                 <span id="totalPrice">0 ₽</span>
+                <p>*Цена может меняться в зависимости от материалов</p>
+            </div>
+        </div>
+
+        <!-- ===== ОТЗЫВЫ ===== -->
+        <h2 class="section-title">💬 Отзывы <span>клиентов</span></h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Сделали ремонт в квартире за 2 недели! Всё супер, рекомендую!»</p>
+                <div class="author">— Елена</div>
+                <span class="date">Квартира 45 м², январь 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Профессиональный подход, все работы выполнены чётко и в срок. Спасибо!»</p>
+                <div class="author">— Сергей</div>
+                <span class="date">Коттедж 200 м², март 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Дизайн просто огонь! Всё сделали как мы хотели, даже лучше!»</p>
+                <div class="author">— Анна</div>
+                <span class="date">Квартира 70 м², февраль 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Ремонт офиса сделали за 3 недели. Всё идеально!»</p>
+                <div class="author">— Олег</div>
+                <span class="date">Офис 80 м², апрель 2025</span>
+            </div>
+        </div>
+
+        <!-- ===== FAQ ===== -->
+        <h2 class="section-title">❓ Часто задаваемые <span>вопросы</span></h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Сколько длится ремонт?</h4>
+                <p>Всё зависит от объёма. Обычно квартира 40 м² — 2–3 недели, дом 100+ м² — 1,5–2 месяца.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Даёте ли гарантию?</h4>
+                <p>Да, мы даём гарантию на все виды работ — до 5 лет!</p>
+            </div>
+            <div class="faq-item">
+                <h4>Можно ли посмотреть объекты?</h4>
+                <p>Да, у нас есть портфолио и мы можем организовать показ готовых объектов по договорённости.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Работаете ли вы с материалами заказчика?</h4>
+                <p>Да, мы работаем как с нашими материалами, так и с материалами заказчика.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Нужен ли дизайн-проект?</h4>
+                <p>Дизайн-проект не обязателен, но мы рекомендуем его для точного понимания результата.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Как рассчитать стоимость?</h4>
+                <p>Используйте наш калькулятор на сайте или закажите бесплатный замер — мы всё рассчитаем.</p>
+            </div>
+        </div>
+
+        <!-- ===== КНОПКА ===== -->
+        <div class="cta">
+            <a href="tel:+79005275628">📞 Заказать звонок</a>
+            <p>Звоните с 9:00 до 21:00 без выходных</p>
+        </div>
+
+        <!-- ===== ФУТЕР ===== -->
+        <div class="footer">
+            © 2026 Ремонт под ключ. Все права защищены.
+        </div>
+
+    </div>
+
+    <script>
+        function calculatePrice() {
+            const roomType = parseFloat(document.getElementById('roomType').value);
+            const area = parseFloat(document.getElementById('area').value) || 0;
+            const repairType = parseFloat(document.getElementById('repairType').value);
+            const walls = parseFloat(document.getElementById('walls').value);
+            const floor = parseFloat(document.getElementById('floor').value);
+
+            const basePrice = area * repairType;
+            const wallsTotal = walls * area;
+            const floorTotal = floor * area;
+            const total = (basePrice + wallsTotal + floorTotal) * roomType;
+
+            document.getElementById('totalPrice').innerHTML = total.toLocaleString('ru-RU') + ' ₽';
+        }
+
+        document.querySelectorAll('.calculator select, .calculator input').forEach(el => {
+            el.addEventListener('input', calculatePrice);
+            el.addEventListener('change', calculatePrice);
+        });
+
+        calculatePrice();
+    </script>
+
+</body>
+</html>

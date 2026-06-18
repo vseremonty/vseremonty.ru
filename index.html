@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ремонт под ключ</title>
     <style>
         * {
@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             background: #0b0b1a;
             color: #fff;
             overflow-x: hidden;
@@ -29,6 +29,7 @@
             padding: 0 20px 30px;
         }
 
+        /* ===== ВЕРХНЯЯ ПЛАНКА ===== */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -42,14 +43,14 @@
             z-index: 999;
             flex-wrap: wrap;
             gap: 12px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
         }
         .logo {
             font-size: 30px;
             font-weight: 900;
             letter-spacing: -0.5px;
             color: #fff;
-            text-shadow: 0 0 40px rgba(247,151,30,0.15);
+            text-shadow: 0 0 40px rgba(247, 151, 30, 0.15);
         }
         .logo span {
             background: linear-gradient(135deg, #f7971e, #ffd200);
@@ -74,7 +75,7 @@
         }
         .top-right .telegram {
             font-size: 16px;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             margin-top: 4px;
         }
         .top-right .telegram span {
@@ -87,7 +88,7 @@
         }
         .top-right .email {
             font-size: 16px;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             margin-top: 4px;
         }
         .top-right .email a {
@@ -99,6 +100,7 @@
             color: #f7971e;
         }
 
+        /* ===== БАННЕР СКИДКИ ===== */
         .discount-banner {
             background: linear-gradient(135deg, #f7971e, #ffd200);
             color: #0b0b1a;
@@ -108,7 +110,7 @@
             font-size: 24px;
             font-weight: 800;
             margin: 30px 0 10px;
-            box-shadow: 0 0 50px rgba(247,151,30,0.25);
+            box-shadow: 0 0 50px rgba(247, 151, 30, 0.25);
             letter-spacing: 0.5px;
             animation: pulse 2s infinite ease-in-out;
         }
@@ -126,6 +128,7 @@
             100% { transform: scale(1); }
         }
 
+        /* ===== ГЕРОЙ ===== */
         .hero {
             position: relative;
             border-radius: 48px;
@@ -137,7 +140,7 @@
             justify-content: center;
             text-align: center;
             padding: 80px 40px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
         }
         .hero-overlay {
@@ -146,7 +149,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(11,11,26,0.3) 0%, rgba(11,11,26,0.85) 100%);
+            background: radial-gradient(circle at center, rgba(11, 11, 26, 0.3) 0%, rgba(11, 11, 26, 0.85) 100%);
             z-index: 1;
         }
         .hero-content {
@@ -179,6 +182,7 @@
             border: 1px solid rgba(255, 215, 0, 0.15);
         }
 
+        /* ===== ЗАГОЛОВКИ ===== */
         .section-title {
             text-align: center;
             font-size: 46px;
@@ -193,25 +197,26 @@
             background-clip: text;
         }
 
+        /* ===== УСЛУГИ ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
         }
         .service-card {
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             padding: 36px 20px;
             border-radius: 28px;
             text-align: center;
             transition: all 0.5s;
-            box-shadow: 0 12px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.2);
             cursor: default;
         }
         .service-card:hover {
             transform: translateY(-16px) scale(1.02);
-            border-color: rgba(247,151,30,0.3);
+            border-color: rgba(247, 151, 30, 0.3);
         }
         .service-card .icon {
             font-size: 56px;
@@ -225,9 +230,10 @@
         }
         .service-card p {
             font-size: 14px;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
         }
 
+        /* ===== ПОРТФОЛИО ===== */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -237,14 +243,14 @@
             position: relative;
             border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 16px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
             transition: all 0.6s;
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid rgba(255, 255, 255, 0.04);
             cursor: default;
         }
         .portfolio-item:hover {
             transform: scale(1.05);
-            box-shadow: 0 30px 90px rgba(247,151,30,0.1);
+            box-shadow: 0 30px 90px rgba(247, 151, 30, 0.1);
         }
         .portfolio-item img {
             width: 100%;
@@ -261,7 +267,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
             color: #fff;
             padding: 40px 22px 24px;
             text-align: center;
@@ -276,6 +282,7 @@
             opacity: 0.7;
         }
 
+        /* ===== НАГРАДЫ ===== */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -283,19 +290,19 @@
             margin: 30px 0;
         }
         .cert-item {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(247,151,30,0.08);
+            border: 1px solid rgba(247, 151, 30, 0.08);
             padding: 30px 20px;
             border-radius: 28px;
             text-align: center;
             transition: 0.4s;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         }
         .cert-item:hover {
             transform: translateY(-10px) scale(1.02);
-            border-color: rgba(247,151,30,0.2);
-            box-shadow: 0 20px 60px rgba(247,151,30,0.05);
+            border-color: rgba(247, 151, 30, 0.2);
+            box-shadow: 0 20px 60px rgba(247, 151, 30, 0.05);
         }
         .cert-item .icon {
             font-size: 64px;
@@ -309,21 +316,22 @@
         }
         .cert-item p {
             font-size: 14px;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             margin-top: 4px;
         }
 
+        /* ===== ПРЕИМУЩЕСТВА ===== */
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 24px;
-            background: linear-gradient(135deg, rgba(247,151,30,0.05), rgba(255,210,0,0.02));
+            background: linear-gradient(135deg, rgba(247, 151, 30, 0.05), rgba(255, 210, 0, 0.02));
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(247,151,30,0.06);
+            border: 1px solid rgba(247, 151, 30, 0.06);
             padding: 60px 40px;
             border-radius: 36px;
             color: #fff;
-            box-shadow: 0 20px 70px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
         }
         .advantage-item {
             text-align: center;
@@ -348,15 +356,16 @@
             opacity: 0.6;
         }
 
+        /* ===== КАЛЬКУЛЯТОР ===== */
         .calculator {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(247,151,30,0.1);
+            border: 1px solid rgba(247, 151, 30, 0.1);
             padding: 50px 40px;
             border-radius: 36px;
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 20px 70px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
         }
         .calculator label {
             display: block;
@@ -364,25 +373,27 @@
             font-weight: 600;
             margin-top: 20px;
             margin-bottom: 8px;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
         }
-        .calculator input, .calculator select {
+        .calculator input,
+        .calculator select {
             width: 100%;
             padding: 14px 18px;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             color: #fff;
             font-size: 18px;
             transition: 0.3s;
         }
-        .calculator input:focus, .calculator select:focus {
+        .calculator input:focus,
+        .calculator select:focus {
             outline: none;
             border-color: #f7971e;
-            box-shadow: 0 0 20px rgba(247,151,30,0.1);
+            box-shadow: 0 0 20px rgba(247, 151, 30, 0.1);
         }
         .calculator input::placeholder {
-            color: rgba(255,255,255,0.3);
+            color: rgba(255, 255, 255, 0.3);
         }
         .calculator select option {
             background: #0b0b1a;
@@ -391,9 +402,9 @@
         .calculator .result {
             margin-top: 30px;
             padding: 20px;
-            background: linear-gradient(135deg, rgba(247,151,30,0.1), rgba(255,210,0,0.05));
+            background: linear-gradient(135deg, rgba(247, 151, 30, 0.1), rgba(255, 210, 0, 0.05));
             border-radius: 20px;
-            border: 1px solid rgba(247,151,30,0.15);
+            border: 1px solid rgba(247, 151, 30, 0.15);
             text-align: center;
         }
         .calculator .result span {
@@ -405,30 +416,31 @@
             background-clip: text;
         }
         .calculator .result p {
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             margin-top: 4px;
             font-size: 14px;
         }
 
+        /* ===== КОМАНДА ===== */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 30px;
         }
         .team-card {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 30px 20px;
             border-radius: 28px;
             text-align: center;
             transition: all 0.5s;
-            box-shadow: 0 12px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.15);
             cursor: default;
         }
         .team-card:hover {
             transform: translateY(-12px) scale(1.02);
-            border-color: rgba(247,151,30,0.15);
+            border-color: rgba(247, 151, 30, 0.15);
         }
         .team-card .avatar {
             font-size: 76px;
@@ -441,7 +453,7 @@
             color: #fff;
         }
         .team-card p {
-            color: rgba(255,255,255,0.4);
+            color: rgba(255, 255, 255, 0.4);
             font-size: 14px;
             margin-bottom: 6px;
         }
@@ -455,6 +467,79 @@
             font-weight: 700;
         }
 
+        /* ===== ОТЗЫВЫ ===== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(247, 151, 30, 0.06);
+            padding: 28px 24px;
+            border-radius: 28px;
+            transition: 0.4s;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+        .review-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(247, 151, 30, 0.2);
+        }
+        .review-card .stars {
+            color: #f7971e;
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+        .review-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 12px 0 10px;
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+        }
+        .review-card .author {
+            font-weight: 700;
+            color: #f7971e;
+        }
+        .review-card .date {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.3);
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 22px 26px;
+            border-radius: 24px;
+            transition: 0.3s;
+        }
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(247, 151, 30, 0.12);
+        }
+        .faq-item h4 {
+            font-size: 19px;
+            font-weight: 700;
+            color: #f7971e;
+            margin-bottom: 6px;
+        }
+        .faq-item p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.5;
+        }
+
+        /* ===== КНОПКА ===== */
         .cta {
             text-align: center;
             margin: 60px 0 40px;
@@ -468,28 +553,30 @@
             font-size: 26px;
             font-weight: 800;
             text-decoration: none;
-            box-shadow: 0 18px 60px rgba(247,151,30,0.25);
+            box-shadow: 0 18px 60px rgba(247, 151, 30, 0.25);
             transition: all 0.5s;
         }
         .cta a:hover {
             transform: scale(1.08);
-            box-shadow: 0 30px 90px rgba(247,151,30,0.4);
+            box-shadow: 0 30px 90px rgba(247, 151, 30, 0.4);
         }
         .cta p {
             margin-top: 16px;
-            color: rgba(255,255,255,0.3);
+            color: rgba(255, 255, 255, 0.3);
             font-size: 15px;
         }
 
+        /* ===== ФУТЕР ===== */
         .footer {
             text-align: center;
             padding: 30px 0 15px;
-            color: rgba(255,255,255,0.2);
+            color: rgba(255, 255, 255, 0.2);
             font-size: 14px;
-            border-top: 1px solid rgba(255,255,255,0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
             margin-top: 40px;
         }
 
+        /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 600px) {
             .top-bar {
                 flex-direction: column;
@@ -532,178 +619,166 @@
                 padding: 12px 16px;
                 border-radius: 30px;
             }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="top-bar">
-    <div class="logo">🔧 <span>Ремонт</span> под ключ</div>
-    <div class="top-right">
-        <a href="tel:+79005275628" class="phone">📞 +7 (900) 527 56-28</a>
-        <div class="telegram">✉️ <span>@remontpodklyc1</span></div>
-        <div class="email">📧 <a href="mailto:remontopodklyc@gmail.com">remontopodklyc@gmail.com</a></div>
-    </div>
-</div>
-
-<div class="container">
-
-    <div class="discount-banner">
-        🎁 <span>🔥 СКИДКА 15%</span> на все виды работ до конца месяца!
-    </div>
-
-    <div class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>🚀 <span>Ремонт</span> под ключ</h1>
-            <p>Качественно, быстро, с гарантией до 5 лет</p>
-            <div class="badge">🔥 Работаем по всему городу</div>
+    <!-- ===== ВЕРХНЯЯ ПЛАНКА ===== -->
+    <div class="top-bar">
+        <div class="logo">🔧 <span>Ремонт</span> под ключ</div>
+        <div class="top-right">
+            <a href="tel:+79005275628" class="phone">📞 +7 (900) 527 56-28</a>
+            <div class="telegram">✉️ <span>@remontpodklyc1</span></div>
+            <div class="email">📧 <a href="mailto:remontopodklyc@gmail.com">remontopodklyc@gmail.com</a></div>
         </div>
     </div>
 
-    <h2 class="section-title">🛠️ Наши <span>услуги</span></h2>
-    <div class="services-grid">
-        <div class="service-card"><span class="icon">🧱</span><h3>Шпаклёвка</h3><p>Выравнивание стен и потолков</p></div>
-        <div class="service-card"><span class="icon">🏗️</span><h3>Стяжка пола</h3><p>Бетонная и сухая стяжка</p></div>
-        <div class="service-card"><span class="icon">🔌</span><h3>Электрика</h3><p>Проводка, свет, розетки</p></div>
-        <div class="service-card"><span class="icon">🚽</span><h3>Сантехника</h3><p>Водопровод, канализация</p></div>
-        <div class="service-card"><span class="icon">🎨</span><h3>Дизайн интерьера</h3><p>Стиль и уют для вас</p></div>
-        <div class="service-card"><span class="icon">🏠</span><h3>Ремонт квартир</h3><p>Косметический и капитальный</p></div>
-        <div class="service-card"><span class="icon">🏢</span><h3>Ремонт офисов</h3><p>Под ключ, быстро</p></div>
-        <div class="service-card"><span class="icon">🛠️</span><h3>Отделка</h3><p>Стены, полы, потолки</p></div>
-    </div>
+    <div class="container">
 
-    <h2 class="section-title">🏗️ Наши <span>работы</span></h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Ремонт квартиры">
-            <div class="portfolio-overlay"><h3>Современная квартира</h3><p>Дизайн-проект + ремонт</p></div>
+        <!-- ===== БАННЕР СКИДКИ ===== -->
+        <div class="discount-banner">
+            🎁 <span>🔥 СКИДКА 15%</span> на все виды работ до конца месяца!
         </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop" alt="Ремонт дома">
-            <div class="portfolio-overlay"><h3>Загородный дом</h3><p>Отделка коттеджа 200 м²</p></div>
+
+        <!-- ===== ГЕРОЙ ===== -->
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>🚀 <span>Ремонт</span> под ключ</h1>
+                <p>Качественно, быстро, с гарантией до 5 лет</p>
+                <div class="badge">🔥 Работаем по всему городу</div>
+            </div>
         </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" alt="Гостиная">
-            <div class="portfolio-overlay"><h3>Гостиная в скандинавском стиле</h3><p>Перепланировка и отделка</p></div>
+
+        <!-- ===== УСЛУГИ ===== -->
+        <h2 class="section-title">🛠️ Наши <span>услуги</span></h2>
+        <div class="services-grid">
+            <div class="service-card"><span class="icon">🧱</span><h3>Шпаклёвка</h3><p>Выравнивание стен и потолков</p></div>
+            <div class="service-card"><span class="icon">🏗️</span><h3>Стяжка пола</h3><p>Бетонная и сухая стяжка</p></div>
+            <div class="service-card"><span class="icon">🔌</span><h3>Электрика</h3><p>Проводка, свет, розетки</p></div>
+            <div class="service-card"><span class="icon">🚽</span><h3>Сантехника</h3><p>Водопровод, канализация</p></div>
+            <div class="service-card"><span class="icon">🎨</span><h3>Дизайн интерьера</h3><p>Стиль и уют для вас</p></div>
+            <div class="service-card"><span class="icon">🏠</span><h3>Ремонт квартир</h3><p>Косметический и капитальный</p></div>
+            <div class="service-card"><span class="icon">🏢</span><h3>Ремонт офисов</h3><p>Под ключ, быстро</p></div>
+            <div class="service-card"><span class="icon">🛠️</span><h3>Отделка</h3><p>Стены, полы, потолки</p></div>
         </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1616046229478-6d2f7c2c3b1a?w=600&h=400&fit=crop" alt="Кухня">
-            <div class="portfolio-overlay"><h3>Кухня-гостиная 40 м²</h3><p>Современный стиль</p></div>
+
+        <!-- ===== ПОРТФОЛИО ===== -->
+        <h2 class="section-title">🏗️ Наши <span>работы</span></h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Ремонт квартиры">
+                <div class="portfolio-overlay"><h3>Современная квартира</h3><p>Дизайн-проект + ремонт</p></div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop" alt="Ремонт дома">
+                <div class="portfolio-overlay"><h3>Загородный дом</h3><p>Отделка коттеджа 200 м²</p></div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" alt="Гостиная">
+                <div class="portfolio-overlay"><h3>Гостиная в скандинавском стиле</h3><p>Перепланировка и отделка</p></div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1616046229478-6d2f7c2c3b1a?w=600&h=400&fit=crop" alt="Кухня">
+                <div class="portfolio-overlay"><h3>Кухня-гостиная 40 м²</h3><p>Современный стиль</p></div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=600&h=400&fit=crop" alt="Ванная">
+                <div class="portfolio-overlay"><h3>Ванная с джакузи</h3><p>Полная замена сантехники</p></div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600573472591-ee6c24d0e3d1?w=600&h=400&fit=crop" alt="Офис">
+                <div class="portfolio-overlay"><h3>Офис в бизнес-центре</h3><p>Ремонт за 4 недели</p></div>
+            </div>
         </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=600&h=400&fit=crop" alt="Ванная">
-            <div class="portfolio-overlay"><h3>Ванная с джакузи</h3><p>Полная замена сантехники</p></div>
+
+        <!-- ===== НАГРАДЫ ===== -->
+        <h2 class="section-title">🏆 Наши <span>награды</span> и <span>сертификаты</span></h2>
+        <div class="cert-grid">
+            <div class="cert-item"><span class="icon">📜</span><h4>Сертификат качества</h4><p>Соответствие ГОСТ</p></div>
+            <div class="cert-item"><span class="icon">🏅</span><h4>Лучший мастер 2024</h4><p>Премия города</p></div>
+            <div class="cert-item"><span class="icon">✅</span><h4>Одобрено СРО</h4><p>Допуск к работам</p></div>
+            <div class="cert-item"><span class="icon">⭐</span><h4>5 звёзд на Яндекс.Услугах</h4><p>Более 100 отзывов</p></div>
+            <div class="cert-item"><span class="icon">🛡️</span><h4>Страхование ответственности</h4><p>До 5 млн ₽</p></div>
+            <div class="cert-item"><span class="icon">📊</span><h4>Лицензия МЧС</h4><p>Пожарная безопасность</p></div>
         </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1600573472591-ee6c24d0e3d1?w=600&h=400&fit=crop" alt="Офис">
-            <div class="portfolio-overlay"><h3>Офис в бизнес-центре</h3><p>Ремонт за 4 недели</p></div>
+
+        <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+        <h2 class="section-title">🌟 Наши <span>преимущества</span></h2>
+        <div class="advantages">
+            <div class="advantage-item"><span class="icon">📏</span><h4>Бесплатный замер</h4><p>Выезд мастера</p></div>
+            <div class="advantage-item"><span class="icon">💰</span><h4>Фиксированная цена</h4><p>Без скрытых доплат</p></div>
+            <div class="advantage-item"><span class="icon">🛡️</span><h4>Гарантия 5 лет</h4><p>На все работы</p></div>
+            <div class="advantage-item"><span class="icon">📊</span><h4>Рассрочка 0%</h4><p>Оплата частями</p></div>
+            <div class="advantage-item"><span class="icon">👀</span><h4>Авторский надзор</h4><p>Личный контроль</p></div>
+            <div class="advantage-item"><span class="icon">🧹</span><h4>Чистота на объекте</h4><p>Ежедневная уборка</p></div>
         </div>
-    </div>
 
-    <h2 class="section-title">🏆 Наши <span>награды</span> и <span>сертификаты</span></h2>
-    <div class="cert-grid">
-        <div class="cert-item"><span class="icon">📜</span><h4>Сертификат качества</h4><p>Соответствие ГОСТ</p></div>
-        <div class="cert-item"><span class="icon">🏅</span><h4>Лучший мастер 2024</h4><p>Премия города</p></div>
-        <div class="cert-item"><span class="icon">✅</span><h4>Одобрено СРО</h4><p>Допуск к работам</p></div>
-        <div class="cert-item"><span class="icon">⭐</span><h4>5 звёзд на Яндекс.Услугах</h4><p>Более 100 отзывов</p></div>
-        <div class="cert-item"><span class="icon">🛡️</span><h4>Страхование ответственности</h4><p>До 5 млн ₽</p></div>
-        <div class="cert-item"><span class="icon">📊</span><h4>Лицензия МЧС</h4><p>Пожарная безопасность</p></div>
-    </div>
+        <!-- ===== КАЛЬКУЛЯТОР ===== -->
+        <h2 class="section-title">🧮 Калькулятор <span>ремонта</span></h2>
+        <div class="calculator">
 
-    <h2 class="section-title">🌟 Наши <span>преимущества</span></h2>
-    <div class="advantages">
-        <div class="advantage-item"><span class="icon">📏</span><h4>Бесплатный замер</h4><p>Выезд мастера</p></div>
-        <div class="advantage-item"><span class="icon">💰</span><h4>Фиксированная цена</h4><p>Без скрытых доплат</p></div>
-        <div class="advantage-item"><span class="icon">🛡️</span><h4>Гарантия 5 лет</h4><p>На все работы</p></div>
-        <div class="advantage-item"><span class="icon">📊</span><h4>Рассрочка 0%</h4><p>Оплата частями</p></div>
-        <div class="advantage-item"><span class="icon">👀</span><h4>Авторский надзор</h4><p>Личный контроль</p></div>
-        <div class="advantage-item"><span class="icon">🧹</span><h4>Чистота на объекте</h4><p>Ежедневная уборка</p></div>
-    </div>
+            <label for="roomType">Тип помещения</label>
+            <select id="roomType">
+                <option value="1.0">Квартира</option>
+                <option value="1.2">Дом / Коттедж</option>
+                <option value="0.9">Офис</option>
+            </select>
 
-    <h2 class="section-title">🧮 Калькулятор <span>ремонта</span></h2>
-    <div class="calculator">
+            <label for="area">Площадь (м²)</label>
+            <input type="number" id="area" placeholder="Например: 40" value="40">
 
-        <label for="roomType">Тип помещения</label>
-        <select id="roomType">
-            <option value="1.0">Квартира</option>
-            <option value="1.2">Дом / Коттедж</option>
-            <option value="0.9">Офис</option>
-        </select>
+            <label for="repairType">Тип ремонта</label>
+            <select id="repairType">
+                <option value="3000">Косметический</option>
+                <option value="6000" selected>Капитальный</option>
+                <option value="9000">Дизайнерский</option>
+            </select>
 
-        <label for="area">Площадь (м²)</label>
-        <input type="number" id="area" placeholder="Например: 40" value="40">
+            <label for="walls">Шпаклёвка стен</label>
+            <select id="walls">
+                <option value="0">Нет</option>
+                <option value="500" selected>Да (+500 ₽/м²)</option>
+            </select>
 
-        <label for="repairType">Тип ремонта</label>
-        <select id="repairType">
-            <option value="3000">Косметический</option>
-            <option value="6000" selected>Капитальный</option>
-            <option value="9000">Дизайнерский</option>
-        </select>
+            <label for="floor">Стяжка пола</label>
+            <select id="floor">
+                <option value="0">Нет</option>
+                <option value="700" selected>Да (+700 ₽/м²)</option>
+            </select>
 
-        <label for="walls">Шпаклёвка стен</label>
-        <select id="walls">
-            <option value="0">Нет</option>
-            <option value="500" selected>Да (+500 ₽/м²)</option>
-        </select>
-
-        <label for="floor">Стяжка пола</label>
-        <select id="floor">
-            <option value="0">Нет</option>
-            <option value="700" selected>Да (+700 ₽/м²)</option>
-        </select>
-
-        <div class="result">
-            <p>💰 Примерная стоимость</p>
-            <span id="totalPrice">0 ₽</span>
-            <p>*Цена может меняться в зависимости от материалов</p>
+            <div class="result">
+                <p>💰 Примерная стоимость</p>
+                <span id="totalPrice">0 ₽</span>
+                <p>*Цена может меняться в зависимости от материалов</p>
+            </div>
         </div>
-    </div>
 
-    <h2 class="section-title">👷 Наша <span>команда</span></h2>
-    <div class="team-grid">
-        <div class="team-card"><span class="avatar">🧑‍🔧</span><h4>Алексей</h4><p>Мастер</p><span class="role">8 лет опыта</span></div>
-        <div class="team-card"><span class="avatar">👨‍🔧</span><h4>Дмитрий</h4><p>Электрик</p><span class="role">7 лет опыта</span></div>
-        <div class="team-card"><span class="avatar">🧑‍🎨</span><h4>Екатерина</h4><p>Дизайнер</p><span class="role">6 лет опыта</span></div>
-        <div class="team-card"><span class="avatar">👷</span><h4>Сергей</h4><p>Отделочник</p><span class="role">10 лет опыта</span></div>
-        <div class="team-card"><span class="avatar">🧑‍🔧</span><h4>Михаил</h4><p>Сантехник</p><span class="role">9 лет опыта</span></div>
-        <div class="team-card"><span class="avatar">👨‍💻</span><h4>Анна</h4><p>Сметчик</p><span class="role">5 лет опыта</span></div>
-    </div>
-
-    <div class="cta">
-        <a href="tel:+79005275628">📞 Заказать звонок</a>
-        <p>Звоните с 9:00 до 21:00 без выходных</p>
-    </div>
-
-    <div class="footer">
-        © 2026 Ремонт под ключ. Все права защищены.
-    </div>
-
-</div>
-
-<script>
-    function calculatePrice() {
-        const roomType = parseFloat(document.getElementById('roomType').value);
-        const area = parseFloat(document.getElementById('area').value) || 0;
-        const repairType = parseFloat(document.getElementById('repairType').value);
-        const walls = parseFloat(document.getElementById('walls').value);
-        const floor = parseFloat(document.getElementById('floor').value);
-
-        const basePrice = area * repairType;
-        const wallsTotal = walls * area;
-        const floorTotal = floor * area;
-        const total = (basePrice + wallsTotal + floorTotal) * roomType;
-
-        document.getElementById('totalPrice').innerHTML = total.toLocaleString('ru-RU') + ' ₽';
-    }
-
-    document.querySelectorAll('.calculator select, .calculator input').forEach(el => {
-        el.addEventListener('input', calculatePrice);
-        el.addEventListener('change', calculatePrice);
-    });
-
-    calculatePrice();
-</script>
-
-</body>
-</html>
+        <!-- ===== ОТЗЫВЫ ===== -->
+        <h2 class="section-title">💬 Отзывы <span>клиентов</span></h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Сделали ремонт в квартире за 2 недели! Всё супер, рекомендую!»</p>
+                <div class="author">— Елена</div>
+                <span class="date">Квартира 45 м², январь 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Профессиональный подход, все работы выполнены чётко и в срок. Спасибо!»</p>
+                <div class="author">— Сергей</div>
+                <span class="date">Коттедж 200 м², март 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>«Дизайн просто огонь! Всё сделали как мы хотели, даже лучше!»</p>
+                <div class="author">— Анна</div>
+                <span class="date">Квартира 70 м², февраль 2025</span>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>

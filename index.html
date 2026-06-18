@@ -1,4 +1,270 @@
-<div class="advantage-item"><span class="icon">💰</span><h4>Фиксированная цена</h4><p>Без скрытых доплат</p></div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ремонт под ключ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ШАПКА */
+        .header {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            padding: 70px 30px 50px;
+            text-align: center;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: "🔧";
+            position: absolute;
+            font-size: 300px;
+            right: -50px;
+            top: -80px;
+            opacity: 0.05;
+        }
+        .header h1 {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        .header h1 span {
+            color: #f7971e;
+        }
+        .header p {
+            font-size: 22px;
+            opacity: 0.85;
+            margin: 15px 0 25px;
+        }
+        .phone {
+            display: inline-block;
+            background: #f7971e;
+            color: #fff;
+            padding: 16px 45px;
+            border-radius: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(247, 151, 30, 0.4);
+            transition: 0.3s;
+        }
+        .phone:hover {
+            transform: scale(1.06);
+            background: #e08a0b;
+            box-shadow: 0 10px 40px rgba(247, 151, 30, 0.6);
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 25px;
+            border-radius: 40px;
+            font-size: 15px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* ЗАГОЛОВКИ */
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin: 60px 0 40px;
+            color: #1a1a2e;
+        }
+        .section-title span {
+            color: #f7971e;
+        }
+
+        /* УСЛУГИ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            border-bottom: 5px solid #f7971e;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        .service-card .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* ПРЕИМУЩЕСТВА */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 50px 30px;
+            border-radius: 30px;
+            color: white;
+            margin-top: 20px;
+        }
+        .advantage-item {
+            text-align: center;
+        }
+        .advantage-item .icon {
+            font-size: 40px;
+            display: block;
+                margin-bottom: 8px;
+        }
+        .advantage-item h4 {
+            font-size: 18px;
+            margin-bottom: 3px;
+        }
+        .advantage-item p {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* СОТРУДНИКИ */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 25px;
+        }
+        .team-card {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+        .team-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        .team-card .avatar {
+            font-size: 64px;
+            margin-bottom: 5px;
+        }
+        .team-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .team-card p {
+            color: #888;
+            font-size: 14px;
+        }
+        .team-card .role {
+            display: inline-block;
+            background: #f7971e;
+            color: white;
+            padding: 3px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* КНОПКА */
+        .cta {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+        .cta a {
+            display: inline-block;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #1a1a2e;
+            padding: 18px 60px;
+            border-radius: 60px;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 40px rgba(247, 151, 30, 0.35);
+            transition: 0.3s;
+        }
+        .cta a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(247, 151, 30, 0.5);
+        }
+        .cta p {
+            margin-top: 12px;
+            color: #888;
+            font-size: 15px;
+        }
+
+        /* ФУТЕР */
+        .footer {
+            text-align: center;
+            padding: 30px 0 10px;
+            color: #aaa;
+            font-size: 14px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 32px; }
+            .phone { font-size: 18px; padding: 14px 30px; }
+            .section-title { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ===== ШАПКА ===== -->
+    <div class="header">
+        <h1>🚀 <span>Ремонт</span> под ключ</h1>
+        <p>Качественно, быстро, с гарантией до 5 лет</p>
+        <a href="tel:+79001234567" class="phone">📞 +7 (900) 123-45-67</a>
+        <div class="badge">🔥 Работаем по всему городу</div>
+    </div>
+
+    <!-- ===== УСЛУГИ ===== -->
+    <h2 class="section-title">🛠️ Наши <span>услуги</span></h2>
+    <div class="services-grid">
+        <div class="service-card"><div class="icon">🏠</div><h3>Ремонт квартир</h3><p>Косметический и капитальный</p></div>
+        <div class="service-card"><div class="icon">🏢</div><h3>Ремонт офисов</h3><p>Под ключ, быстро</p></div>
+        <div class="service-card"><div class="icon">🛠️</div><h3>Отделка</h3><p>Стены, полы, потолки</p></div>
+        <div class="service-card"><div class="icon">🔌</div><h3>Электрика</h3><p>Проводка, свет, розетки</p></div>
+        <div class="service-card"><div class="icon">🚽</div><h3>Сантехника</h3><p>Водопровод, канализация</p></div>
+        <div class="service-card"><div class="icon">🎨</div><h3>Дизайн интерьера</h3><p>Стиль и уют для вас</p></div>
+    </div>
+
+    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+    <h2 class="section-title">🌟 Наши <span>преимущества</span></h2>
+    <div class="advantages">
+        <div class="advantage-item"><span class="icon">📏</span><h4>Бесплатный замер</h4><p>Выезд мастера</p></div>
+        <div class="advantage-item"><span class="icon">💰</span><h4>Фиксированная цена</h4><p>Без скрытых доплат</p></div>
         <div class="advantage-item"><span class="icon">🛡️</span><h4>Гарантия 5 лет</h4><p>На все работы</p></div>
         <div class="advantage-item"><span class="icon">📊</span><h4>Рассрочка 0%</h4><p>Оплата частями</p></div>
         <div class="advantage-item"><span class="icon">👀</span><h4>Авторский надзор</h4><p>Личный контроль</p></div>

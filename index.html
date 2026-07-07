@@ -3,57 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ремонт24 — Мега</title>
+    <title>ProРемонт</title>
     <style>
-        /* ===== ГЛОБАЛЬНЫЕ ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
-            background: #0a0a12;
+            background: #0d0d1a;
             color: #f0f0f5;
             overflow-x: hidden;
-            min-height: 100vh;
         }
-
-        /* ===== ФОН С ЧАСТИЦАМИ (CANVAS) ===== */
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* ===== КРАСИВЫЙ СКРОЛЛБАР ===== */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a12; }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(247, 151, 30, 0.3);
-        }
-
-        /* ===== КОНТЕЙНЕР ===== */
         .container {
-            position: relative;
-            z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px 30px;
         }
 
-        /* ===== ВЕРХНЯЯ ПЛАНКА (СТЕКЛО) ===== */
+        /* СКРОЛЛБАР */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0d0d1a; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #00c6ff, #0072ff); border-radius: 20px; }
+
+        /* ВЕРХНЯЯ ПЛАНКА */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 16px 40px;
-            background: rgba(10, 10, 18, 0.6);
-            backdrop-filter: blur(40px) saturate(1.5);
-            -webkit-backdrop-filter: blur(40px) saturate(1.5);
+            background: rgba(13, 13, 26, 0.75);
+            backdrop-filter: blur(30px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
             border-radius: 0 0 30px 30px;
             position: sticky;
@@ -61,59 +42,40 @@
             z-index: 999;
             flex-wrap: wrap;
             gap: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             margin: 0 10px;
-            transition: 0.4s;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
-        .top-bar:hover {
-            background: rgba(10, 10, 18, 0.8);
-            box-shadow: 0 20px 80px rgba(247, 151, 30, 0.05);
-        }
-
         .logo-block { display: flex; align-items: center; gap: 14px; }
         .logo-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 900;
-            color: #0a0a12;
-            box-shadow: 0 0 50px rgba(247, 151, 30, 0.2);
+            color: #fff;
+            box-shadow: 0 0 50px rgba(0, 198, 255, 0.2);
             animation: glowPulse 3s ease-in-out infinite;
-            transition: 0.4s;
         }
-        .logo-icon:hover { transform: scale(1.05) rotate(-5deg); }
         @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(247, 151, 30, 0.15); }
-            50% { box-shadow: 0 0 80px rgba(247, 151, 30, 0.35), 0 0 120px rgba(247, 151, 30, 0.1); }
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 198, 255, 0.15); }
+            50% { box-shadow: 0 0 70px rgba(0, 198, 255, 0.35); }
         }
-
         .logo-text {
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 900;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #f0f0f5, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f0f0f5;
         }
         .logo-text span {
-            background: linear-gradient(135deg, #f7971e, #ffd200, #f7971e);
-            background-size: 200% 200%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientMove 4s ease-in-out infinite;
         }
-        @keyframes gradientMove {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
         .top-right { text-align: right; }
         .top-right .phone {
             font-size: 24px;
@@ -121,13 +83,8 @@
             color: #f0f0f5;
             text-decoration: none;
             transition: 0.3s;
-            display: inline-block;
         }
-        .top-right .phone:hover {
-            color: #f7971e;
-            transform: scale(1.05);
-            text-shadow: 0 0 40px rgba(247, 151, 30, 0.2);
-        }
+        .top-right .phone:hover { color: #00c6ff; }
         .top-right .telegram {
             font-size: 15px;
             color: rgba(255,255,255,0.4);
@@ -136,10 +93,10 @@
         .top-right .telegram span {
             color: #0088cc;
             font-weight: 600;
-            background: rgba(0,136,204,0.08);
+            background: rgba(0, 136, 204, 0.08);
             padding: 3px 16px;
             border-radius: 40px;
-            border: 1px solid rgba(0,136,204,0.1);
+            border: 1px solid rgba(0, 136, 204, 0.1);
         }
         .top-right .email {
             font-size: 15px;
@@ -151,117 +108,63 @@
             text-decoration: none;
             transition: 0.3s;
         }
-        .top-right .email a:hover { color: #f7971e; }
+        .top-right .email a:hover { color: #00c6ff; }
 
-        /* ===== БАННЕР СКИДКИ (НЕОНОВЫЙ) ===== */
+        /* БАННЕР СКИДКИ */
         .discount-banner {
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            color: #0a0a12;
-            padding: 20px 30px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #fff;
+            padding: 18px 30px;
             border-radius: 60px;
             text-align: center;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
             margin: 30px 10px 10px;
-            box-shadow: 0 8px 50px rgba(247, 151, 30, 0.2), inset 0 0 60px rgba(255,255,255,0.05);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 8px 50px rgba(0, 198, 255, 0.2);
             animation: bannerPulse 2s ease-in-out infinite;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .discount-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
-            animation: shimmer 6s linear infinite;
-        }
-        @keyframes shimmer {
-            0% { transform: rotate(0deg) scale(1); }
-            100% { transform: rotate(360deg) scale(1); }
+            border: 1px solid rgba(255,255,255,0.05);
         }
         @keyframes bannerPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 8px 50px rgba(247, 151, 30, 0.2); }
-            50% { transform: scale(1.01); box-shadow: 0 8px 80px rgba(247, 151, 30, 0.35); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.01); box-shadow: 0 8px 70px rgba(0, 198, 255, 0.3); }
         }
         .discount-banner span {
-            background: #0a0a12;
-            color: #ffd200;
-            padding: 4px 24px;
+            background: #0d0d1a;
+            color: #00c6ff;
+            padding: 4px 22px;
             border-radius: 40px;
             display: inline-block;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 0 30px rgba(247, 151, 30, 0.1);
         }
 
-        /* ===== ГЕРОЙ (3D ЭФФЕКТ) ===== */
+        /* ГЕРОЙ */
         .hero {
-            background: radial-gradient(ellipse at 30% 20%, rgba(247, 151, 30, 0.06) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 80%, rgba(255, 210, 0, 0.04) 0%, transparent 50%),
-                        #0a0a12;
+            background: radial-gradient(ellipse at 30% 20%, rgba(0, 198, 255, 0.06) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0, 114, 255, 0.04) 0%, transparent 50%),
+                        #0d0d1a;
             border-radius: 50px;
-            padding: 120px 40px;
+            padding: 100px 40px;
             text-align: center;
             margin: 30px 10px 60px;
             border: 1px solid rgba(255,255,255,0.04);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 30px 100px rgba(0,0,0,0.5), inset 0 0 100px rgba(247, 151, 30, 0.02);
-            transition: 0.5s;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(247, 151, 30, 0.04), transparent 70%);
-            border-radius: 50%;
-            animation: floatOrb 10s ease-in-out infinite;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -200px;
-            left: -200px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 210, 0, 0.03), transparent 70%);
-            border-radius: 50%;
-            animation: floatOrb 8s ease-in-out infinite reverse;
-        }
-        @keyframes floatOrb {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-50px, 30px) scale(1.2); }
-        }
-
-        .hero-content { position: relative; z-index: 1; }
         .hero h1 {
-            font-size: 90px;
+            font-size: 82px;
             font-weight: 900;
             letter-spacing: -3px;
             line-height: 1.05;
-            text-shadow: 0 0 60px rgba(247, 151, 30, 0.05);
         }
         .hero h1 span {
-            background: linear-gradient(135deg, #f7971e, #ffd200, #f7971e, #ffd200);
-            background-size: 300% 300%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientMove 4s ease-in-out infinite;
         }
         .hero p {
-            font-size: 30px;
+            font-size: 28px;
             opacity: 0.6;
             margin: 20px 0 32px;
             font-weight: 300;
-            letter-spacing: 0.5px;
         }
         .hero .badge {
             display: inline-block;
@@ -270,173 +173,70 @@
             border-radius: 60px;
             font-size: 18px;
             border: 1px solid rgba(255,255,255,0.06);
-            font-weight: 500;
             transition: 0.3s;
             backdrop-filter: blur(10px);
         }
         .hero .badge:hover {
-            background: rgba(255,255,255,0.08);
-            transform: scale(1.02);
-            border-color: rgba(247, 151, 30, 0.1);
+            background: rgba(0, 198, 255, 0.06);
+            border-color: rgba(0, 198, 255, 0.1);
         }
 
-        /* ===== ЗАГОЛОВКИ ===== */
+        /* ЗАГОЛОВКИ */
         .section-title {
             text-align: center;
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 800;
-            margin: 80px 0 45px;
+            margin: 70px 0 40px;
             color: #f0f0f5;
-            letter-spacing: -0.5px;
-            text-shadow: 0 0 40px rgba(247, 151, 30, 0.03);
         }
         .section-title span {
-            background: linear-gradient(135deg, #f7971e, #ffd200);
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* ===== КАРТОЧКИ (СТЕКЛЯННЫЕ С НЕОНОМ) ===== */
-        .services-grid,
-        .cert-grid,
-        .team-grid,
-        .payment-grid,
-        .stats-grid,
-        .reviews-grid,
-        .faq-grid {
+        /* КАРТОЧКИ (СТЕКЛЯННЫЕ) */
+        .services-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
         }
-        .services-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-        .cert-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 30px 0; }
-        .team-grid { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-top: 10px; }
-        .payment-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 10px; }
-        .stats-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 20px 0 30px; }
-        .reviews-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 20px; }
-        .faq-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 20px; }
-
-        .service-card,
-        .cert-item,
-        .team-card,
-        .payment-item,
-        .stat-item,
-        .review-card,
-        .faq-item {
+        .service-card {
             background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(16px) saturate(1.1);
-            -webkit-backdrop-filter: blur(16px) saturate(1.1);
+            backdrop-filter: blur(16px);
             border: 1px solid rgba(255,255,255,0.04);
             border-radius: 28px;
-            padding: 32px 20px;
+            padding: 36px 20px;
             text-align: center;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: default;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.4s;
         }
-        .service-card::before,
-        .cert-item::before,
-        .team-card::before,
-        .payment-item::before,
-        .stat-item::before,
-        .review-card::before,
-        .faq-item::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(247, 151, 30, 0.02), transparent 60%);
-            opacity: 0;
-            transition: 0.5s;
-        }
-        .service-card:hover::before,
-        .cert-item:hover::before,
-        .team-card:hover::before,
-        .payment-item:hover::before,
-        .stat-item:hover::before,
-        .review-card:hover::before,
-        .faq-item:hover::before { opacity: 1; }
-
-        .service-card:hover,
-        .cert-item:hover,
-        .team-card:hover,
-        .payment-item:hover,
-        .stat-item:hover,
-        .review-card:hover,
-        .faq-item:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: rgba(247, 151, 30, 0.15);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 60px rgba(247, 151, 30, 0.03);
+        .service-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(0, 198, 255, 0.15);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
             background: rgba(255,255,255,0.05);
         }
-
-        .service-card .icon,
-        .cert-item .icon,
-        .team-card .avatar,
-        .payment-item .icon {
-            font-size: 60px;
+        .service-card .icon {
+            font-size: 58px;
             display: block;
-            margin-bottom: 14px;
-            transition: 0.5s;
-            filter: drop-shadow(0 0 20px rgba(247, 151, 30, 0.05));
+            margin-bottom: 12px;
+            transition: 0.4s;
         }
-        .service-card:hover .icon,
-        .cert-item:hover .icon,
-        .team-card:hover .avatar,
-        .payment-item:hover .icon {
+        .service-card:hover .icon {
             transform: scale(1.15) rotate(-5deg);
-            filter: drop-shadow(0 0 40px rgba(247, 151, 30, 0.15));
         }
-
-        .service-card h3,
-        .cert-item h4,
-        .team-card h4,
-        .payment-item h4 {
-            font-weight: 700;
-            color: #f0f0f5;
+        .service-card h3 {
             font-size: 22px;
+            color: #f0f0f5;
             margin-bottom: 6px;
         }
-        .service-card p,
-        .cert-item p,
-        .team-card p,
-        .payment-item p {
+        .service-card p {
             font-size: 14px;
             color: rgba(255,255,255,0.5);
         }
-        .team-card .role {
-            display: inline-block;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            color: #0a0a12;
-            padding: 5px 22px;
-            border-radius: 40px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-top: 6px;
-            box-shadow: 0 0 30px rgba(247, 151, 30, 0.1);
-        }
 
-        /* ===== СЧЁТЧИКИ ===== */
-        .stat-item .number {
-            font-size: 48px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-            text-shadow: 0 0 60px rgba(247, 151, 30, 0.05);
-        }
-        .stat-item .label {
-            font-size: 16px;
-            color: rgba(255,255,255,0.5);
-            margin-top: 4px;
-        }
-
-        /* ===== ПОРТФОЛИО ===== */
+        /* ПОРТФОЛИО */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -447,21 +247,19 @@
             border-radius: 28px;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.04);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: 0.5s;
         }
         .portfolio-item:hover {
-            transform: scale(1.04) translateY(-8px);
-            border-color: rgba(247, 151, 30, 0.2);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(247, 151, 30, 0.03);
+            transform: scale(1.03);
+            border-color: rgba(0, 198, 255, 0.15);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
         }
         .portfolio-item img {
             width: 100%;
-            height: 320px;
+            height: 300px;
             object-fit: cover;
             display: block;
-            transition: 0.8s;
+            transition: 0.6s;
         }
         .portfolio-item:hover img { transform: scale(1.08); }
         .portfolio-overlay {
@@ -469,7 +267,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
             padding: 50px 22px 24px;
             text-align: center;
         }
@@ -477,15 +275,14 @@
             font-size: 22px;
             font-weight: 700;
             color: #fff;
-            text-shadow: 0 0 30px rgba(0,0,0,0.3);
         }
         .portfolio-overlay p {
             font-size: 14px;
-            opacity: 0.5;
+            opacity: 0.6;
             color: #fff;
         }
 
-        /* ===== ПРЕИМУЩЕСТВА ===== */
+        /* ПРЕИМУЩЕСТВА */
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -502,7 +299,7 @@
         }
         .advantage-item:hover { transform: translateY(-8px); }
         .advantage-item .icon {
-            font-size: 52px;
+            font-size: 50px;
             display: block;
             margin-bottom: 10px;
             transition: 0.4s;
@@ -512,14 +309,48 @@
             font-size: 19px;
             font-weight: 700;
             color: #f0f0f5;
-            margin-bottom: 4px;
         }
         .advantage-item p {
             font-size: 13px;
             color: rgba(255,255,255,0.4);
         }
 
-        /* ===== КАТАЛОГ ===== */
+        /* СЧЁТЧИКИ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 20px 0 30px;
+        }
+        .stat-item {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 28px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .stat-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 198, 255, 0.1);
+        }
+        .stat-item .number {
+            font-size: 44px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        .stat-item .label {
+            font-size: 16px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        /* КАТАЛОГ */
         .catalog-block {
             padding: 50px 30px;
             text-align: center;
@@ -528,27 +359,27 @@
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255,255,255,0.04);
             border-radius: 40px;
-            transition: all 0.5s;
+            transition: 0.4s;
         }
         .catalog-block:hover {
-            border-color: rgba(247, 151, 30, 0.1);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            border-color: rgba(0, 198, 255, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
         }
         .catalog-block .icon {
             font-size: 64px;
-            margin-bottom: 10px;
             display: block;
+            margin-bottom: 10px;
             transition: 0.4s;
         }
         .catalog-block:hover .icon { transform: scale(1.1) rotate(-5deg); }
         .catalog-block h2 {
-            font-size: 38px;
+            font-size: 36px;
             font-weight: 800;
             margin-bottom: 6px;
             color: #f0f0f5;
         }
         .catalog-block h2 span {
-            background: linear-gradient(135deg, #f7971e, #ffd200);
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -569,12 +400,11 @@
             background: rgba(255,255,255,0.04);
             padding: 14px 12px;
             border-radius: 16px;
-            font-size: 14px;
             transition: 0.3s;
             border: 1px solid rgba(255,255,255,0.04);
         }
         .catalog-block .price-item:hover {
-            border-color: rgba(247, 151, 30, 0.1);
+            border-color: rgba(0, 198, 255, 0.1);
             background: rgba(255,255,255,0.06);
         }
         .catalog-block .price-item strong {
@@ -585,38 +415,22 @@
         .catalog-block .price-item span { color: rgba(255,255,255,0.4); }
         .catalog-block .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            color: #0a0a12;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #fff;
             padding: 18px 56px;
             border-radius: 60px;
             font-size: 20px;
             font-weight: 800;
             text-decoration: none;
-            box-shadow: 0 12px 50px rgba(247, 151, 30, 0.15);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        .catalog-block .btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
-            animation: btnShimmer 4s linear infinite;
-        }
-        @keyframes btnShimmer {
-            0% { transform: rotate(0deg) scale(1); }
-            100% { transform: rotate(360deg) scale(1); }
+            box-shadow: 0 12px 50px rgba(0, 198, 255, 0.15);
+            transition: 0.4s;
         }
         .catalog-block .btn:hover {
             transform: scale(1.06);
-            box-shadow: 0 30px 80px rgba(247, 151, 30, 0.25);
+            box-shadow: 0 30px 80px rgba(0, 198, 255, 0.25);
         }
 
-        /* ===== КАЛЬКУЛЯТОР ===== */
+        /* КАЛЬКУЛЯТОР */
         .calculator {
             padding: 50px 40px;
             max-width: 600px;
@@ -628,8 +442,8 @@
             transition: 0.4s;
         }
         .calculator:hover {
-            border-color: rgba(247, 151, 30, 0.08);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            border-color: rgba(0, 198, 255, 0.06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
         }
         .calculator label {
             display: block;
@@ -653,23 +467,22 @@
         .calculator input:focus,
         .calculator select:focus {
             outline: none;
-            border-color: #f7971e;
-            box-shadow: 0 0 40px rgba(247, 151, 30, 0.05);
-            background: rgba(255,255,255,0.06);
+            border-color: #00c6ff;
+            box-shadow: 0 0 40px rgba(0, 198, 255, 0.05);
         }
         .calculator select option { background: #1a1a2e; color: #f0f0f5; }
         .calculator .result {
             margin-top: 30px;
             padding: 24px;
-            background: linear-gradient(135deg, rgba(247, 151, 30, 0.06), rgba(255, 210, 0, 0.03));
+            background: rgba(0, 198, 255, 0.04);
             border-radius: 20px;
-            border: 1px solid rgba(247, 151, 30, 0.06);
+            border: 1px solid rgba(0, 198, 255, 0.06);
             text-align: center;
         }
         .calculator .result span {
-            font-size: 44px;
+            font-size: 40px;
             font-weight: 900;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -680,10 +493,75 @@
             font-size: 14px;
         }
 
-        /* ===== ОТЗЫВЫ ===== */
+        /* КОМАНДА */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            margin-top: 10px;
+        }
+        .team-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 28px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 198, 255, 0.1);
+        }
+        .team-card .avatar {
+            font-size: 76px;
+            display: block;
+            margin-bottom: 8px;
+            transition: 0.4s;
+        }
+        .team-card:hover .avatar { transform: scale(1.1) rotate(-5deg); }
+        .team-card h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #f0f0f5;
+        }
+        .team-card p {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .team-card .role {
+            display: inline-block;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #fff;
+            padding: 5px 22px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* ОТЗЫВЫ */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .review-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 28px;
+            padding: 28px 24px;
+            transition: 0.4s;
+        }
+        .review-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 198, 255, 0.06);
+        }
         .review-card .stars {
-            color: #f7971e;
-            font-size: 24px;
+            color: #00c6ff;
+            font-size: 22px;
             letter-spacing: 3px;
         }
         .review-card p {
@@ -695,7 +573,7 @@
         }
         .review-card .author {
             font-weight: 700;
-            color: #f7971e;
+            color: #00c6ff;
         }
         .review-card .date {
             font-size: 13px;
@@ -704,11 +582,66 @@
             margin-top: 4px;
         }
 
-        /* ===== FAQ ===== */
+        /* ОПЛАТА */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .payment-item {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 28px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .payment-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 198, 255, 0.06);
+        }
+        .payment-item .icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 8px;
+            transition: 0.4s;
+        }
+        .payment-item:hover .icon { transform: scale(1.1); }
+        .payment-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f0f0f5;
+        }
+        .payment-item p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .faq-item {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 24px;
+            padding: 22px 26px;
+            transition: 0.4s;
+        }
+        .faq-item:hover {
+            border-color: rgba(0, 198, 255, 0.06);
+        }
         .faq-item h4 {
             font-size: 19px;
             font-weight: 700;
-            color: #f7971e;
+            color: #00c6ff;
             margin-bottom: 6px;
         }
         .faq-item p {
@@ -717,38 +650,26 @@
             line-height: 1.5;
         }
 
-        /* ===== CTA ===== */
+        /* CTA */
         .cta {
             text-align: center;
             margin: 60px 0 40px;
         }
         .cta a {
             display: inline-block;
-            background: linear-gradient(135deg, #f7971e, #ffd200);
-            color: #0a0a12;
-            padding: 26px 100px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #fff;
+            padding: 24px 90px;
             border-radius: 60px;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 800;
             text-decoration: none;
-            box-shadow: 0 18px 60px rgba(247, 151, 30, 0.15);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta a::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
-            animation: btnShimmer 4s linear infinite;
+            box-shadow: 0 18px 60px rgba(0, 198, 255, 0.15);
+            transition: 0.4s;
         }
         .cta a:hover {
             transform: scale(1.06);
-            box-shadow: 0 30px 90px rgba(247, 151, 30, 0.25);
+            box-shadow: 0 30px 90px rgba(0, 198, 255, 0.25);
         }
         .cta p {
             margin-top: 16px;
@@ -756,7 +677,6 @@
             font-size: 15px;
         }
 
-        /* ===== ФУТЕР ===== */
         .footer {
             text-align: center;
             padding: 30px 0 15px;
@@ -766,75 +686,63 @@
             margin-top: 40px;
         }
 
-        /* ===== АДАПТИВ ===== */
+        /* АДАПТИВ */
         @media (max-width: 600px) {
-            .top-bar { flex-direction: column; align-items: center; text-align: center; padding: 16px 20px; margin: 0 5px; border-radius: 0 0 20px 20px; }
+            .top-bar { flex-direction: column; align-items: center; text-align: center; padding: 16px 20px; margin: 0 5px; }
             .top-right { text-align: center; }
             .hero h1 { font-size: 44px; }
             .hero p { font-size: 18px; }
-            .hero { padding: 60px 20px; border-radius: 30px; margin: 20px 5px 40px; }
-            .section-title { font-size: 32px; margin: 50px 0 30px; }
+            .hero { padding: 60px 20px; border-radius: 30px; }
+            .section-title { font-size: 32px; }
             .cta a { padding: 18px 50px; font-size: 20px; }
-            .discount-banner { font-size: 16px; padding: 12px 16px; margin: 20px 5px 10px; }
+            .discount-banner { font-size: 16px; padding: 12px 16px; }
             .faq-grid { grid-template-columns: 1fr; }
             .catalog-block { padding: 30px 20px; }
             .catalog-block h2 { font-size: 28px; }
             .portfolio-item img { height: 220px; }
             .advantages { padding: 30px 20px; }
             .calculator { padding: 30px 20px; }
-            .service-card,
-            .cert-item,
-            .team-card,
-            .payment-item,
-            .stat-item,
-            .review-card,
-            .faq-item { padding: 24px 16px; }
         }
         @media (max-width: 400px) {
             .hero h1 { font-size: 34px; }
             .logo-text { font-size: 22px; }
             .top-right .phone { font-size: 18px; }
             .cta a { padding: 14px 30px; font-size: 16px; }
-            .logo-icon { width: 44px; height: 44px; font-size: 22px; }
-            .discount-banner { font-size: 14px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== ФОН С ПАРТИКЛАМИ (CANVAS) ===== -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- ===== ВЕРХНЯЯ ПЛАНКА ===== -->
+    <!-- ВЕРХНЯЯ ПЛАНКА -->
     <div class="top-bar">
         <div class="logo-block">
-            <div class="logo-icon">Р</div>
-            <div class="logo-text">🔧 <span>Ремонт24</span></div>
+            <div class="logo-icon">П</div>
+            <div class="logo-text">🚀 <span>ProРемонт</span></div>
         </div>
         <div class="top-right">
             <a href="tel:+79005275628" class="phone">📞 +7 (900) 527 56-28</a>
-            <div class="telegram">✉️ <span>@remont24</span></div>
-            <div class="email">📧 <a href="mailto:remont24@mail.ru">remont24@mail.ru</a></div>
+            <div class="telegram">✉️ <span>@ProRemont012</span></div>
+            <div class="email">📧 <a href="mailto:ProRemont012@gmail.com">ProRemont012@gmail.com</a></div>
         </div>
     </div>
 
     <div class="container">
 
-        <!-- ===== БАННЕР СКИДКИ ===== -->
+        <!-- БАННЕР СКИДКИ -->
         <div class="discount-banner">
             🎁 <span>🔥 СКИДКА 15%</span> на все виды работ до конца месяца!
         </div>
 
-        <!-- ===== ГЕРОЙ ===== -->
+        <!-- ГЕРОЙ -->
         <div class="hero">
             <div class="hero-content">
-                <h1>🚀 <span>Ремонт24</span></h1>
+                <h1>🚀 <span>ProРемонт</span></h1>
                 <p>Качественно, быстро, с гарантией до 5 лет</p>
                 <div class="badge">🔥 Работаем по всему городу</div>
             </div>
         </div>
 
-        <!-- ===== УСЛУГИ ===== -->
+        <!-- УСЛУГИ -->
         <h2 class="section-title">🛠️ Наши <span>услуги</span></h2>
         <div class="services-grid">
             <div class="service-card"><span class="icon">🧱</span><h3>Шпаклёвка</h3><p>Выравнивание стен и потолков</p></div>
@@ -847,7 +755,7 @@
             <div class="service-card"><span class="icon">🛠️</span><h3>Отделка</h3><p>Стены, полы, потолки</p></div>
         </div>
 
-        <!-- ===== ПОРТФОЛИО ===== -->
+        <!-- ПОРТФОЛИО -->
         <h2 class="section-title">🏗️ Наши <span>работы</span></h2>
         <div class="portfolio-grid">
             <div class="portfolio-item">
@@ -876,18 +784,18 @@
             </div>
         </div>
 
-        <!-- ===== НАГРАДЫ ===== -->
+        <!-- НАГРАДЫ -->
         <h2 class="section-title">🏆 Наши <span>награды</span> и <span>сертификаты</span></h2>
-        <div class="cert-grid">
-            <div class="cert-item"><span class="icon">📜</span><h4>Сертификат качества</h4><p>Соответствие ГОСТ</p></div>
-            <div class="cert-item"><span class="icon">🏅</span><h4>Лучший мастер 2024</h4><p>Премия города</p></div>
-            <div class="cert-item"><span class="icon">✅</span><h4>Одобрено СРО</h4><p>Допуск к работам</p></div>
-            <div class="cert-item"><span class="icon">⭐</span><h4>5 звёзд на Яндекс.Услугах</h4><p>Более 100 отзывов</p></div>
-            <div class="cert-item"><span class="icon">🛡️</span><h4>Страхование ответственности</h4><p>До 5 млн ₽</p></div>
-            <div class="cert-item"><span class="icon">📊</span><h4>Лицензия МЧС</h4><p>Пожарная безопасность</p></div>
+        <div class="cert-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px; margin:30px 0;">
+            <div class="service-card"><span class="icon">📜</span><h3>Сертификат качества</h3><p>Соответствие ГОСТ</p></div>
+            <div class="service-card"><span class="icon">🏅</span><h3>Лучший мастер 2024</h3><p>Премия города</p></div>
+            <div class="service-card"><span class="icon">✅</span><h3>Одобрено СРО</h3><p>Допуск к работам</p></div>
+            <div class="service-card"><span class="icon">⭐</span><h3>5 звёзд на Яндекс.Услугах</h3><p>Более 100 отзывов</p></div>
+            <div class="service-card"><span class="icon">🛡️</span><h3>Страхование ответственности</h3><p>До 5 млн ₽</p></div>
+            <div class="service-card"><span class="icon">📊</span><h3>Лицензия МЧС</h3><p>Пожарная безопасность</p></div>
         </div>
 
-        <!-- ===== КОМАНДА ===== -->
+        <!-- КОМАНДА -->
         <h2 class="section-title">👷 Наша <span>команда</span></h2>
         <div class="team-grid">
             <div class="team-card"><span class="avatar">🧑‍🔧</span><h4>Алексей</h4><p>Мастер</p><span class="role">8 лет опыта</span></div>
@@ -898,7 +806,7 @@
             <div class="team-card"><span class="avatar">👨‍💻</span><h4>Анна</h4><p>Сметчик</p><span class="role">5 лет опыта</span></div>
         </div>
 
-        <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+        <!-- ПРЕИМУЩЕСТВА -->
         <h2 class="section-title">🌟 Наши <span>преимущества</span></h2>
         <div class="advantages">
             <div class="advantage-item"><span class="icon">📏</span><h4>Бесплатный замер</h4><p>Выезд мастера</p></div>
@@ -909,7 +817,7 @@
             <div class="advantage-item"><span class="icon">🧹</span><h4>Чистота на объекте</h4><p>Ежедневная уборка</p></div>
         </div>
 
-        <!-- ===== СЧЁТЧИКИ ===== -->
+        <!-- СЧЁТЧИКИ -->
         <h2 class="section-title">Нас <span>выбрали</span></h2>
         <div class="stats-grid">
             <div class="stat-item"><span class="number">120+</span><span class="label">🏠 Квартир отремонтировано</span></div>
@@ -918,7 +826,7 @@
             <div class="stat-item"><span class="number">15+</span><span class="label">👷 Мастеров в команде</span></div>
         </div>
 
-        <!-- ===== КАТАЛОГ ===== -->
+        <!-- КАТАЛОГ -->
         <div class="catalog-block">
             <div class="icon">📄</div>
             <h2>Каталог <span>услуг и цен</span></h2>
@@ -932,10 +840,10 @@
                 <div class="price-item"><strong>Отделка</strong><span>от 900 ₽/м²</span></div>
             </div>
             <a href="https://drive.google.com/uc?export=download&id=1VjcwCyZ7J7H4ZIv9Bbua9CnwM3X_qq93" target="_blank" class="btn">📥 Скачать полный каталог</a>
-            <p style="font-size: 14px; color: rgba(255,255,255,0.2); margin-top: 12px;">*Цены указаны как примерные, окончательная стоимость по смете</p>
+            <p style="font-size:14px; color:rgba(255,255,255,0.2); margin-top:12px;">*Цены указаны как примерные, окончательная стоимость по смете</p>
         </div>
 
-        <!-- ===== ОПЛАТА ===== -->
+        <!-- ОПЛАТА -->
         <h2 class="section-title">💳 Как <span>оплатить</span></h2>
         <div class="payment-grid">
             <div class="payment-item"><span class="icon">💳</span><h4>Картой</h4><p>Visa / Mastercard / МИР</p></div>
@@ -945,7 +853,7 @@
             <div class="payment-item"><span class="icon">💸</span><h4>Наличные</h4><p>Оплата на объекте</p></div>
         </div>
 
-        <!-- ===== КАЛЬКУЛЯТОР ===== -->
+        <!-- КАЛЬКУЛЯТОР -->
         <h2 class="section-title">🧮 Калькулятор <span>ремонта</span></h2>
         <div class="calculator">
             <label for="roomType">Тип помещения</label>
@@ -979,7 +887,7 @@
             </div>
         </div>
 
-        <!-- ===== ОТЗЫВЫ ===== -->
+        <!-- ОТЗЫВЫ -->
         <h2 class="section-title">💬 Отзывы <span>клиентов</span></h2>
         <div class="reviews-grid">
             <div class="review-card">
@@ -1008,7 +916,7 @@
             </div>
         </div>
 
-        <!-- ===== FAQ ===== -->
+        <!-- FAQ -->
         <h2 class="section-title">❓ Часто задаваемые <span>вопросы</span></h2>
         <div class="faq-grid">
             <div class="faq-item"><h4>Сколько длится ремонт?</h4><p>Всё зависит от объёма. Обычно квартира 40 м² — 2–3 недели, дом 100+ м² — 1,5–2 месяца.</p></div>
@@ -1019,21 +927,18 @@
             <div class="faq-item"><h4>Как рассчитать стоимость?</h4><p>Используйте наш калькулятор на сайте или закажите бесплатный замер — мы всё рассчитаем.</p></div>
         </div>
 
-        <!-- ===== CTA ===== -->
+        <!-- CTA -->
         <div class="cta">
             <a href="tel:+79005275628">📞 Заказать звонок</a>
             <p>Звоните с 9:00 до 21:00 без выходных</p>
         </div>
 
-        <div class="footer">© 2026 Ремонт24. Все права защищены.</div>
+        <div class="footer">© 2026 ProРемонт. Все права защищены.</div>
 
     </div>
 
-    <!-- ===== СКРИПТЫ ===== -->
     <script>
-        // ============================================================
-        // 1. КАЛЬКУЛЯТОР
-        // ============================================================
+        // КАЛЬКУЛЯТОР
         function calculatePrice() {
             const roomType = parseFloat(document.getElementById('roomType').value);
             const area = parseFloat(document.getElementById('area').value) || 0;
@@ -1048,87 +953,6 @@
             el.addEventListener('change', calculatePrice);
         });
         calculatePrice();
-
-        // ============================================================
-        // 2. ПАРТИКЛЫ НА ФОНЕ
-        // ============================================================
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, particles = [];
-
-        function resizeCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 2.5 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.4;
-                this.speedY = (Math.random() - 0.5) * 0.4;
-                this.opacity = Math.random() * 0.5 + 0.15;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x < 0 || this.x > width) this.speedX *= -1;
-                if (this.y < 0 || this.y > height) this.speedY *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(247, 151, 30, ${this.opacity})`;
-                ctx.fill();
-            }
-        }
-
-        const particleCount = Math.min(80, Math.floor((width * height) / 15000));
-        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-
-        function drawLines() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 150) {
-                        const opacity = 0.06 * (1 - dist / 150);
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(247, 151, 30, ${opacity})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            drawLines();
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // ============================================================
-        // 3. ПАРАЛЛАКС
-        // ============================================================
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            window.addEventListener('mousemove', (e) => {
-                const x = (e.clientX / window.innerWidth - 0.5) * 12;
-                const y = (e.clientY / window.innerHeight - 0.5) * 12;
-                hero.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
-            });
-        }
-
-        console.log('🔥 Ремонт24 — МЕГА-КРАСИВЫЙ САЙТ ЗАГРУЖЕН!');
     </script>
 
 </body>

@@ -559,7 +559,7 @@
         }
 
         /* ============================================================ */
-        /* ===== ЧАТ-БОТ (СТАРЫЙ, КОТОРЫЙ ТЕБЕ НРАВИЛСЯ) ===== */
+        /* ===== ЧАТ-БОТ ===== */
         /* ============================================================ */
         #chat-toggle {
             position: fixed;
@@ -758,7 +758,7 @@
         .chat-footer button:hover { transform: scale(1.04); }
 
         /* ============================================================ */
-        /* ===== ФИШКА 61: ЛИЧНЫЙ КАБИНЕТ (ПОПАП) ===== */
+        /* ===== ЛИЧНЫЙ КАБИНЕТ ===== */
         /* ============================================================ */
         .cabinet-popup {
             position: fixed;
@@ -847,7 +847,7 @@
         }
 
         /* ============================================================ */
-        /* ===== ФИШКА 47: КВИЗ ===== */
+        /* ===== КВИЗ ===== */
         /* ============================================================ */
         .quiz-btn {
             display: inline-block;
@@ -951,7 +951,7 @@
         .quiz-result .btn:hover { transform: scale(1.04); }
 
         /* ============================================================ */
-        /* ===== ФИШКА 201: МИНИ-ИГРА ===== */
+        /* ===== МИНИ-ИГРА ===== */
         /* ============================================================ */
         .game-container {
             text-align: center;
@@ -1001,6 +1001,149 @@
             min-height: 24px;
         }
 
+        /* ============================================================ */
+        /* ===== КОЛЕСО ФОРТУНЫ (НОВАЯ ФИШКА) ===== */
+        /* ============================================================ */
+        .wheel-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(20px);
+            z-index: 3000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.4s ease;
+        }
+        .wheel-popup.open { display: flex; }
+        .wheel-box {
+            background: rgba(20,20,30,0.95);
+            border: 1px solid rgba(255,215,0,0.04);
+            border-radius: 40px;
+            padding: 40px 30px;
+            max-width: 520px;
+            width: 92%;
+            position: relative;
+            text-align: center;
+        }
+        body.light-mode .wheel-box { background: rgba(255,255,255,0.95); }
+        .wheel-box .close-wheel {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.2);
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        body.light-mode .wheel-box .close-wheel { color: rgba(0,0,0,0.2); }
+        .wheel-box .close-wheel:hover { color: #ffd700; }
+        .wheel-box h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .wheel-box .subtitle {
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        body.light-mode .wheel-box .subtitle { color: rgba(0,0,0,0.2); }
+
+        .wheel-container {
+            position: relative;
+            width: 260px;
+            height: 260px;
+            margin: 0 auto 24px;
+        }
+        .wheel-container .pointer {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color: #ffd700;
+            z-index: 10;
+        }
+        #wheelCanvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 60px rgba(255,215,0,0.03);
+        }
+
+        .wheel-btn {
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border: none;
+            border-radius: 60px;
+            color: #0a0a0f;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 8px;
+        }
+        .wheel-btn:hover { transform: scale(1.04); }
+        .wheel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .wheel-result {
+            margin-top: 16px;
+            padding: 16px;
+            background: rgba(255,215,0,0.02);
+            border: 1px solid rgba(255,215,0,0.02);
+            border-radius: 24px;
+            display: none;
+        }
+        .wheel-result.show { display: block; }
+        .wheel-result .discount {
+            font-size: 48px;
+            font-weight: 900;
+            color: #ffd700;
+        }
+        .wheel-result .label {
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        body.light-mode .wheel-result .label { color: rgba(0,0,0,0.2); }
+        .wheel-result .phone-input {
+            margin-top: 16px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .wheel-result .phone-input input {
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 24px;
+            color: #fff;
+            font-size: 16px;
+            width: 200px;
+        }
+        body.light-mode .wheel-result .phone-input input {
+            color: #1a1a1a;
+            background: rgba(0,0,0,0.02);
+            border-color: rgba(0,0,0,0.02);
+        }
+        .wheel-result .phone-input input:focus {
+            border-color: rgba(255,215,0,0.04);
+            outline: none;
+        }
+        .wheel-result .phone-input button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border: none;
+            border-radius: 24px;
+            color: #0a0a0f;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .wheel-result .phone-input button:hover { transform: scale(1.04); }
+
         /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 44px; }
@@ -1019,6 +1162,8 @@
             #chat-toggle { width: 56px; height: 56px; font-size: 28px; bottom: 20px; right: 20px; }
             .cabinet-box, .quiz-box { padding: 30px 20px; }
             .chat-quick-buttons { grid-template-columns: 1fr 1fr; }
+            .wheel-container { width: 220px; height: 220px; }
+            .wheel-box { padding: 30px 20px; }
         }
         @media (max-width: 400px) {
             .hero h1 { font-size: 32px; }
@@ -1220,6 +1365,30 @@
             </div>
         </div>
 
+        <!-- ============================================================ -->
+        <!-- ===== КОЛЕСО ФОРТУНЫ (БЛОК НА СТРАНИЦЕ) ===== -->
+        <!-- ============================================================ -->
+        <div class="fade-section" style="text-align:center;">
+            <div class="section-title">🎡 Колесо <span class="gold-gradient">фортуны</span></div>
+            <p style="color:rgba(255,255,255,0.15); margin-bottom:24px;">Покрути и получи скидку до 30%!</p>
+
+            <button onclick="openWheel()" style="
+                background: linear-gradient(135deg, #ffd700, #f7971e);
+                color: #0a0a0f;
+                border: none;
+                border-radius: 60px;
+                padding: 18px 48px;
+                font-size: 22px;
+                font-weight: 800;
+                cursor: pointer;
+                box-shadow: 0 8px 40px rgba(255,215,0,0.15);
+                transition: 0.3s;
+                font-family: 'Segoe UI', sans-serif;
+            ">
+                🎰 Крутить колесо!
+            </button>
+        </div>
+
         <!-- ===== ОТЗЫВЫ ===== -->
         <div class="fade-section">
             <div class="section-title">Отзывы <span class="gold-gradient">клиентов</span></div>
@@ -1325,10 +1494,39 @@
         </div>
     </div>
 
+    <!-- ============================================================ -->
+    <!-- ===== ПОПАП КОЛЕСА ФОРТУНЫ ===== -->
+    <!-- ============================================================ -->
+    <div class="wheel-popup" id="wheelPopup">
+        <div class="wheel-box">
+            <button class="close-wheel" onclick="closeWheel()">✕</button>
+            <h2>🎡 Колесо <span class="gold-gradient">фортуны</span></h2>
+            <div class="subtitle">Покрути и получи скидку до 30%!</div>
+
+            <div class="wheel-container">
+                <div class="pointer">▼</div>
+                <canvas id="wheelCanvas" width="400" height="400"></canvas>
+            </div>
+
+            <button class="wheel-btn" id="spinBtn" onclick="spinWheel()">🎰 Крутить!</button>
+
+            <div class="wheel-result" id="wheelResult">
+                <div class="discount" id="discountDisplay">🎉 15%</div>
+                <div class="label">Ваша скидка!</div>
+                <div class="phone-input">
+                    <input type="tel" id="phoneInput" placeholder="+7 (___) ___-__-__" />
+                    <button onclick="claimDiscount()">📩 Получить скидку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ============================================================
-        // ===== КАЛЬКУЛЯТОР =====
+        // === ВСЕ СКРИПТЫ ===
         // ============================================================
+
+        // ===== КАЛЬКУЛЯТОР =====
         function calculatePrice() {
             const roomType = parseFloat(document.getElementById('roomType').value);
             const area = parseFloat(document.getElementById('area').value) || 0;
@@ -1344,9 +1542,7 @@
         });
         calculatePrice();
 
-        // ============================================================
         // ===== ЧАСЫ =====
-        // ============================================================
         function updateClock() {
             const now = new Date();
             const time = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
@@ -1355,9 +1551,7 @@
         updateClock();
         setInterval(updateClock, 1000);
 
-        // ============================================================
-        // ===== ФИШКА 14: ТЕМА =====
-        // ============================================================
+        // ===== ТЕМА =====
         let isDark = true;
 
         function toggleTheme() {
@@ -1374,9 +1568,7 @@
             }
         }
 
-        // ============================================================
-        // ===== ФИШКА 61: ЛИЧНЫЙ КАБИНЕТ =====
-        // ============================================================
+        // ===== ЛИЧНЫЙ КАБИНЕТ =====
         function openCabinet() {
             document.getElementById('cabinetPopup').classList.add('open');
         }
@@ -1400,9 +1592,7 @@
             if (e.target === this) closeCabinet();
         });
 
-        // ============================================================
-        // ===== ФИШКА 47: КВИЗ =====
-        // ============================================================
+        // ===== КВИЗ =====
         function openQuiz() {
             document.getElementById('quizPopup').classList.add('open');
             document.getElementById('quizResult').style.display = 'none';
@@ -1445,11 +1635,11 @@
             }
 
             const styleData = {
-                modern: { icon: '🏙️', name: 'Современный минимализм', desc: 'Чистые линии, стекло, металл, нейтральные цвета. Идеально для городских квартир.' },
+                modern: { icon: '🏙️', name: 'Современный минимализм', desc: 'Чистые линии, стекло, металл, нейтральные цвета.' },
                 classic: { icon: '🏛️', name: 'Классика', desc: 'Дорогие материалы, лепнина, пастельные тона. Вечная элегантность.' },
-                scandi: { icon: '🌿', name: 'Скандинавский стиль', desc: 'Светлые тона, дерево, уютный текстиль. Максимум света и воздуха.' },
+                scandi: { icon: '🌿', name: 'Скандинавский стиль', desc: 'Светлые тона, дерево, уютный текстиль. Максимум света.' },
                 loft: { icon: '🧱', name: 'Лофт', desc: 'Кирпич, бетон, открытые коммуникации. Индустриальный шик.' },
-                minimal: { icon: '🧘', name: 'Минимализм', desc: 'Ничего лишнего, только функциональные вещи. Пространство и свобода.' }
+                minimal: { icon: '🧘', name: 'Минимализм', desc: 'Ничего лишнего, только функциональные вещи.' }
             };
 
             const result = styleData[maxStyle] || styleData.modern;
@@ -1459,22 +1649,19 @@
                     <span class="style-icon">${result.icon}</span>
                     <div class="style-name">${result.name}</div>
                     <div class="style-desc">${result.desc}</div>
-                    <button class="btn" onclick="closeQuiz(); alert('🎯 Отлично! Позвоните нам, чтобы обсудить дизайн: +7 (900) 527 56-28')">Заказать консультацию</button>
+                    <button class="btn" onclick="closeQuiz(); alert('🎯 Отлично! Позвоните нам: +7 (900) 527 56-28')">Заказать консультацию</button>
                 </div>
             `;
             document.getElementById('quizResult').style.display = 'block';
-            document.getElementById('quizResult').scrollIntoView({ behavior: 'smooth' });
         }
 
         document.getElementById('quizPopup').addEventListener('click', function(e) {
             if (e.target === this) closeQuiz();
         });
 
-        // ============================================================
-        // ===== ФИШКА 201: МИНИ-ИГРА =====
-        // ============================================================
+        // ===== МИНИ-ИГРА =====
         let coinScore = 0;
-        const coinMessages = ['🪙 +1 монетка!', '💰 Продолжай собирать!', '✨ Ещё одна!', '🔥 Отлично!', '⭐ Ты лучший!', '💎 Блестяще!', '🎉 Круто!'];
+        const coinMessages = ['🪙 +1 монетка!', '💰 Продолжай собирать!', '✨ Ещё одна!', '🔥 Отлично!', '⭐ Ты лучший!', '💎 Блестяще!'];
 
         function clickCoin() {
             const coin = document.getElementById('gameCoin');
@@ -1494,7 +1681,6 @@
 
             const scale = 1 + Math.random() * 0.3;
             coin.style.transform = `scale(${scale})`;
-
             setTimeout(() => { coin.style.transform = 'scale(1)'; }, 200);
 
             if (coinScore === 10) {
@@ -1515,12 +1701,9 @@
             document.getElementById('gameCoin').style.transform = 'scale(1)';
         }
 
-        // ============================================================
         // ===== ЧАТ-БОТ =====
-        // ============================================================
         function toggleChat() {
-            const win = document.getElementById('chat-window');
-            win.classList.toggle('open');
+            document.getElementById('chat-window').classList.toggle('open');
         }
 
         function sendMessage() {
@@ -1554,67 +1737,168 @@
             const lower = text.toLowerCase();
             let reply = '';
 
-            if (lower.includes('стоимость') || lower.includes('цен') || lower.includes('рассчит') || lower.includes('калькулятор')) {
-                reply = '📐 Отлично! Воспользуйтесь нашим калькулятором на сайте — он находится чуть выше. Или оставьте заявку на бесплатный замер! 📞';
-            } else if (lower.includes('звонок') || lower.includes('позвонить') || lower.includes('телефон')) {
-                reply = '📞 Звоните нам прямо сейчас: <strong>+7 (900) 527 56-28</strong><br />Или оставьте заявку, и мы перезвоним вам в течение 5 минут!';
-            } else if (lower.includes('портфолио') || lower.includes('работы') || lower.includes('галерея')) {
-                reply = '📂 Смотрите наши работы в разделе "Портфолио" на сайте. Мы сделали более 120 объектов! 🏠';
-            } else if (lower.includes('вопрос') || lower.includes('мастер') || lower.includes('помочь')) {
-                reply = '❓ Задайте ваш вопрос, и я передам его мастеру. Или позвоните нам: <strong>+7 (900) 527 56-28</strong> ☎️';
+            if (lower.includes('стоимость') || lower.includes('цен') || lower.includes('рассчит')) {
+                reply = '📐 Воспользуйтесь калькулятором на сайте! Или оставьте заявку на бесплатный замер! 📞';
+            } else if (lower.includes('звонок') || lower.includes('позвонить')) {
+                reply = '📞 Звоните: <strong>+7 (900) 527 56-28</strong>';
+            } else if (lower.includes('портфолио') || lower.includes('работы')) {
+                reply = '📂 Смотрите наши работы в разделе "Портфолио" на сайте.';
             } else if (lower.includes('скидка') || lower.includes('акция')) {
-                reply = '🎁 Да! У нас действует <strong>скидка 15%</strong> на все виды работ до конца месяца! Успейте забронировать! 🔥';
+                reply = '🎁 Да! Скидка 15% до конца месяца! 🔥';
             } else if (lower.includes('гарантия')) {
-                reply = '🛡️ Мы даём гарантию на все виды работ — <strong>до 5 лет</strong>! Качество подтверждено сотнями довольных клиентов.';
-            } else if (lower.includes('привет') || lower.includes('здравствуй') || lower.includes('добрый')) {
-                reply = '👋 Здравствуйте! Чем могу помочь? Выберите один из вариантов ниже или напишите свой вопрос.';
+                reply = '🛡️ Гарантия до 5 лет на все работы!';
+            } else if (lower.includes('привет') || lower.includes('здравствуй')) {
+                reply = '👋 Здравствуйте! Чем могу помочь?';
             } else if (lower.includes('спасибо')) {
-                reply = '🙌 Пожалуйста! Рады помочь! Если появятся вопросы — мы всегда на связи. 😊';
+                reply = '🙌 Пожалуйста! Рады помочь!';
             } else {
-                reply = `🤔 Я вас понял. Передам ваш вопрос мастеру. А пока вы можете:<br />📞 Позвонить: <strong>+7 (900) 527 56-28</strong><br />✉️ Написать: @ProRemont012<br />Или задать вопрос уточнее — я постараюсь помочь!`;
+                reply = `🤔 Передам ваш вопрос мастеру. Позвоните: +7 (900) 527 56-28`;
             }
 
             setTimeout(() => {
                 addMessage('bot', reply);
                 const body = document.getElementById('chat-body');
-                const buttons = document.querySelector('.chat-quick-buttons');
-                if (!buttons) {
-                    const newButtons = document.createElement('div');
-                    newButtons.className = 'chat-quick-buttons';
-                    newButtons.innerHTML = `
+                if (!document.querySelector('.chat-quick-buttons')) {
+                    const btns = document.createElement('div');
+                    btns.className = 'chat-quick-buttons';
+                    btns.innerHTML = `
                         <button onclick="quickReply('Рассчитать стоимость')">📐 Рассчитать стоимость</button>
                         <button onclick="quickReply('Заказать звонок')">📞 Заказать звонок</button>
                         <button onclick="quickReply('Смотреть портфолио')">📂 Смотреть портфолио</button>
                         <button onclick="quickReply('Задать вопрос мастеру')">❓ Задать вопрос</button>
                     `;
-                    body.appendChild(newButtons);
+                    body.appendChild(btns);
                 }
                 body.scrollTop = body.scrollHeight;
             }, 400);
         }
 
-        document.addEventListener('click', function(e) {
-            const chat = document.getElementById('chat-window');
-            const toggle = document.getElementById('chat-toggle');
-            if (chat.classList.contains('open') &&
-                !chat.contains(e.target) &&
-                !toggle.contains(e.target)) {
-                chat.classList.remove('open');
+        // ===== КОЛЕСО ФОРТУНЫ =====
+        const segments = [
+            { label: '5%', color: '#1a1a2e', value: 5 },
+            { label: '10%', color: '#16213e', value: 10 },
+            { label: '15%', color: '#0f3460', value: 15 },
+            { label: '20%', color: '#533483', value: 20 },
+            { label: '5%', color: '#1a1a2e', value: 5 },
+            { label: '10%', color: '#16213e', value: 10 },
+            { label: '15%', color: '#0f3460', value: 15 },
+            { label: '30%', color: '#e94560', value: 30 },
+        ];
+
+        let currentRotation = 0;
+        let spinning = false;
+        let lastDiscount = 0;
+
+        function drawWheel(rotation) {
+            const canvas = document.getElementById('wheelCanvas');
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width;
+            const h = canvas.height;
+            const cx = w / 2;
+            const cy = h / 2;
+            const radius = Math.min(w, h) / 2 - 10;
+
+            ctx.clearRect(0, 0, w, h);
+            const sliceAngle = (Math.PI * 2) / segments.length;
+
+            segments.forEach((seg, i) => {
+                const start = i * sliceAngle + rotation;
+                const end = start + sliceAngle;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, radius, start, end);
+                ctx.closePath();
+                ctx.fillStyle = seg.color;
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255,215,0,0.02)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                const mid = start + sliceAngle / 2;
+                const textRadius = radius * 0.65;
+                const tx = cx + Math.cos(mid) * textRadius;
+                const ty = cy + Math.sin(mid) * textRadius;
+                ctx.save();
+                ctx.translate(tx, ty);
+                ctx.rotate(mid + Math.PI / 2);
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 20px Segoe UI';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(seg.label, 0, 0);
+                ctx.restore();
+            });
+
+            ctx.beginPath();
+            ctx.arc(cx, cy, 24, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffd700';
+            ctx.fill();
+            ctx.fillStyle = '#0a0a0f';
+            ctx.font = 'bold 16px Segoe UI';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('🎡', cx, cy + 2);
+        }
+
+        function spinWheel() {
+            if (spinning) return;
+            spinning = true;
+            const btn = document.getElementById('spinBtn');
+            btn.disabled = true;
+            const resultDiv = document.getElementById('wheelResult');
+            resultDiv.classList.remove('show');
+
+            const extraSpins = 5 + Math.random() * 5;
+            const randomIndex = Math.floor(Math.random() * segments.length);
+            const targetAngle = (Math.PI * 2) * extraSpins + (Math.PI * 2 - (randomIndex / segments.length) * Math.PI * 2);
+            currentRotation += targetAngle;
+            drawWheel(currentRotation);
+
+            const canvas = document.getElementById('wheelCanvas');
+            canvas.style.transition = 'transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
+            canvas.style.transform = `rotate(${currentRotation}rad)`;
+
+            setTimeout(() => {
+                const winSegment = segments[randomIndex];
+                lastDiscount = winSegment.value;
+                document.getElementById('discountDisplay').textContent = `🎉 ${winSegment.value}%`;
+                resultDiv.classList.add('show');
+                spinning = false;
+                btn.disabled = false;
+            }, 4200);
+        }
+
+        function openWheel() {
+            document.getElementById('wheelPopup').classList.add('open');
+            drawWheel(currentRotation);
+        }
+
+        function closeWheel() {
+            document.getElementById('wheelPopup').classList.remove('open');
+        }
+
+        function claimDiscount() {
+            const phone = document.getElementById('phoneInput').value;
+            if (!phone || phone.length < 10) {
+                alert('📱 Введите номер телефона!');
+                return;
             }
+            alert(`🎉 Скидка ${lastDiscount}% сохранена! Звоните: +7 (900) 527 56-28`);
+            closeWheel();
+        }
+
+        document.getElementById('wheelPopup').addEventListener('click', function(e) {
+            if (e.target === this) closeWheel();
         });
 
-        // ============================================================
         // ===== КНОПКА НАВЕРХ =====
-        // ============================================================
         window.addEventListener('scroll', function() {
             const btn = document.getElementById('backToTop');
             if (window.scrollY > 300) btn.classList.add('visible');
             else btn.classList.remove('visible');
         });
 
-        // ============================================================
         // ===== ПЛАВНОЕ ПОЯВЛЕНИЕ =====
-        // ============================================================
         const sections = document.querySelectorAll('.fade-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1623,9 +1907,7 @@
         }, { threshold: 0.1 });
         sections.forEach(s => observer.observe(s));
 
-        // ============================================================
         // ===== ЗВЁЗДЫ =====
-        // ============================================================
         const canvas = document.getElementById('stars-canvas');
         const ctx = canvas.getContext('2d');
         let W, H;
@@ -1663,12 +1945,10 @@
         }
         drawStars();
 
-        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ (ЧАТ-БОТ + 4 ФИШКИ) ЗАГРУЖЕН!');
-        console.log('💬 Чат-бот работает!');
-        console.log('🌙 Тёмный/светлый режим — включён');
-        console.log('🎯 Квиз по дизайну — готов');
-        console.log('👤 Личный кабинет — работает');
-        console.log('🪙 Мини-игра "Золотая монетка" — запущена!');
+        // Инициализация колеса
+        drawWheel(0);
+
+        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ (ЧАТ-БОТ + 4 ФИШКИ + КОЛЕСО) ЗАГРУЖЕН!');
     </script>
 
 </body>

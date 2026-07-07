@@ -5,37 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ProРемонт</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: #0d0d1a;
-            color: #f0f0f5;
-            overflow-x: hidden;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 30px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0b0b14; color: #f0f0f5; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 30px; }
 
         /* СКРОЛЛБАР */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0d0d1a; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #00c6ff, #0072ff); border-radius: 20px; }
+        ::-webkit-scrollbar-track { background: #0b0b14; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #f7971e, #ffd200); border-radius: 20px; }
 
-        /* ВЕРХНЯЯ ПЛАНКА */
+        /* ВЕРХНЯЯ ПЛАНКА (ЗОЛОТАЯ) */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 16px 40px;
-            background: rgba(13, 13, 26, 0.75);
-            backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(11, 11, 20, 0.7);
+            backdrop-filter: blur(32px);
+            border-bottom: 1px solid rgba(255,215,0,0.08);
             border-radius: 0 0 30px 30px;
             position: sticky;
             top: 10px;
@@ -49,20 +36,20 @@
         .logo-icon {
             width: 54px;
             height: 54px;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            background: linear-gradient(135deg, #f7971e, #ffd200);
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 28px;
             font-weight: 900;
-            color: #fff;
-            box-shadow: 0 0 50px rgba(0, 198, 255, 0.2);
+            color: #0b0b14;
+            box-shadow: 0 0 50px rgba(247, 151, 30, 0.2);
             animation: glowPulse 3s ease-in-out infinite;
         }
         @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 198, 255, 0.15); }
-            50% { box-shadow: 0 0 70px rgba(0, 198, 255, 0.35); }
+            0%, 100% { box-shadow: 0 0 20px rgba(247, 151, 30, 0.15); }
+            50% { box-shadow: 0 0 70px rgba(247, 151, 30, 0.35); }
         }
         .logo-text {
             font-size: 32px;
@@ -71,7 +58,7 @@
             color: #f0f0f5;
         }
         .logo-text span {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            background: linear-gradient(135deg, #f7971e, #ffd200);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -84,19 +71,19 @@
             text-decoration: none;
             transition: 0.3s;
         }
-        .top-right .phone:hover { color: #00c6ff; }
+        .top-right .phone:hover { color: #f7971e; }
         .top-right .telegram {
             font-size: 15px;
             color: rgba(255,255,255,0.4);
             margin-top: 4px;
         }
         .top-right .telegram span {
-            color: #0088cc;
+            color: #f7971e;
             font-weight: 600;
-            background: rgba(0, 136, 204, 0.08);
+            background: rgba(247, 151, 30, 0.08);
             padding: 3px 16px;
             border-radius: 40px;
-            border: 1px solid rgba(0, 136, 204, 0.1);
+            border: 1px solid rgba(247, 151, 30, 0.08);
         }
         .top-right .email {
             font-size: 15px;
@@ -108,44 +95,44 @@
             text-decoration: none;
             transition: 0.3s;
         }
-        .top-right .email a:hover { color: #00c6ff; }
+        .top-right .email a:hover { color: #f7971e; }
 
-        /* БАННЕР СКИДКИ */
+        /* БАННЕР СКИДКИ (ЗОЛОТОЙ) */
         .discount-banner {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: #fff;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #0b0b14;
             padding: 18px 30px;
             border-radius: 60px;
             text-align: center;
             font-size: 26px;
             font-weight: 800;
             margin: 30px 10px 10px;
-            box-shadow: 0 8px 50px rgba(0, 198, 255, 0.2);
+            box-shadow: 0 8px 50px rgba(247, 151, 30, 0.2);
             animation: bannerPulse 2s ease-in-out infinite;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,215,0,0.1);
         }
         @keyframes bannerPulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.01); box-shadow: 0 8px 70px rgba(0, 198, 255, 0.3); }
+            50% { transform: scale(1.01); box-shadow: 0 8px 70px rgba(247, 151, 30, 0.3); }
         }
         .discount-banner span {
-            background: #0d0d1a;
-            color: #00c6ff;
+            background: #0b0b14;
+            color: #ffd200;
             padding: 4px 22px;
             border-radius: 40px;
             display: inline-block;
         }
 
-        /* ГЕРОЙ */
+        /* ГЕРОЙ (ЗОЛОТОЙ) */
         .hero {
-            background: radial-gradient(ellipse at 30% 20%, rgba(0, 198, 255, 0.06) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 80%, rgba(0, 114, 255, 0.04) 0%, transparent 50%),
-                        #0d0d1a;
+            background: radial-gradient(ellipse at 30% 20%, rgba(247, 151, 30, 0.06) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(255, 210, 0, 0.04) 0%, transparent 50%),
+                        #0b0b14;
             border-radius: 50px;
             padding: 100px 40px;
             text-align: center;
             margin: 30px 10px 60px;
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,215,0,0.04);
             box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
         }
         .hero h1 {
@@ -155,7 +142,7 @@
             line-height: 1.05;
         }
         .hero h1 span {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            background: linear-gradient(135deg, #f7971e, #ffd200);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -168,20 +155,20 @@
         }
         .hero .badge {
             display: inline-block;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255,215,0,0.04);
             padding: 14px 44px;
             border-radius: 60px;
             font-size: 18px;
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,215,0,0.06);
             transition: 0.3s;
             backdrop-filter: blur(10px);
         }
         .hero .badge:hover {
-            background: rgba(0, 198, 255, 0.06);
-            border-color: rgba(0, 198, 255, 0.1);
+            background: rgba(247, 151, 30, 0.06);
+            border-color: rgba(247, 151, 30, 0.1);
         }
 
-        /* ЗАГОЛОВКИ */
+        /* ЗАГОЛОВКИ (ЗОЛОТЫЕ) */
         .section-title {
             text-align: center;
             font-size: 48px;
@@ -190,53 +177,120 @@
             color: #f0f0f5;
         }
         .section-title span {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            background: linear-gradient(135deg, #f7971e, #ffd200);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* КАРТОЧКИ (СТЕКЛЯННЫЕ) */
-        .services-grid {
+        /* ===== ВСЕ КАРТОЧКИ (СТЕКЛЯННЫЕ, ЗОЛОТЫЕ АКЦЕНТЫ) ===== */
+        .services-grid,
+        .cert-grid,
+        .team-grid,
+        .payment-grid,
+        .stats-grid,
+        .reviews-grid,
+        .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
         }
-        .service-card {
+        .services-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        .cert-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 30px 0; }
+        .team-grid { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-top: 10px; }
+        .payment-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 10px; }
+        .stats-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 20px 0 30px; }
+        .reviews-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 20px; }
+        .faq-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 20px; }
+
+        .service-card,
+        .cert-item,
+        .team-card,
+        .payment-item,
+        .stat-item,
+        .review-card,
+        .faq-item {
             background: rgba(255,255,255,0.03);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,215,0,0.04);
             border-radius: 28px;
-            padding: 36px 20px;
+            padding: 32px 20px;
             text-align: center;
-            transition: all 0.4s;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: default;
         }
-        .service-card:hover {
-            transform: translateY(-12px);
-            border-color: rgba(0, 198, 255, 0.15);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        .service-card:hover,
+        .cert-item:hover,
+        .team-card:hover,
+        .payment-item:hover,
+        .stat-item:hover,
+        .review-card:hover,
+        .faq-item:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(247, 151, 30, 0.15);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(247, 151, 30, 0.03);
             background: rgba(255,255,255,0.05);
         }
-        .service-card .icon {
-            font-size: 58px;
+
+        .service-card .icon,
+        .cert-item .icon,
+        .team-card .avatar,
+        .payment-item .icon {
+            font-size: 60px;
             display: block;
-            margin-bottom: 12px;
-            transition: 0.4s;
+            margin-bottom: 14px;
+            transition: 0.5s;
         }
-        .service-card:hover .icon {
+        .service-card:hover .icon,
+        .cert-item:hover .icon,
+        .team-card:hover .avatar,
+        .payment-item:hover .icon {
             transform: scale(1.15) rotate(-5deg);
         }
-        .service-card h3 {
-            font-size: 22px;
+
+        .service-card h3,
+        .cert-item h4,
+        .team-card h4,
+        .payment-item h4 {
+            font-weight: 700;
             color: #f0f0f5;
+            font-size: 22px;
             margin-bottom: 6px;
         }
-        .service-card p {
+        .service-card p,
+        .cert-item p,
+        .team-card p,
+        .payment-item p {
             font-size: 14px;
             color: rgba(255,255,255,0.5);
         }
+        .team-card .role {
+            display: inline-block;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #0b0b14;
+            padding: 5px 22px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 6px;
+        }
 
-        /* ПОРТФОЛИО */
+        /* СЧЁТЧИКИ (ЗОЛОТЫЕ) */
+        .stat-item .number {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        .stat-item .label {
+            font-size: 16px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        /* ПОРТФОЛИО (ЗОЛОТОЙ АКЦЕНТ) */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -246,12 +300,12 @@
             position: relative;
             border-radius: 28px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,215,0,0.04);
             transition: 0.5s;
         }
         .portfolio-item:hover {
             transform: scale(1.03);
-            border-color: rgba(0, 198, 255, 0.15);
+            border-color: rgba(247, 151, 30, 0.15);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
         }
         .portfolio-item img {
@@ -282,15 +336,15 @@
             color: #fff;
         }
 
-        /* ПРЕИМУЩЕСТВА */
+        /* ПРЕИМУЩЕСТВА (ЗОЛОТЫЕ) */
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 20px;
             padding: 50px 30px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,215,0,0.02);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,215,0,0.04);
             border-radius: 40px;
         }
         .advantage-item {
@@ -315,54 +369,19 @@
             color: rgba(255,255,255,0.4);
         }
 
-        /* СЧЁТЧИКИ */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin: 20px 0 30px;
-        }
-        .stat-item {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 28px;
-            padding: 28px 20px;
-            text-align: center;
-            transition: 0.4s;
-        }
-        .stat-item:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 198, 255, 0.1);
-        }
-        .stat-item .number {
-            font-size: 44px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-        }
-        .stat-item .label {
-            font-size: 16px;
-            color: rgba(255,255,255,0.5);
-            margin-top: 4px;
-        }
-
-        /* КАТАЛОГ */
+        /* КАТАЛОГ (ЗОЛОТОЙ) */
         .catalog-block {
             padding: 50px 30px;
             text-align: center;
             margin: 60px 0 30px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,215,0,0.02);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,215,0,0.04);
             border-radius: 40px;
             transition: 0.4s;
         }
         .catalog-block:hover {
-            border-color: rgba(0, 198, 255, 0.08);
+            border-color: rgba(247, 151, 30, 0.08);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
         }
         .catalog-block .icon {
@@ -379,7 +398,7 @@
             color: #f0f0f5;
         }
         .catalog-block h2 span {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            background: linear-gradient(135deg, #f7971e, #ffd200);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -401,10 +420,10 @@
             padding: 14px 12px;
             border-radius: 16px;
             transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,215,0,0.04);
         }
         .catalog-block .price-item:hover {
-            border-color: rgba(0, 198, 255, 0.1);
+            border-color: rgba(247, 151, 30, 0.08);
             background: rgba(255,255,255,0.06);
         }
         .catalog-block .price-item strong {
@@ -415,34 +434,34 @@
         .catalog-block .price-item span { color: rgba(255,255,255,0.4); }
         .catalog-block .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: #fff;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #0b0b14;
             padding: 18px 56px;
             border-radius: 60px;
             font-size: 20px;
             font-weight: 800;
             text-decoration: none;
-            box-shadow: 0 12px 50px rgba(0, 198, 255, 0.15);
+            box-shadow: 0 12px 50px rgba(247, 151, 30, 0.15);
             transition: 0.4s;
         }
         .catalog-block .btn:hover {
             transform: scale(1.06);
-            box-shadow: 0 30px 80px rgba(0, 198, 255, 0.25);
+            box-shadow: 0 30px 80px rgba(247, 151, 30, 0.25);
         }
 
-        /* КАЛЬКУЛЯТОР */
+        /* КАЛЬКУЛЯТОР (ЗОЛОТОЙ) */
         .calculator {
             padding: 50px 40px;
             max-width: 600px;
             margin: 0 auto;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,215,0,0.02);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,215,0,0.04);
             border-radius: 40px;
             transition: 0.4s;
         }
         .calculator:hover {
-            border-color: rgba(0, 198, 255, 0.06);
+            border-color: rgba(247, 151, 30, 0.06);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
         }
         .calculator label {
@@ -458,7 +477,7 @@
             width: 100%;
             padding: 14px 18px;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,215,0,0.06);
             background: rgba(255,255,255,0.04);
             color: #f0f0f5;
             font-size: 18px;
@@ -467,22 +486,22 @@
         .calculator input:focus,
         .calculator select:focus {
             outline: none;
-            border-color: #00c6ff;
-            box-shadow: 0 0 40px rgba(0, 198, 255, 0.05);
+            border-color: #f7971e;
+            box-shadow: 0 0 40px rgba(247, 151, 30, 0.05);
         }
         .calculator select option { background: #1a1a2e; color: #f0f0f5; }
         .calculator .result {
             margin-top: 30px;
             padding: 24px;
-            background: rgba(0, 198, 255, 0.04);
+            background: rgba(247, 151, 30, 0.04);
             border-radius: 20px;
-            border: 1px solid rgba(0, 198, 255, 0.06);
+            border: 1px solid rgba(247, 151, 30, 0.06);
             text-align: center;
         }
         .calculator .result span {
             font-size: 40px;
             font-weight: 900;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            background: linear-gradient(135deg, #f7971e, #ffd200);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -493,75 +512,10 @@
             font-size: 14px;
         }
 
-        /* КОМАНДА */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 24px;
-            margin-top: 10px;
-        }
-        .team-card {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 28px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: 0.4s;
-        }
-        .team-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 198, 255, 0.1);
-        }
-        .team-card .avatar {
-            font-size: 76px;
-            display: block;
-            margin-bottom: 8px;
-            transition: 0.4s;
-        }
-        .team-card:hover .avatar { transform: scale(1.1) rotate(-5deg); }
-        .team-card h4 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #f0f0f5;
-        }
-        .team-card p {
-            color: rgba(255,255,255,0.5);
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-        .team-card .role {
-            display: inline-block;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: #fff;
-            padding: 5px 22px;
-            border-radius: 40px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        /* ОТЗЫВЫ */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-top: 20px;
-        }
-        .review-card {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 28px;
-            padding: 28px 24px;
-            transition: 0.4s;
-        }
-        .review-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(0, 198, 255, 0.06);
-        }
+        /* ОТЗЫВЫ (ЗОЛОТЫЕ ЗВЁЗДЫ) */
         .review-card .stars {
-            color: #00c6ff;
-            font-size: 22px;
+            color: #f7971e;
+            font-size: 24px;
             letter-spacing: 3px;
         }
         .review-card p {
@@ -573,7 +527,7 @@
         }
         .review-card .author {
             font-weight: 700;
-            color: #00c6ff;
+            color: #f7971e;
         }
         .review-card .date {
             font-size: 13px;
@@ -582,66 +536,11 @@
             margin-top: 4px;
         }
 
-        /* ОПЛАТА */
-        .payment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 20px;
-            margin-top: 10px;
-        }
-        .payment-item {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 28px;
-            padding: 28px 20px;
-            text-align: center;
-            transition: 0.4s;
-        }
-        .payment-item:hover {
-            transform: translateY(-6px);
-            border-color: rgba(0, 198, 255, 0.06);
-        }
-        .payment-item .icon {
-            font-size: 48px;
-            display: block;
-            margin-bottom: 8px;
-            transition: 0.4s;
-        }
-        .payment-item:hover .icon { transform: scale(1.1); }
-        .payment-item h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #f0f0f5;
-        }
-        .payment-item p {
-            font-size: 13px;
-            color: rgba(255,255,255,0.4);
-            margin-top: 4px;
-        }
-
-        /* FAQ */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-        }
-        .faq-item {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 24px;
-            padding: 22px 26px;
-            transition: 0.4s;
-        }
-        .faq-item:hover {
-            border-color: rgba(0, 198, 255, 0.06);
-        }
+        /* FAQ (ЗОЛОТЫЕ ЗАГОЛОВКИ) */
         .faq-item h4 {
             font-size: 19px;
             font-weight: 700;
-            color: #00c6ff;
+            color: #f7971e;
             margin-bottom: 6px;
         }
         .faq-item p {
@@ -650,26 +549,26 @@
             line-height: 1.5;
         }
 
-        /* CTA */
+        /* CTA (ЗОЛОТАЯ) */
         .cta {
             text-align: center;
             margin: 60px 0 40px;
         }
         .cta a {
             display: inline-block;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: #fff;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #0b0b14;
             padding: 24px 90px;
             border-radius: 60px;
             font-size: 28px;
             font-weight: 800;
             text-decoration: none;
-            box-shadow: 0 18px 60px rgba(0, 198, 255, 0.15);
+            box-shadow: 0 18px 60px rgba(247, 151, 30, 0.15);
             transition: 0.4s;
         }
         .cta a:hover {
             transform: scale(1.06);
-            box-shadow: 0 30px 90px rgba(0, 198, 255, 0.25);
+            box-shadow: 0 30px 90px rgba(247, 151, 30, 0.25);
         }
         .cta p {
             margin-top: 16px;
@@ -682,7 +581,7 @@
             padding: 30px 0 15px;
             color: rgba(255,255,255,0.15);
             font-size: 14px;
-            border-top: 1px solid rgba(255,255,255,0.04);
+            border-top: 1px solid rgba(255,215,0,0.04);
             margin-top: 40px;
         }
 
@@ -692,22 +591,31 @@
             .top-right { text-align: center; }
             .hero h1 { font-size: 44px; }
             .hero p { font-size: 18px; }
-            .hero { padding: 60px 20px; border-radius: 30px; }
-            .section-title { font-size: 32px; }
+            .hero { padding: 60px 20px; border-radius: 30px; margin: 20px 5px 40px; }
+            .section-title { font-size: 32px; margin: 50px 0 30px; }
             .cta a { padding: 18px 50px; font-size: 20px; }
-            .discount-banner { font-size: 16px; padding: 12px 16px; }
+            .discount-banner { font-size: 16px; padding: 12px 16px; margin: 20px 5px 10px; }
             .faq-grid { grid-template-columns: 1fr; }
             .catalog-block { padding: 30px 20px; }
             .catalog-block h2 { font-size: 28px; }
             .portfolio-item img { height: 220px; }
             .advantages { padding: 30px 20px; }
             .calculator { padding: 30px 20px; }
+            .service-card,
+            .cert-item,
+            .team-card,
+            .payment-item,
+            .stat-item,
+            .review-card,
+            .faq-item { padding: 24px 16px; }
         }
         @media (max-width: 400px) {
             .hero h1 { font-size: 34px; }
             .logo-text { font-size: 22px; }
             .top-right .phone { font-size: 18px; }
             .cta a { padding: 14px 30px; font-size: 16px; }
+            .logo-icon { width: 44px; height: 44px; font-size: 22px; }
+            .discount-banner { font-size: 14px; }
         }
     </style>
 </head>
@@ -717,7 +625,7 @@
     <div class="top-bar">
         <div class="logo-block">
             <div class="logo-icon">П</div>
-            <div class="logo-text">🚀 <span>ProРемонт</span></div>
+            <div class="logo-text">🔧 <span>ProРемонт</span></div>
         </div>
         <div class="top-right">
             <a href="tel:+79005275628" class="phone">📞 +7 (900) 527 56-28</a>
@@ -784,15 +692,15 @@
             </div>
         </div>
 
-        <!-- НАГРАДЫ -->
+        <!-- НАГРАДЫ И СЕРТИФИКАТЫ -->
         <h2 class="section-title">🏆 Наши <span>награды</span> и <span>сертификаты</span></h2>
-        <div class="cert-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px; margin:30px 0;">
-            <div class="service-card"><span class="icon">📜</span><h3>Сертификат качества</h3><p>Соответствие ГОСТ</p></div>
-            <div class="service-card"><span class="icon">🏅</span><h3>Лучший мастер 2024</h3><p>Премия города</p></div>
-            <div class="service-card"><span class="icon">✅</span><h3>Одобрено СРО</h3><p>Допуск к работам</p></div>
-            <div class="service-card"><span class="icon">⭐</span><h3>5 звёзд на Яндекс.Услугах</h3><p>Более 100 отзывов</p></div>
-            <div class="service-card"><span class="icon">🛡️</span><h3>Страхование ответственности</h3><p>До 5 млн ₽</p></div>
-            <div class="service-card"><span class="icon">📊</span><h3>Лицензия МЧС</h3><p>Пожарная безопасность</p></div>
+        <div class="cert-grid">
+            <div class="cert-item"><span class="icon">📜</span><h4>Сертификат качества</h4><p>Соответствие ГОСТ</p></div>
+            <div class="cert-item"><span class="icon">🏅</span><h4>Лучший мастер 2024</h4><p>Премия города</p></div>
+            <div class="cert-item"><span class="icon">✅</span><h4>Одобрено СРО</h4><p>Допуск к работам</p></div>
+            <div class="cert-item"><span class="icon">⭐</span><h4>5 звёзд на Яндекс.Услугах</h4><p>Более 100 отзывов</p></div>
+            <div class="cert-item"><span class="icon">🛡️</span><h4>Страхование ответственности</h4><p>До 5 млн ₽</p></div>
+            <div class="cert-item"><span class="icon">📊</span><h4>Лицензия МЧС</h4><p>Пожарная безопасность</p></div>
         </div>
 
         <!-- КОМАНДА -->

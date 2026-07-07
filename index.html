@@ -58,20 +58,26 @@
         body.light-mode .badge { color: rgba(0,0,0,0.15); border-color: rgba(0,0,0,0.04); }
         body.light-mode .result { border-color: rgba(0,0,0,0.02); }
         body.light-mode .result p { color: rgba(0,0,0,0.05); }
-        body.light-mode .cabinet-btn { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.04); color: rgba(0,0,0,0.3); }
-        body.light-mode .theme-toggle { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.04); color: #1a1a1a; }
-        body.light-mode .cabinet-box { background: rgba(255,255,255,0.95); }
-        body.light-mode .cabinet-box p { color: rgba(0,0,0,0.2); }
-        body.light-mode .cabinet-box input { color: #1a1a1a; background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); }
-        body.light-mode .cabinet-box .close-popup { color: rgba(0,0,0,0.2); }
-        body.light-mode .cabinet-box .register-link { color: rgba(0,0,0,0.15); }
-        body.light-mode .quiz-box { background: rgba(255,255,255,0.95); }
-        body.light-mode .quiz-box .subtitle { color: rgba(0,0,0,0.2); }
-        body.light-mode .quiz-box .close-quiz { color: rgba(0,0,0,0.2); }
-        body.light-mode .quiz-question label { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); }
-        body.light-mode .quiz-result .style-desc { color: rgba(0,0,0,0.2); }
-        body.light-mode .game-container .reset-game { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); color: rgba(0,0,0,0.3); }
-        body.light-mode .game-container .coin-message { color: rgba(0,0,0,0.15); }
+
+        /* ===== КНОПКИ В ЛЕВОМ УГЛУ (СВЕТЛАЯ ТЕМА) ===== */
+        body.light-mode .theme-toggle {
+            background: rgba(0,0,0,0.02) !important;
+            border-color: rgba(0,0,0,0.04) !important;
+            color: #1a1a1a !important;
+        }
+        body.light-mode .cabinet-btn {
+            background: rgba(0,0,0,0.02) !important;
+            border-color: rgba(0,0,0,0.04) !important;
+            color: rgba(0,0,0,0.3) !important;
+        }
+        body.light-mode .cabinet-btn:hover {
+            color: #d4af37 !important;
+        }
+        body.light-mode .bottom-left-buttons button {
+            background: rgba(0,0,0,0.02) !important;
+            border-color: rgba(0,0,0,0.04) !important;
+            color: #1a1a1a !important;
+        }
 
         /* ===== ЗВЁЗДЫ ===== */
         #stars-canvas {
@@ -147,43 +153,6 @@
         .header-right .contact-line a:hover { color: #ffd700; }
         #clock { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 6px; }
         #clock span { color: #ffffff; }
-
-        /* ===== КНОПКА ТЕМЫ ===== */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255,215,0,0.02);
-            border: 1px solid rgba(255,215,0,0.04);
-            color: #fff;
-            font-size: 22px;
-            cursor: pointer;
-            z-index: 1000;
-            transition: 0.4s;
-            backdrop-filter: blur(20px);
-        }
-        .theme-toggle:hover { transform: scale(1.1); }
-
-        /* ===== КНОПКА ЛИЧНОГО КАБИНЕТА ===== */
-        .cabinet-btn {
-            position: fixed;
-            top: 20px;
-            right: 80px;
-            padding: 10px 20px;
-            background: rgba(255,215,0,0.02);
-            border: 1px solid rgba(255,215,0,0.04);
-            border-radius: 60px;
-            color: rgba(255,255,255,0.3);
-            font-size: 14px;
-            cursor: pointer;
-            z-index: 1000;
-            transition: 0.3s;
-            backdrop-filter: blur(20px);
-        }
-        .cabinet-btn:hover { color: #ffd700; border-color: rgba(255,215,0,0.06); }
 
         /* ===== БАННЕР ===== */
         .sale-banner {
@@ -758,7 +727,7 @@
         .chat-footer button:hover { transform: scale(1.04); }
 
         /* ============================================================ */
-        /* ===== ЛИЧНЫЙ КАБИНЕТ ===== */
+        /* ===== ЛИЧНЫЙ КАБИНЕТ (ПОПАП) ===== */
         /* ============================================================ */
         .cabinet-popup {
             position: fixed;
@@ -789,6 +758,7 @@
             position: relative;
             backdrop-filter: blur(30px);
         }
+        body.light-mode .cabinet-box { background: rgba(255,255,255,0.95); }
         .cabinet-box .close-popup {
             position: absolute;
             top: 16px;
@@ -800,6 +770,7 @@
             cursor: pointer;
             transition: 0.3s;
         }
+        body.light-mode .cabinet-box .close-popup { color: rgba(0,0,0,0.2); }
         .cabinet-box .close-popup:hover { color: #ffd700; }
         .cabinet-box h2 {
             font-size: 28px;
@@ -807,6 +778,7 @@
             margin-bottom: 8px;
         }
         .cabinet-box p { color: rgba(255,255,255,0.2); font-size: 14px; margin-bottom: 24px; }
+        body.light-mode .cabinet-box p { color: rgba(0,0,0,0.2); }
         .cabinet-box input {
             width: 100%;
             padding: 14px 16px;
@@ -818,6 +790,7 @@
             margin-bottom: 12px;
             transition: 0.3s;
         }
+        body.light-mode .cabinet-box input { color: #1a1a1a; background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); }
         .cabinet-box input:focus {
             border-color: rgba(255,215,0,0.04);
             outline: none;
@@ -841,6 +814,7 @@
             font-size: 14px;
             color: rgba(255,255,255,0.15);
         }
+        body.light-mode .cabinet-box .register-link { color: rgba(0,0,0,0.15); }
         .cabinet-box .register-link a {
             color: #ffd700;
             text-decoration: none;
@@ -892,6 +866,7 @@
             max-height: 90vh;
             overflow-y: auto;
         }
+        body.light-mode .quiz-box { background: rgba(255,255,255,0.95); }
         .quiz-box .close-quiz {
             position: absolute;
             top: 16px;
@@ -903,6 +878,7 @@
             cursor: pointer;
             transition: 0.3s;
         }
+        body.light-mode .quiz-box .close-quiz { color: rgba(0,0,0,0.2); }
         .quiz-box .close-quiz:hover { color: #ffd700; }
         .quiz-box h2 {
             font-size: 26px;
@@ -910,6 +886,7 @@
             margin-bottom: 8px;
         }
         .quiz-box .subtitle { color: rgba(255,255,255,0.2); font-size: 14px; margin-bottom: 24px; }
+        body.light-mode .quiz-box .subtitle { color: rgba(0,0,0,0.2); }
         .quiz-question { margin-bottom: 20px; }
         .quiz-question .q { font-weight: 700; font-size: 17px; margin-bottom: 10px; }
         .quiz-question label {
@@ -923,6 +900,7 @@
             transition: 0.3s;
             font-size: 15px;
         }
+        body.light-mode .quiz-question label { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); }
         .quiz-question label:hover { border-color: rgba(255,215,0,0.04); background: rgba(255,215,0,0.02); }
         .quiz-question input[type="radio"] { margin-right: 10px; accent-color: #ffd700; }
         .quiz-result {
@@ -936,6 +914,7 @@
         .quiz-result .style-icon { font-size: 48px; display: block; margin-bottom: 8px; }
         .quiz-result .style-name { font-size: 24px; font-weight: 700; color: #ffd700; }
         .quiz-result .style-desc { color: rgba(255,255,255,0.3); font-size: 14px; margin-top: 4px; }
+        body.light-mode .quiz-result .style-desc { color: rgba(0,0,0,0.2); }
         .quiz-result .btn {
             margin-top: 16px;
             padding: 12px 40px;
@@ -993,6 +972,7 @@
             transition: 0.3s;
             font-size: 14px;
         }
+        body.light-mode .game-container .reset-game { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); color: rgba(0,0,0,0.3); }
         .game-container .reset-game:hover { color: #ffd700; border-color: rgba(255,215,0,0.04); }
         .game-container .coin-message {
             font-size: 14px;
@@ -1000,6 +980,7 @@
             margin-top: 12px;
             min-height: 24px;
         }
+        body.light-mode .game-container .coin-message { color: rgba(0,0,0,0.15); }
 
         /* ============================================================ */
         /* ===== КОЛЕСО ФОРТУНЫ ===== */
@@ -1145,7 +1126,7 @@
         .wheel-result .phone-input button:hover { transform: scale(1.04); }
 
         /* ============================================================ */
-        /* ===== СИМУЛЯТОР РЕМОНТА (НОВАЯ ИГРА) ===== */
+        /* ===== СИМУЛЯТОР РЕМОНТА ===== */
         /* ============================================================ */
         .simulator-container {
             text-align: center;
@@ -1182,11 +1163,13 @@
             transition: 0.3s;
             font-family: 'Segoe UI', sans-serif;
         }
+        body.light-mode .simulator-container .step .options button { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.02); }
         .simulator-container .step .options button:hover {
             background: rgba(255,215,0,0.02);
             border-color: rgba(255,215,0,0.04);
             color: #ffffff;
         }
+        body.light-mode .simulator-container .step .options button:hover { color: #1a1a1a; background: rgba(212,175,55,0.02); border-color: rgba(212,175,55,0.04); }
         .simulator-container .step .options button.correct { border-color: #4ade80; background: rgba(74,222,128,0.05); color: #4ade80; }
         .simulator-container .step .options button.wrong { border-color: #f87171; background: rgba(248,113,113,0.05); color: #f87171; }
         .simulator-container .progress-bar {
@@ -1208,6 +1191,7 @@
             font-size: 14px;
             color: rgba(255,255,255,0.15);
         }
+        body.light-mode .simulator-container .progress-text { color: rgba(0,0,0,0.1); }
         .simulator-container .sim-result {
             display: none;
             padding: 20px;
@@ -1233,10 +1217,6 @@
         }
         .simulator-container .sim-result .btn:hover { transform: scale(1.04); }
 
-        body.light-mode .simulator-container .step .options button { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.02); }
-        body.light-mode .simulator-container .step .options button:hover { color: #1a1a1a; background: rgba(212,175,55,0.02); border-color: rgba(212,175,55,0.04); }
-        body.light-mode .simulator-container .progress-text { color: rgba(0,0,0,0.1); }
-
         /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 44px; }
@@ -1248,8 +1228,6 @@
             .header-right { text-align: center; }
             .sale-banner { font-size: 17px; }
             .container { padding: 0 16px 40px; }
-            .cabinet-btn { right: 20px; top: 80px; font-size: 12px; padding: 8px 16px; }
-            .theme-toggle { right: 20px; top: 20px; width: 40px; height: 40px; font-size: 18px; }
             #backToTop { right: 20px; bottom: 100px; width: 44px; height: 44px; font-size: 20px; }
             #chat-window { width: 92%; right: 4%; bottom: 100px; max-height: 460px; }
             #chat-toggle { width: 56px; height: 56px; font-size: 28px; bottom: 20px; right: 20px; }
@@ -1257,6 +1235,10 @@
             .chat-quick-buttons { grid-template-columns: 1fr 1fr; }
             .wheel-container { width: 220px; height: 220px; }
             .wheel-box { padding: 30px 20px; }
+            /* Кнопки в левом углу на телефоне */
+            .bottom-left-buttons { left: 16px !important; bottom: 100px !important; gap: 8px !important; }
+            .bottom-left-buttons .theme-toggle { width: 44px !important; height: 44px !important; font-size: 18px !important; }
+            .bottom-left-buttons .cabinet-btn { padding: 8px 16px !important; font-size: 12px !important; }
         }
         @media (max-width: 400px) {
             .hero h1 { font-size: 32px; }
@@ -1267,14 +1249,43 @@
     </style>
 </head>
 <body>
-        <!-- ===== ЗВЁЗДЫ ===== -->
+
+    <!-- ===== ЗВЁЗДЫ ===== -->
     <canvas id="stars-canvas"></canvas>
 
-    <!-- ===== КНОПКА ТЕМЫ ===== -->
-    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    <!-- ============================================================ -->
+    <!-- ===== КНОПКИ В ЛЕВОМ НИЖНЕМ УГЛУ ===== -->
+    <!-- ============================================================ -->
+    <div class="bottom-left-buttons" style="position:fixed; bottom:30px; left:30px; z-index:1000; display:flex; gap:10px; flex-wrap:wrap;">
+        <!-- КНОПКА ТЕМЫ -->
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" style="
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            background:rgba(255,215,0,0.02);
+            border:1px solid rgba(255,215,0,0.04);
+            color:#fff;
+            font-size:22px;
+            cursor:pointer;
+            transition:0.4s;
+            backdrop-filter:blur(20px);
+            font-family:'Segoe UI',sans-serif;
+        ">🌙</button>
 
-    <!-- ===== КНОПКА ЛИЧНОГО КАБИНЕТА ===== -->
-    <button class="cabinet-btn" onclick="openCabinet()">👤 Войти</button>
+        <!-- КНОПКА ЛИЧНОГО КАБИНЕТА -->
+        <button class="cabinet-btn" onclick="openCabinet()" style="
+            padding:12px 24px;
+            background:rgba(255,215,0,0.02);
+            border:1px solid rgba(255,215,0,0.04);
+            border-radius:60px;
+            color:rgba(255,255,255,0.3);
+            font-size:14px;
+            cursor:pointer;
+            transition:0.3s;
+            backdrop-filter:blur(20px);
+            font-family:'Segoe UI',sans-serif;
+        ">👤 Войти</button>
+    </div>
 
     <!-- ===== КНОПКА НАВЕРХ ===== -->
     <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -1316,7 +1327,7 @@
         <div class="header">
             <div class="logo"><span>Pro</span>Ремонт</div>
             <div class="header-right">
-                <a href="tel:+79005275628" class="phone">+7 (900) 527 56-28</a>
+                <a href="tel:+79005275628" class="phone">📞 +7 (900) 527 56-28</a>
                 <div class="contact-line">✉️ <span>@ProRemont012</span></div>
                 <div class="contact-line"><a href="mailto:ProRemont012@gmail.com">ProRemont012@gmail.com</a></div>
                 <div id="clock">⏱️ <span id="timeDisplay">00:00</span></div>
@@ -1467,7 +1478,7 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- ===== СИМУЛЯТОР РЕМОНТА (НОВИНКА!) ===== -->
+        <!-- ===== СИМУЛЯТОР РЕМОНТА ===== -->
         <!-- ============================================================ -->
         <div class="fade-section" style="text-align:center;">
             <div class="section-title">🎮 Симулятор <span class="gold-gradient">ремонта</span></div>
@@ -1592,7 +1603,8 @@
             <div class="register-link">Нет аккаунта? <a href="#" onclick="alert('📝 Регистрация временно в разработке. Позвоните нам! ☎️')">Зарегистрироваться</a></div>
         </div>
     </div>
-        <!-- ============================================================ -->
+
+    <!-- ============================================================ -->
     <!-- ===== ПОПАП КВИЗА ===== -->
     <!-- ============================================================ -->
     <div class="quiz-popup" id="quizPopup">
@@ -1771,7 +1783,8 @@
             let maxStyle = '';
             let maxCount = 0;
             for (const [style, count] of Object.entries(styles)) {
-                if (count > maxCount) { maxCount = count; maxStyle = style; }
+                if (count > maxCount) { maxCount = count;
+                    maxStyle = style; }
             }
             const styleData = {
                 modern: { icon: '🏙️', name: 'Современный минимализм', desc: 'Чистые линии, стекло, металл, нейтральные цвета.' },
@@ -2041,7 +2054,6 @@
                 currentStep = step;
                 updateProgress(step);
             } else {
-                // Все этапы пройдены
                 document.getElementById('simResult').classList.add('show');
                 updateProgress(5);
             }
@@ -2098,7 +2110,8 @@
             ctx.clearRect(0, 0, W, H);
             stars.forEach(s => {
                 s.y += s.speed;
-                if (s.y > H) { s.y = -5; s.x = Math.random() * W; }
+                if (s.y > H) { s.y = -5;
+                    s.x = Math.random() * W; }
                 ctx.beginPath();
                 ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(255, 215, 0, ${s.opacity})`;
@@ -2112,7 +2125,9 @@
         drawWheel(0);
         updateProgress(0);
 
-        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ (ЧАТ-БОТ + 4 ФИШКИ + КОЛЕСО + СИМУЛЯТОР) ЗАГРУЖЕН!');
+        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ ЗАГРУЖЕН!');
+        console.log('📞 Телефон теперь полностью виден!');
+        console.log('🌙 Кнопки темы и "Войти" в левом нижнем углу!');
     </script>
 
 </body>

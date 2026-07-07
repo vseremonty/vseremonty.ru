@@ -1002,7 +1002,7 @@
         }
 
         /* ============================================================ */
-        /* ===== КОЛЕСО ФОРТУНЫ (НОВАЯ ФИШКА) ===== */
+        /* ===== КОЛЕСО ФОРТУНЫ ===== */
         /* ============================================================ */
         .wheel-popup {
             position: fixed;
@@ -1144,6 +1144,99 @@
         }
         .wheel-result .phone-input button:hover { transform: scale(1.04); }
 
+        /* ============================================================ */
+        /* ===== СИМУЛЯТОР РЕМОНТА (НОВАЯ ИГРА) ===== */
+        /* ============================================================ */
+        .simulator-container {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,215,0,0.01);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 40px;
+            margin: 30px 0;
+        }
+        .simulator-container .game-area {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .simulator-container .step {
+            display: none;
+            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 24px;
+            margin-top: 16px;
+        }
+        .simulator-container .step.active { display: block; }
+        .simulator-container .step .emoji { font-size: 48px; display: block; margin-bottom: 8px; }
+        .simulator-container .step h3 { font-size: 24px; font-weight: 700; color: #ffd700; margin-bottom: 8px; }
+        .simulator-container .step p { color: rgba(255,255,255,0.3); font-size: 16px; margin-bottom: 16px; }
+        .simulator-container .step .options { display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto; }
+        .simulator-container .step .options button {
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 16px;
+            color: rgba(255,255,255,0.5);
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .simulator-container .step .options button:hover {
+            background: rgba(255,215,0,0.02);
+            border-color: rgba(255,215,0,0.04);
+            color: #ffffff;
+        }
+        .simulator-container .step .options button.correct { border-color: #4ade80; background: rgba(74,222,128,0.05); color: #4ade80; }
+        .simulator-container .step .options button.wrong { border-color: #f87171; background: rgba(248,113,113,0.05); color: #f87171; }
+        .simulator-container .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+        .simulator-container .progress-bar .fill {
+            height: 100%;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border-radius: 20px;
+            transition: 0.5s;
+            width: 0%;
+        }
+        .simulator-container .progress-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.15);
+        }
+        .simulator-container .sim-result {
+            display: none;
+            padding: 20px;
+            background: rgba(255,215,0,0.01);
+            border: 1px solid rgba(255,215,0,0.02);
+            border-radius: 24px;
+            margin-top: 16px;
+        }
+        .simulator-container .sim-result.show { display: block; }
+        .simulator-container .sim-result .big { font-size: 48px; display: block; }
+        .simulator-container .sim-result h3 { font-size: 28px; font-weight: 800; color: #ffd700; }
+        .simulator-container .sim-result p { color: rgba(255,255,255,0.2); font-size: 14px; }
+        .simulator-container .sim-result .btn {
+            margin-top: 16px;
+            padding: 12px 40px;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border: none;
+            border-radius: 60px;
+            color: #0a0a0f;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .simulator-container .sim-result .btn:hover { transform: scale(1.04); }
+
+        body.light-mode .simulator-container .step .options button { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.02); }
+        body.light-mode .simulator-container .step .options button:hover { color: #1a1a1a; background: rgba(212,175,55,0.02); border-color: rgba(212,175,55,0.04); }
+        body.light-mode .simulator-container .progress-text { color: rgba(0,0,0,0.1); }
+
         /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 44px; }
@@ -1174,8 +1267,7 @@
     </style>
 </head>
 <body>
-
-    <!-- ===== ЗВЁЗДЫ ===== -->
+        <!-- ===== ЗВЁЗДЫ ===== -->
     <canvas id="stars-canvas"></canvas>
 
     <!-- ===== КНОПКА ТЕМЫ ===== -->
@@ -1366,27 +1458,90 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- ===== КОЛЕСО ФОРТУНЫ (БЛОК НА СТРАНИЦЕ) ===== -->
+        <!-- ===== КОЛЕСО ФОРТУНЫ ===== -->
         <!-- ============================================================ -->
         <div class="fade-section" style="text-align:center;">
             <div class="section-title">🎡 Колесо <span class="gold-gradient">фортуны</span></div>
             <p style="color:rgba(255,255,255,0.15); margin-bottom:24px;">Покрути и получи скидку до 30%!</p>
+            <button onclick="openWheel()" style="background: linear-gradient(135deg, #ffd700, #f7971e); color: #0a0a0f; border: none; border-radius: 60px; padding: 18px 48px; font-size: 22px; font-weight: 800; cursor: pointer; box-shadow: 0 8px 40px rgba(255,215,0,0.15); transition: 0.3s; font-family: 'Segoe UI', sans-serif;">🎰 Крутить колесо!</button>
+        </div>
 
-            <button onclick="openWheel()" style="
-                background: linear-gradient(135deg, #ffd700, #f7971e);
-                color: #0a0a0f;
-                border: none;
-                border-radius: 60px;
-                padding: 18px 48px;
-                font-size: 22px;
-                font-weight: 800;
-                cursor: pointer;
-                box-shadow: 0 8px 40px rgba(255,215,0,0.15);
-                transition: 0.3s;
-                font-family: 'Segoe UI', sans-serif;
-            ">
-                🎰 Крутить колесо!
-            </button>
+        <!-- ============================================================ -->
+        <!-- ===== СИМУЛЯТОР РЕМОНТА (НОВИНКА!) ===== -->
+        <!-- ============================================================ -->
+        <div class="fade-section" style="text-align:center;">
+            <div class="section-title">🎮 Симулятор <span class="gold-gradient">ремонта</span></div>
+            <p style="color:rgba(255,255,255,0.15); margin-bottom:16px;">Пройди все этапы ремонта и получи скидку 10%!</p>
+
+            <div class="simulator-container">
+                <div class="game-area">
+                    <div class="progress-bar"><div class="fill" id="simProgress"></div></div>
+                    <div class="progress-text" id="simProgressText">0 / 5 этапов</div>
+
+                    <div class="step active" data-step="0">
+                        <span class="emoji">🔨</span>
+                        <h3>Этап 1: Демонтаж</h3>
+                        <p>Что нужно сделать первым делом?</p>
+                        <div class="options">
+                            <button onclick="checkAnswer(this, true, 1)">✅ Снять старые обои и плитку</button>
+                            <button onclick="checkAnswer(this, false, 1)">❌ Сразу красить стены</button>
+                            <button onclick="checkAnswer(this, false, 1)">❌ Установить новую мебель</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="1">
+                        <span class="emoji">🏗️</span>
+                        <h3>Этап 2: Стяжка пола</h3>
+                        <p>Как правильно залить пол?</p>
+                        <div class="options">
+                            <button onclick="checkAnswer(this, true, 2)">✅ Выровнять и залить бетоном</button>
+                            <button onclick="checkAnswer(this, false, 2)">❌ Положить ламинат на старый пол</button>
+                            <button onclick="checkAnswer(this, false, 2)">❌ Залить водой и оставить</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="2">
+                        <span class="emoji">⚡</span>
+                        <h3>Этап 3: Электрика</h3>
+                        <p>Что важно сделать с электрикой?</p>
+                        <div class="options">
+                            <button onclick="checkAnswer(this, true, 3)">✅ Провести новую проводку</button>
+                            <button onclick="checkAnswer(this, false, 3)">❌ Оставить старую проводку</button>
+                            <button onclick="checkAnswer(this, false, 3)">❌ Подключить всё к удлинителю</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="3">
+                        <span class="emoji">🎨</span>
+                        <h3>Этап 4: Отделка</h3>
+                        <p>Как лучше отделать стены?</p>
+                        <div class="options">
+                            <button onclick="checkAnswer(this, true, 4)">✅ Шпаклёвка + покраска</button>
+                            <button onclick="checkAnswer(this, false, 4)">❌ Оставить бетон</button>
+                            <button onclick="checkAnswer(this, false, 4)">❌ Обклеить газетами</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="4">
+                        <span class="emoji">✨</span>
+                        <h3>Этап 5: Финиш</h3>
+                        <p>Что делаем в самом конце?</p>
+                        <div class="options">
+                            <button onclick="checkAnswer(this, true, 5)">✅ Уборка и установка мебели</button>
+                            <button onclick="checkAnswer(this, false, 5)">❌ Забить и уйти</button>
+                            <button onclick="checkAnswer(this, false, 5)">❌ Начать всё заново</button>
+                        </div>
+                    </div>
+
+                    <div class="sim-result" id="simResult">
+                        <span class="big">🎉</span>
+                        <h3>Поздравляем!</h3>
+                        <p>Вы прошли все этапы ремонта! 🏆</p>
+                        <p style="font-size:20px; color:#ffd700; margin-top:8px;">Ваша скидка: 10%</p>
+                        <button class="btn" onclick="alert('🎉 Скидка 10% сохранена! Звоните: +7 (900) 527 56-28')">📞 Получить скидку</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- ===== ОТЗЫВЫ ===== -->
@@ -1437,8 +1592,7 @@
             <div class="register-link">Нет аккаунта? <a href="#" onclick="alert('📝 Регистрация временно в разработке. Позвоните нам! ☎️')">Зарегистрироваться</a></div>
         </div>
     </div>
-
-    <!-- ============================================================ -->
+        <!-- ============================================================ -->
     <!-- ===== ПОПАП КВИЗА ===== -->
     <!-- ============================================================ -->
     <div class="quiz-popup" id="quizPopup">
@@ -1502,14 +1656,11 @@
             <button class="close-wheel" onclick="closeWheel()">✕</button>
             <h2>🎡 Колесо <span class="gold-gradient">фортуны</span></h2>
             <div class="subtitle">Покрути и получи скидку до 30%!</div>
-
             <div class="wheel-container">
                 <div class="pointer">▼</div>
                 <canvas id="wheelCanvas" width="400" height="400"></canvas>
             </div>
-
             <button class="wheel-btn" id="spinBtn" onclick="spinWheel()">🎰 Крутить!</button>
-
             <div class="wheel-result" id="wheelResult">
                 <div class="discount" id="discountDisplay">🎉 15%</div>
                 <div class="label">Ваша скидка!</div>
@@ -1553,7 +1704,6 @@
 
         // ===== ТЕМА =====
         let isDark = true;
-
         function toggleTheme() {
             const body = document.body;
             const btn = document.getElementById('themeBtn');
@@ -1572,11 +1722,9 @@
         function openCabinet() {
             document.getElementById('cabinetPopup').classList.add('open');
         }
-
         function closeCabinet() {
             document.getElementById('cabinetPopup').classList.remove('open');
         }
-
         function loginUser() {
             const phone = document.getElementById('loginPhone').value;
             const pass = document.getElementById('loginPass').value;
@@ -1587,7 +1735,6 @@
                 alert('📝 Пожалуйста, заполните все поля!');
             }
         }
-
         document.getElementById('cabinetPopup').addEventListener('click', function(e) {
             if (e.target === this) closeCabinet();
         });
@@ -1598,11 +1745,9 @@
             document.getElementById('quizResult').style.display = 'none';
             document.querySelectorAll('#quizContent input[type="radio"]').forEach(el => el.checked = false);
         }
-
         function closeQuiz() {
             document.getElementById('quizPopup').classList.remove('open');
         }
-
         function submitQuiz() {
             const q1 = document.querySelector('input[name="q1"]:checked');
             const q2 = document.querySelector('input[name="q2"]:checked');
@@ -1610,15 +1755,12 @@
             const q4 = document.querySelector('input[name="q4"]:checked');
             const q5 = document.querySelector('input[name="q5"]:checked');
             const q6 = document.querySelector('input[name="q6"]:checked');
-
             if (!q1 || !q2 || !q3 || !q4 || !q5 || !q6) {
                 alert('❌ Ответьте на все 6 вопросов!');
                 return;
             }
-
             const answers = [q1.value, q2.value, q3.value, q4.value, q5.value, q6.value];
             const styles = { modern: 0, classic: 0, scandi: 0, loft: 0, minimal: 0 };
-
             answers.forEach(a => {
                 if (a === 'modern' || a === 'cold' || a === 'space' || a === 'premium' || a === 'tech' || a === 'urban') styles.modern += 1;
                 if (a === 'classic' || a === 'warm' || a === 'beauty' || a === 'standard' || a === 'art' || a === 'nature') styles.classic += 1;
@@ -1626,14 +1768,11 @@
                 if (a === 'loft' || a === 'dark' || a === 'practical' || a === 'premium' || a === 'textile' || a === 'loft') styles.loft += 1;
                 if (a === 'minimal' || a === 'cold' || a === 'space' || a === 'economy' || a === 'tech' || a === 'minimal') styles.minimal += 1;
             });
-
             let maxStyle = '';
             let maxCount = 0;
             for (const [style, count] of Object.entries(styles)) {
-                if (count > maxCount) { maxCount = count;
-                    maxStyle = style; }
+                if (count > maxCount) { maxCount = count; maxStyle = style; }
             }
-
             const styleData = {
                 modern: { icon: '🏙️', name: 'Современный минимализм', desc: 'Чистые линии, стекло, металл, нейтральные цвета.' },
                 classic: { icon: '🏛️', name: 'Классика', desc: 'Дорогие материалы, лепнина, пастельные тона. Вечная элегантность.' },
@@ -1641,9 +1780,7 @@
                 loft: { icon: '🧱', name: 'Лофт', desc: 'Кирпич, бетон, открытые коммуникации. Индустриальный шик.' },
                 minimal: { icon: '🧘', name: 'Минимализм', desc: 'Ничего лишнего, только функциональные вещи.' }
             };
-
             const result = styleData[maxStyle] || styleData.modern;
-
             document.getElementById('quizResult').innerHTML = `
                 <div class="quiz-result">
                     <span class="style-icon">${result.icon}</span>
@@ -1654,7 +1791,6 @@
             `;
             document.getElementById('quizResult').style.display = 'block';
         }
-
         document.getElementById('quizPopup').addEventListener('click', function(e) {
             if (e.target === this) closeQuiz();
         });
@@ -1662,27 +1798,21 @@
         // ===== МИНИ-ИГРА =====
         let coinScore = 0;
         const coinMessages = ['🪙 +1 монетка!', '💰 Продолжай собирать!', '✨ Ещё одна!', '🔥 Отлично!', '⭐ Ты лучший!', '💎 Блестяще!'];
-
         function clickCoin() {
             const coin = document.getElementById('gameCoin');
             const msg = document.getElementById('coinMessage');
             const score = document.getElementById('coinScore');
-
             coinScore++;
             score.textContent = coinScore;
-
             coin.classList.remove('flying');
             void coin.offsetWidth;
             coin.classList.add('flying');
-
             const randomMsg = coinMessages[Math.floor(Math.random() * coinMessages.length)];
             msg.textContent = randomMsg;
             msg.style.color = '#ffd700';
-
             const scale = 1 + Math.random() * 0.3;
             coin.style.transform = `scale(${scale})`;
             setTimeout(() => { coin.style.transform = 'scale(1)'; }, 200);
-
             if (coinScore === 10) {
                 msg.textContent = '🎉 Ты собрал 10 монет! Ты настоящий мастер!';
                 setTimeout(() => { msg.textContent = '💰 Продолжай собирать!'; }, 3000);
@@ -1692,7 +1822,6 @@
                 setTimeout(() => { msg.textContent = '💰 Продолжай собирать!'; }, 4000);
             }
         }
-
         function resetGame() {
             coinScore = 0;
             document.getElementById('coinScore').textContent = '0';
@@ -1705,7 +1834,6 @@
         function toggleChat() {
             document.getElementById('chat-window').classList.toggle('open');
         }
-
         function sendMessage() {
             const input = document.getElementById('chat-input');
             const text = input.value.trim();
@@ -1714,12 +1842,10 @@
             input.value = '';
             botReply(text);
         }
-
         function quickReply(text) {
             addMessage('user', text);
             botReply(text);
         }
-
         function addMessage(type, text) {
             const body = document.getElementById('chat-body');
             const div = document.createElement('div');
@@ -1732,11 +1858,9 @@
             body.insertBefore(div, body.querySelector('.chat-quick-buttons'));
             body.scrollTop = body.scrollHeight;
         }
-
         function botReply(text) {
             const lower = text.toLowerCase();
             let reply = '';
-
             if (lower.includes('стоимость') || lower.includes('цен') || lower.includes('рассчит')) {
                 reply = '📐 Воспользуйтесь калькулятором на сайте! Или оставьте заявку на бесплатный замер! 📞';
             } else if (lower.includes('звонок') || lower.includes('позвонить')) {
@@ -1754,7 +1878,6 @@
             } else {
                 reply = `🤔 Передам ваш вопрос мастеру. Позвоните: +7 (900) 527 56-28`;
             }
-
             setTimeout(() => {
                 addMessage('bot', reply);
                 const body = document.getElementById('chat-body');
@@ -1784,7 +1907,6 @@
             { label: '15%', color: '#0f3460', value: 15 },
             { label: '30%', color: '#e94560', value: 30 },
         ];
-
         let currentRotation = 0;
         let spinning = false;
         let lastDiscount = 0;
@@ -1797,10 +1919,8 @@
             const cx = w / 2;
             const cy = h / 2;
             const radius = Math.min(w, h) / 2 - 10;
-
             ctx.clearRect(0, 0, w, h);
             const sliceAngle = (Math.PI * 2) / segments.length;
-
             segments.forEach((seg, i) => {
                 const start = i * sliceAngle + rotation;
                 const end = start + sliceAngle;
@@ -1813,7 +1933,6 @@
                 ctx.strokeStyle = 'rgba(255,215,0,0.02)';
                 ctx.lineWidth = 1;
                 ctx.stroke();
-
                 const mid = start + sliceAngle / 2;
                 const textRadius = radius * 0.65;
                 const tx = cx + Math.cos(mid) * textRadius;
@@ -1828,7 +1947,6 @@
                 ctx.fillText(seg.label, 0, 0);
                 ctx.restore();
             });
-
             ctx.beginPath();
             ctx.arc(cx, cy, 24, 0, Math.PI * 2);
             ctx.fillStyle = '#ffd700';
@@ -1847,17 +1965,14 @@
             btn.disabled = true;
             const resultDiv = document.getElementById('wheelResult');
             resultDiv.classList.remove('show');
-
             const extraSpins = 5 + Math.random() * 5;
             const randomIndex = Math.floor(Math.random() * segments.length);
             const targetAngle = (Math.PI * 2) * extraSpins + (Math.PI * 2 - (randomIndex / segments.length) * Math.PI * 2);
             currentRotation += targetAngle;
             drawWheel(currentRotation);
-
             const canvas = document.getElementById('wheelCanvas');
             canvas.style.transition = 'transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
             canvas.style.transform = `rotate(${currentRotation}rad)`;
-
             setTimeout(() => {
                 const winSegment = segments[randomIndex];
                 lastDiscount = winSegment.value;
@@ -1872,11 +1987,9 @@
             document.getElementById('wheelPopup').classList.add('open');
             drawWheel(currentRotation);
         }
-
         function closeWheel() {
             document.getElementById('wheelPopup').classList.remove('open');
         }
-
         function claimDiscount() {
             const phone = document.getElementById('phoneInput').value;
             if (!phone || phone.length < 10) {
@@ -1886,10 +1999,64 @@
             alert(`🎉 Скидка ${lastDiscount}% сохранена! Звоните: +7 (900) 527 56-28`);
             closeWheel();
         }
-
         document.getElementById('wheelPopup').addEventListener('click', function(e) {
             if (e.target === this) closeWheel();
         });
+
+        // ============================================================
+        // ===== СИМУЛЯТОР РЕМОНТА =====
+        // ============================================================
+        let currentStep = 0;
+        const totalSteps = 5;
+
+        function checkAnswer(btn, isCorrect, nextStep) {
+            if (btn.disabled) return;
+            const options = btn.parentElement.querySelectorAll('button');
+            options.forEach(b => b.disabled = true);
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.textContent = btn.textContent.replace('❌', '✅').replace('✅', '✅');
+                setTimeout(() => {
+                    options.forEach(b => b.disabled = false);
+                    btn.classList.remove('correct');
+                    goToStep(nextStep);
+                }, 600);
+            } else {
+                btn.classList.add('wrong');
+                btn.textContent = btn.textContent.replace('✅', '❌').replace('❌', '❌');
+                setTimeout(() => {
+                    btn.classList.remove('wrong');
+                    btn.disabled = false;
+                    options.forEach(b => b.disabled = false);
+                }, 800);
+            }
+        }
+
+        function goToStep(step) {
+            const steps = document.querySelectorAll('.simulator-container .step');
+            steps.forEach(s => s.classList.remove('active'));
+            const target = document.querySelector(`.simulator-container .step[data-step="${step}"]`);
+            if (target) {
+                target.classList.add('active');
+                currentStep = step;
+                updateProgress(step);
+            } else {
+                // Все этапы пройдены
+                document.getElementById('simResult').classList.add('show');
+                updateProgress(5);
+            }
+        }
+
+        function updateProgress(step) {
+            const fill = document.getElementById('simProgress');
+            const text = document.getElementById('simProgressText');
+            const progress = Math.min((step / totalSteps) * 100, 100);
+            fill.style.width = progress + '%';
+            text.textContent = `${Math.min(step, totalSteps)} / ${totalSteps} этапов`;
+            if (step >= totalSteps) {
+                text.textContent = '✅ Все этапы пройдены!';
+            }
+        }
 
         // ===== КНОПКА НАВЕРХ =====
         window.addEventListener('scroll', function() {
@@ -1911,14 +2078,12 @@
         const canvas = document.getElementById('stars-canvas');
         const ctx = canvas.getContext('2d');
         let W, H;
-
         function resizeCanvas() {
             W = canvas.width = window.innerWidth;
             H = canvas.height = window.innerHeight;
         }
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
-
         const stars = [];
         for (let i = 0; i < 80; i++) {
             stars.push({
@@ -1929,13 +2094,11 @@
                 opacity: Math.random() * 0.3 + 0.03
             });
         }
-
         function drawStars() {
             ctx.clearRect(0, 0, W, H);
             stars.forEach(s => {
                 s.y += s.speed;
-                if (s.y > H) { s.y = -5;
-                    s.x = Math.random() * W; }
+                if (s.y > H) { s.y = -5; s.x = Math.random() * W; }
                 ctx.beginPath();
                 ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(255, 215, 0, ${s.opacity})`;
@@ -1945,10 +2108,11 @@
         }
         drawStars();
 
-        // Инициализация колеса
+        // Инициализация колеса и симулятора
         drawWheel(0);
+        updateProgress(0);
 
-        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ (ЧАТ-БОТ + 4 ФИШКИ + КОЛЕСО) ЗАГРУЖЕН!');
+        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ (ЧАТ-БОТ + 4 ФИШКИ + КОЛЕСО + СИМУЛЯТОР) ЗАГРУЖЕН!');
     </script>
 
 </body>

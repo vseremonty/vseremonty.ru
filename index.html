@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProРемонт — 4 фишки</title>
+    <title>ProРемонт — Всё в одном</title>
     <style>
         /* ===== ГЛОБАЛЬНЫЕ ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,7 +16,7 @@
             transition: background 0.4s, color 0.4s;
         }
 
-        /* ===== ФИШКА 14: СВЕТЛАЯ ТЕМА ===== */
+        /* ===== СВЕТЛАЯ ТЕМА ===== */
         body.light-mode {
             background: #f5f3f0;
             color: #1a1a1a;
@@ -58,30 +58,20 @@
         body.light-mode .badge { color: rgba(0,0,0,0.15); border-color: rgba(0,0,0,0.04); }
         body.light-mode .result { border-color: rgba(0,0,0,0.02); }
         body.light-mode .result p { color: rgba(0,0,0,0.05); }
-
-        /* Кнопка переключения темы */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255,215,0,0.02);
-            border: 1px solid rgba(255,215,0,0.04);
-            color: #fff;
-            font-size: 22px;
-            cursor: pointer;
-            z-index: 1000;
-            transition: 0.4s;
-            backdrop-filter: blur(20px);
-        }
-        body.light-mode .theme-toggle {
-            background: rgba(0,0,0,0.02);
-            border-color: rgba(0,0,0,0.04);
-            color: #1a1a1a;
-        }
-        .theme-toggle:hover { transform: scale(1.1); }
+        body.light-mode .cabinet-btn { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.04); color: rgba(0,0,0,0.3); }
+        body.light-mode .theme-toggle { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.04); color: #1a1a1a; }
+        body.light-mode .cabinet-box { background: rgba(255,255,255,0.95); }
+        body.light-mode .cabinet-box p { color: rgba(0,0,0,0.2); }
+        body.light-mode .cabinet-box input { color: #1a1a1a; background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); }
+        body.light-mode .cabinet-box .close-popup { color: rgba(0,0,0,0.2); }
+        body.light-mode .cabinet-box .register-link { color: rgba(0,0,0,0.15); }
+        body.light-mode .quiz-box { background: rgba(255,255,255,0.95); }
+        body.light-mode .quiz-box .subtitle { color: rgba(0,0,0,0.2); }
+        body.light-mode .quiz-box .close-quiz { color: rgba(0,0,0,0.2); }
+        body.light-mode .quiz-question label { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); }
+        body.light-mode .quiz-result .style-desc { color: rgba(0,0,0,0.2); }
+        body.light-mode .game-container .reset-game { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); color: rgba(0,0,0,0.3); }
+        body.light-mode .game-container .coin-message { color: rgba(0,0,0,0.15); }
 
         /* ===== ЗВЁЗДЫ ===== */
         #stars-canvas {
@@ -132,6 +122,7 @@
             50% { background-position: 100% 50%; }
         }
 
+        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             justify-content: space-between;
@@ -157,6 +148,44 @@
         #clock { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 6px; }
         #clock span { color: #ffffff; }
 
+        /* ===== КНОПКА ТЕМЫ ===== */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,215,0,0.02);
+            border: 1px solid rgba(255,215,0,0.04);
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: 0.4s;
+            backdrop-filter: blur(20px);
+        }
+        .theme-toggle:hover { transform: scale(1.1); }
+
+        /* ===== КНОПКА ЛИЧНОГО КАБИНЕТА ===== */
+        .cabinet-btn {
+            position: fixed;
+            top: 20px;
+            right: 80px;
+            padding: 10px 20px;
+            background: rgba(255,215,0,0.02);
+            border: 1px solid rgba(255,215,0,0.04);
+            border-radius: 60px;
+            color: rgba(255,255,255,0.3);
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: 0.3s;
+            backdrop-filter: blur(20px);
+        }
+        .cabinet-btn:hover { color: #ffd700; border-color: rgba(255,215,0,0.06); }
+
+        /* ===== БАННЕР ===== */
         .sale-banner {
             text-align: center;
             padding: 20px 24px;
@@ -175,6 +204,7 @@
         }
         .sale-banner span { color: #ffd700; }
 
+        /* ===== ГЕРОЙ ===== */
         .hero {
             text-align: center;
             padding: 80px 20px 60px;
@@ -529,31 +559,207 @@
         }
 
         /* ============================================================ */
-        /* ===== ФИШКА 61: ЛИЧНЫЙ КАБИНЕТ (ПОПАП) ===== */
+        /* ===== ЧАТ-БОТ (СТАРЫЙ, КОТОРЫЙ ТЕБЕ НРАВИЛСЯ) ===== */
         /* ============================================================ */
-        .cabinet-btn {
+        #chat-toggle {
             position: fixed;
-            top: 20px;
-            right: 80px;
-            padding: 10px 20px;
+            bottom: 30px;
+            right: 30px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border: none;
+            color: #0a0a0f;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 8px 40px rgba(255,215,0,0.15);
+            z-index: 1000;
+            transition: 0.4s;
+            animation: floatChat 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #chat-toggle:hover { transform: scale(1.08); box-shadow: 0 12px 60px rgba(255,215,0,0.2); }
+        @keyframes floatChat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        #chat-window {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 380px;
+            max-height: 520px;
+            background: rgba(20, 20, 30, 0.95);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,215,0,0.06);
+            border-radius: 28px;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+            z-index: 1000;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        body.light-mode #chat-window { background: rgba(255,255,255,0.95); border-color: rgba(0,0,0,0.04); }
+        #chat-window.open { display: flex; }
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .chat-header {
+            padding: 18px 24px;
+            background: rgba(255,215,0,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        body.light-mode .chat-header { border-color: rgba(0,0,0,0.02); }
+        .chat-header .title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        body.light-mode .chat-header .title { color: #1a1a1a; }
+        .chat-header .title span { color: #ffd700; }
+        .chat-header .close-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.2);
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        body.light-mode .chat-header .close-btn { color: rgba(0,0,0,0.2); }
+        .chat-header .close-btn:hover { color: #ffd700; }
+
+        .chat-body {
+            padding: 20px 24px;
+            overflow-y: auto;
+            flex: 1;
+            max-height: 340px;
+        }
+        .chat-body::-webkit-scrollbar { width: 4px; }
+        .chat-body::-webkit-scrollbar-track { background: transparent; }
+        .chat-body::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.15); border-radius: 20px; }
+
+        .chat-message {
+            margin-bottom: 16px;
+            animation: msgIn 0.4s ease;
+        }
+        @keyframes msgIn {
+            0% { opacity: 0; transform: translateX(-10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .chat-message .avatar {
+            font-size: 20px;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .chat-message .bubble {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 15px;
+            line-height: 1.5;
+            max-width: 90%;
+        }
+        .chat-message.bot .bubble {
+            background: rgba(255,255,255,0.03);
+            color: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.02);
+        }
+        body.light-mode .chat-message.bot .bubble { background: rgba(0,0,0,0.02); color: rgba(0,0,0,0.5); border-color: rgba(0,0,0,0.02); }
+        .chat-message.user .bubble {
+            background: rgba(255,215,0,0.06);
+            color: #ffffff;
+            border: 1px solid rgba(255,215,0,0.04);
+            float: right;
+            clear: both;
+        }
+        body.light-mode .chat-message.user .bubble { background: rgba(212,175,55,0.06); color: #1a1a1a; border-color: rgba(212,175,55,0.04); }
+        .chat-message.user { text-align: right; }
+
+        .chat-quick-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .chat-quick-buttons button {
+            padding: 10px 12px;
             background: rgba(255,215,0,0.02);
             border: 1px solid rgba(255,215,0,0.04);
-            border-radius: 60px;
-            color: rgba(255,255,255,0.3);
-            font-size: 14px;
+            border-radius: 16px;
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            font-weight: 600;
             cursor: pointer;
-            z-index: 1000;
             transition: 0.3s;
-            backdrop-filter: blur(20px);
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
         }
-        body.light-mode .cabinet-btn {
-            background: rgba(0,0,0,0.02);
-            border-color: rgba(0,0,0,0.04);
-            color: rgba(0,0,0,0.3);
+        body.light-mode .chat-quick-buttons button { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.02); }
+        .chat-quick-buttons button:hover {
+            background: rgba(255,215,0,0.04);
+            border-color: rgba(255,215,0,0.06);
+            color: #ffffff;
         }
-        .cabinet-btn:hover { color: #ffd700; border-color: rgba(255,215,0,0.06); }
+        body.light-mode .chat-quick-buttons button:hover { color: #1a1a1a; background: rgba(212,175,55,0.04); }
 
-        /* Попап личного кабинета */
+        .chat-footer {
+            padding: 14px 20px;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        body.light-mode .chat-footer { border-color: rgba(0,0,0,0.02); }
+        .chat-footer input {
+            flex: 1;
+            padding: 10px 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 24px;
+            color: #ffffff;
+            font-size: 15px;
+            font-family: 'Segoe UI', sans-serif;
+            outline: none;
+            transition: 0.3s;
+        }
+        body.light-mode .chat-footer input { color: #1a1a1a; background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); }
+        .chat-footer input:focus {
+            border-color: rgba(255,215,0,0.04);
+            background: rgba(255,255,255,0.03);
+        }
+        body.light-mode .chat-footer input:focus { border-color: rgba(212,175,55,0.04); background: rgba(0,0,0,0.03); }
+        .chat-footer input::placeholder { color: rgba(255,255,255,0.15); }
+        body.light-mode .chat-footer input::placeholder { color: rgba(0,0,0,0.15); }
+        .chat-footer button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border: none;
+            border-radius: 24px;
+            color: #0a0a0f;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .chat-footer button:hover { transform: scale(1.04); }
+
+        /* ============================================================ */
+        /* ===== ФИШКА 61: ЛИЧНЫЙ КАБИНЕТ (ПОПАП) ===== */
+        /* ============================================================ */
         .cabinet-popup {
             position: fixed;
             top: 0;
@@ -583,7 +789,6 @@
             position: relative;
             backdrop-filter: blur(30px);
         }
-        body.light-mode .cabinet-box { background: rgba(255,255,255,0.95); }
         .cabinet-box .close-popup {
             position: absolute;
             top: 16px;
@@ -595,7 +800,6 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        body.light-mode .cabinet-box .close-popup { color: rgba(0,0,0,0.2); }
         .cabinet-box .close-popup:hover { color: #ffd700; }
         .cabinet-box h2 {
             font-size: 28px;
@@ -603,7 +807,6 @@
             margin-bottom: 8px;
         }
         .cabinet-box p { color: rgba(255,255,255,0.2); font-size: 14px; margin-bottom: 24px; }
-        body.light-mode .cabinet-box p { color: rgba(0,0,0,0.2); }
         .cabinet-box input {
             width: 100%;
             padding: 14px 16px;
@@ -615,7 +818,6 @@
             margin-bottom: 12px;
             transition: 0.3s;
         }
-        body.light-mode .cabinet-box input { color: #1a1a1a; background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.02); }
         .cabinet-box input:focus {
             border-color: rgba(255,215,0,0.04);
             outline: none;
@@ -639,14 +841,13 @@
             font-size: 14px;
             color: rgba(255,255,255,0.15);
         }
-        body.light-mode .cabinet-box .register-link { color: rgba(0,0,0,0.15); }
         .cabinet-box .register-link a {
             color: #ffd700;
             text-decoration: none;
         }
 
         /* ============================================================ */
-        /* ===== ФИШКА 47: КВИЗ "КАКОЙ ДИЗАЙН ВАМ ПОДХОДИТ?" ===== */
+        /* ===== ФИШКА 47: КВИЗ ===== */
         /* ============================================================ */
         .quiz-btn {
             display: inline-block;
@@ -662,6 +863,8 @@
             font-family: 'Segoe UI', sans-serif;
         }
         .quiz-btn:hover { color: #ffd700; border-color: rgba(255,215,0,0.06); }
+        body.light-mode .quiz-btn { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.02); }
+        body.light-mode .quiz-btn:hover { color: #d4af37; border-color: rgba(0,0,0,0.04); }
 
         .quiz-popup {
             position: fixed;
@@ -689,7 +892,6 @@
             max-height: 90vh;
             overflow-y: auto;
         }
-        body.light-mode .quiz-box { background: rgba(255,255,255,0.95); }
         .quiz-box .close-quiz {
             position: absolute;
             top: 16px;
@@ -701,7 +903,6 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        body.light-mode .quiz-box .close-quiz { color: rgba(0,0,0,0.2); }
         .quiz-box .close-quiz:hover { color: #ffd700; }
         .quiz-box h2 {
             font-size: 26px;
@@ -709,7 +910,6 @@
             margin-bottom: 8px;
         }
         .quiz-box .subtitle { color: rgba(255,255,255,0.2); font-size: 14px; margin-bottom: 24px; }
-        body.light-mode .quiz-box .subtitle { color: rgba(0,0,0,0.2); }
         .quiz-question { margin-bottom: 20px; }
         .quiz-question .q { font-weight: 700; font-size: 17px; margin-bottom: 10px; }
         .quiz-question label {
@@ -722,10 +922,6 @@
             cursor: pointer;
             transition: 0.3s;
             font-size: 15px;
-        }
-        body.light-mode .quiz-question label {
-            background: rgba(0,0,0,0.02);
-            border-color: rgba(0,0,0,0.02);
         }
         .quiz-question label:hover { border-color: rgba(255,215,0,0.04); background: rgba(255,215,0,0.02); }
         .quiz-question input[type="radio"] { margin-right: 10px; accent-color: #ffd700; }
@@ -740,7 +936,6 @@
         .quiz-result .style-icon { font-size: 48px; display: block; margin-bottom: 8px; }
         .quiz-result .style-name { font-size: 24px; font-weight: 700; color: #ffd700; }
         .quiz-result .style-desc { color: rgba(255,255,255,0.3); font-size: 14px; margin-top: 4px; }
-        body.light-mode .quiz-result .style-desc { color: rgba(0,0,0,0.2); }
         .quiz-result .btn {
             margin-top: 16px;
             padding: 12px 40px;
@@ -756,7 +951,7 @@
         .quiz-result .btn:hover { transform: scale(1.04); }
 
         /* ============================================================ */
-        /* ===== ФИШКА 201: МИНИ-ИГРА "ЗОЛОТАЯ МОНЕТКА" ===== */
+        /* ===== ФИШКА 201: МИНИ-ИГРА ===== */
         /* ============================================================ */
         .game-container {
             text-align: center;
@@ -775,10 +970,7 @@
         }
         .game-container .coin:hover { transform: scale(1.1); }
         .game-container .coin:active { transform: scale(0.9); }
-        .game-container .coin.placed { animation: none; }
-        .game-container .coin.flying {
-            animation: coinFly 0.3s ease;
-        }
+        .game-container .coin.flying { animation: coinFly 0.3s ease; }
         @keyframes coinFly {
             0% { transform: translateY(0) scale(1); }
             50% { transform: translateY(-30px) scale(1.2); }
@@ -801,11 +993,6 @@
             transition: 0.3s;
             font-size: 14px;
         }
-        body.light-mode .game-container .reset-game {
-            background: rgba(0,0,0,0.02);
-            border-color: rgba(0,0,0,0.02);
-            color: rgba(0,0,0,0.3);
-        }
         .game-container .reset-game:hover { color: #ffd700; border-color: rgba(255,215,0,0.04); }
         .game-container .coin-message {
             font-size: 14px;
@@ -813,7 +1000,6 @@
             margin-top: 12px;
             min-height: 24px;
         }
-        body.light-mode .game-container .coin-message { color: rgba(0,0,0,0.15); }
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
@@ -829,12 +1015,16 @@
             .cabinet-btn { right: 20px; top: 80px; font-size: 12px; padding: 8px 16px; }
             .theme-toggle { right: 20px; top: 20px; width: 40px; height: 40px; font-size: 18px; }
             #backToTop { right: 20px; bottom: 100px; width: 44px; height: 44px; font-size: 20px; }
+            #chat-window { width: 92%; right: 4%; bottom: 100px; max-height: 460px; }
+            #chat-toggle { width: 56px; height: 56px; font-size: 28px; bottom: 20px; right: 20px; }
             .cabinet-box, .quiz-box { padding: 30px 20px; }
+            .chat-quick-buttons { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 400px) {
             .hero h1 { font-size: 32px; }
             .logo { font-size: 24px; }
             .header-right .phone { font-size: 18px; }
+            .chat-quick-buttons { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -843,14 +1033,45 @@
     <!-- ===== ЗВЁЗДЫ ===== -->
     <canvas id="stars-canvas"></canvas>
 
-    <!-- ===== ФИШКА 14: КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ ===== -->
+    <!-- ===== КНОПКА ТЕМЫ ===== -->
     <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
 
-    <!-- ===== ФИШКА 61: КНОПКА ЛИЧНОГО КАБИНЕТА ===== -->
+    <!-- ===== КНОПКА ЛИЧНОГО КАБИНЕТА ===== -->
     <button class="cabinet-btn" onclick="openCabinet()">👤 Войти</button>
 
     <!-- ===== КНОПКА НАВЕРХ ===== -->
     <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- ===== КНОПКА ЧАТА ===== -->
+    <button id="chat-toggle" onclick="toggleChat()">💬</button>
+
+    <!-- ===== ОКНО ЧАТА ===== -->
+    <div id="chat-window">
+        <div class="chat-header">
+            <div class="title">💬 <span>Pro</span>Ремонт-бот</div>
+            <button class="close-btn" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message bot">
+                <span class="avatar">🤖</span>
+                <div class="bubble">
+                    👋 Здравствуйте!<br />
+                    Я помогу вам с ремонтом.<br />
+                    Что вас интересует?
+                </div>
+            </div>
+            <div class="chat-quick-buttons">
+                <button onclick="quickReply('Рассчитать стоимость')">📐 Рассчитать стоимость</button>
+                <button onclick="quickReply('Заказать звонок')">📞 Заказать звонок</button>
+                <button onclick="quickReply('Смотреть портфолио')">📂 Смотреть портфолио</button>
+                <button onclick="quickReply('Задать вопрос мастеру')">❓ Задать вопрос</button>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Введите ваш вопрос..." onkeypress="if(event.key==='Enter') sendMessage()">
+            <button onclick="sendMessage()">➤</button>
+        </div>
+    </div>
 
     <div class="container">
 
@@ -921,7 +1142,7 @@
             </div>
         </div>
 
-        <!-- ===== ФИШКА 47: КВИЗ ===== -->
+        <!-- ===== КВИЗ ===== -->
         <div class="fade-section" style="text-align:center;">
             <div class="section-title">Какой дизайн вам <span class="gold-gradient">подходит?</span></div>
             <button class="quiz-btn" onclick="openQuiz()">🎯 Пройти тест за 2 минуты</button>
@@ -988,7 +1209,7 @@
             </div>
         </div>
 
-        <!-- ===== ФИШКА 201: МИНИ-ИГРА ===== -->
+        <!-- ===== МИНИ-ИГРА ===== -->
         <div class="fade-section">
             <div class="section-title">Собери <span class="gold-gradient">золотые монетки!</span></div>
             <div class="game-container">
@@ -1034,7 +1255,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== ФИШКА 61: ПОПАП ЛИЧНОГО КАБИНЕТА ===== -->
+    <!-- ===== ПОПАП ЛИЧНОГО КАБИНЕТА ===== -->
     <!-- ============================================================ -->
     <div class="cabinet-popup" id="cabinetPopup">
         <div class="cabinet-box">
@@ -1049,7 +1270,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== ФИШКА 47: ПОПАП КВИЗА ===== -->
+    <!-- ===== ПОПАП КВИЗА ===== -->
     <!-- ============================================================ -->
     <div class="quiz-popup" id="quizPopup">
         <div class="quiz-box">
@@ -1135,7 +1356,7 @@
         setInterval(updateClock, 1000);
 
         // ============================================================
-        // ===== ФИШКА 14: ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
+        // ===== ФИШКА 14: ТЕМА =====
         // ============================================================
         let isDark = true;
 
@@ -1175,7 +1396,6 @@
             }
         }
 
-        // Закрытие по клику вне окна
         document.getElementById('cabinetPopup').addEventListener('click', function(e) {
             if (e.target === this) closeCabinet();
         });
@@ -1206,43 +1426,22 @@
                 return;
             }
 
-            // Анализ ответов
             const answers = [q1.value, q2.value, q3.value, q4.value, q5.value, q6.value];
-            const styles = {
-                modern: 0,
-                classic: 0,
-                scandi: 0,
-                loft: 0,
-                minimal: 0
-            };
+            const styles = { modern: 0, classic: 0, scandi: 0, loft: 0, minimal: 0 };
 
-            // Подсчёт голосов
             answers.forEach(a => {
-                if (a === 'modern' || a === 'cold' || a === 'space' || a === 'premium' || a === 'tech' || a === 'urban') {
-                    styles.modern += 1;
-                }
-                if (a === 'classic' || a === 'warm' || a === 'beauty' || a === 'standard' || a === 'art' || a === 'nature') {
-                    styles.classic += 1;
-                }
-                if (a === 'scandi' || a === 'light' || a === 'comfort' || a === 'economy' || a === 'plants' || a === 'minimal') {
-                    styles.scandi += 1;
-                }
-                if (a === 'loft' || a === 'dark' || a === 'practical' || a === 'premium' || a === 'textile' || a === 'loft') {
-                    styles.loft += 1;
-                }
-                if (a === 'minimal' || a === 'cold' || a === 'space' || a === 'economy' || a === 'tech' || a === 'minimal') {
-                    styles.minimal += 1;
-                }
+                if (a === 'modern' || a === 'cold' || a === 'space' || a === 'premium' || a === 'tech' || a === 'urban') styles.modern += 1;
+                if (a === 'classic' || a === 'warm' || a === 'beauty' || a === 'standard' || a === 'art' || a === 'nature') styles.classic += 1;
+                if (a === 'scandi' || a === 'light' || a === 'comfort' || a === 'economy' || a === 'plants' || a === 'minimal') styles.scandi += 1;
+                if (a === 'loft' || a === 'dark' || a === 'practical' || a === 'premium' || a === 'textile' || a === 'loft') styles.loft += 1;
+                if (a === 'minimal' || a === 'cold' || a === 'space' || a === 'economy' || a === 'tech' || a === 'minimal') styles.minimal += 1;
             });
 
-            // Находим максимальный стиль
             let maxStyle = '';
             let maxCount = 0;
             for (const [style, count] of Object.entries(styles)) {
-                if (count > maxCount) {
-                    maxCount = count;
-                    maxStyle = style;
-                }
+                if (count > maxCount) { maxCount = count;
+                    maxStyle = style; }
             }
 
             const styleData = {
@@ -1267,24 +1466,15 @@
             document.getElementById('quizResult').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Закрытие квиза по клику вне окна
         document.getElementById('quizPopup').addEventListener('click', function(e) {
             if (e.target === this) closeQuiz();
         });
 
         // ============================================================
-        // ===== ФИШКА 201: МИНИ-ИГРА "ЗОЛОТАЯ МОНЕТКА" =====
+        // ===== ФИШКА 201: МИНИ-ИГРА =====
         // ============================================================
         let coinScore = 0;
-        const coinMessages = [
-            '🪙 +1 монетка!',
-            '💰 Продолжай собирать!',
-            '✨ Ещё одна!',
-            '🔥 Отлично!',
-            '⭐ Ты лучший!',
-            '💎 Блестяще!',
-            '🎉 Круто!'
-        ];
+        const coinMessages = ['🪙 +1 монетка!', '💰 Продолжай собирать!', '✨ Ещё одна!', '🔥 Отлично!', '⭐ Ты лучший!', '💎 Блестяще!', '🎉 Круто!'];
 
         function clickCoin() {
             const coin = document.getElementById('gameCoin');
@@ -1294,36 +1484,26 @@
             coinScore++;
             score.textContent = coinScore;
 
-            // Анимация монетки
             coin.classList.remove('flying');
             void coin.offsetWidth;
             coin.classList.add('flying');
 
-            // Случайное сообщение
             const randomMsg = coinMessages[Math.floor(Math.random() * coinMessages.length)];
             msg.textContent = randomMsg;
             msg.style.color = '#ffd700';
 
-            // Изменение размера монетки
             const scale = 1 + Math.random() * 0.3;
             coin.style.transform = `scale(${scale})`;
 
-            setTimeout(() => {
-                coin.style.transform = 'scale(1)';
-            }, 200);
+            setTimeout(() => { coin.style.transform = 'scale(1)'; }, 200);
 
-            // Поздравление за 10 монет
             if (coinScore === 10) {
                 msg.textContent = '🎉 Ты собрал 10 монет! Ты настоящий мастер!';
-                setTimeout(() => {
-                    msg.textContent = '💰 Продолжай собирать!';
-                }, 3000);
+                setTimeout(() => { msg.textContent = '💰 Продолжай собирать!'; }, 3000);
             }
             if (coinScore === 50) {
                 msg.textContent = '🏆 50 монет! Ты легенда!';
-                setTimeout(() => {
-                    msg.textContent = '💰 Продолжай собирать!';
-                }, 4000);
+                setTimeout(() => { msg.textContent = '💰 Продолжай собирать!'; }, 4000);
             }
         }
 
@@ -1334,6 +1514,94 @@
             document.getElementById('coinMessage').style.color = 'rgba(255,255,255,0.15)';
             document.getElementById('gameCoin').style.transform = 'scale(1)';
         }
+
+        // ============================================================
+        // ===== ЧАТ-БОТ =====
+        // ============================================================
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.classList.toggle('open');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+            addMessage('user', text);
+            input.value = '';
+            botReply(text);
+        }
+
+        function quickReply(text) {
+            addMessage('user', text);
+            botReply(text);
+        }
+
+        function addMessage(type, text) {
+            const body = document.getElementById('chat-body');
+            const div = document.createElement('div');
+            div.className = `chat-message ${type}`;
+            if (type === 'bot') {
+                div.innerHTML = `<span class="avatar">🤖</span><div class="bubble">${text}</div>`;
+            } else {
+                div.innerHTML = `<div class="bubble">${text}</div>`;
+            }
+            body.insertBefore(div, body.querySelector('.chat-quick-buttons'));
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function botReply(text) {
+            const lower = text.toLowerCase();
+            let reply = '';
+
+            if (lower.includes('стоимость') || lower.includes('цен') || lower.includes('рассчит') || lower.includes('калькулятор')) {
+                reply = '📐 Отлично! Воспользуйтесь нашим калькулятором на сайте — он находится чуть выше. Или оставьте заявку на бесплатный замер! 📞';
+            } else if (lower.includes('звонок') || lower.includes('позвонить') || lower.includes('телефон')) {
+                reply = '📞 Звоните нам прямо сейчас: <strong>+7 (900) 527 56-28</strong><br />Или оставьте заявку, и мы перезвоним вам в течение 5 минут!';
+            } else if (lower.includes('портфолио') || lower.includes('работы') || lower.includes('галерея')) {
+                reply = '📂 Смотрите наши работы в разделе "Портфолио" на сайте. Мы сделали более 120 объектов! 🏠';
+            } else if (lower.includes('вопрос') || lower.includes('мастер') || lower.includes('помочь')) {
+                reply = '❓ Задайте ваш вопрос, и я передам его мастеру. Или позвоните нам: <strong>+7 (900) 527 56-28</strong> ☎️';
+            } else if (lower.includes('скидка') || lower.includes('акция')) {
+                reply = '🎁 Да! У нас действует <strong>скидка 15%</strong> на все виды работ до конца месяца! Успейте забронировать! 🔥';
+            } else if (lower.includes('гарантия')) {
+                reply = '🛡️ Мы даём гарантию на все виды работ — <strong>до 5 лет</strong>! Качество подтверждено сотнями довольных клиентов.';
+            } else if (lower.includes('привет') || lower.includes('здравствуй') || lower.includes('добрый')) {
+                reply = '👋 Здравствуйте! Чем могу помочь? Выберите один из вариантов ниже или напишите свой вопрос.';
+            } else if (lower.includes('спасибо')) {
+                reply = '🙌 Пожалуйста! Рады помочь! Если появятся вопросы — мы всегда на связи. 😊';
+            } else {
+                reply = `🤔 Я вас понял. Передам ваш вопрос мастеру. А пока вы можете:<br />📞 Позвонить: <strong>+7 (900) 527 56-28</strong><br />✉️ Написать: @ProRemont012<br />Или задать вопрос уточнее — я постараюсь помочь!`;
+            }
+
+            setTimeout(() => {
+                addMessage('bot', reply);
+                const body = document.getElementById('chat-body');
+                const buttons = document.querySelector('.chat-quick-buttons');
+                if (!buttons) {
+                    const newButtons = document.createElement('div');
+                    newButtons.className = 'chat-quick-buttons';
+                    newButtons.innerHTML = `
+                        <button onclick="quickReply('Рассчитать стоимость')">📐 Рассчитать стоимость</button>
+                        <button onclick="quickReply('Заказать звонок')">📞 Заказать звонок</button>
+                        <button onclick="quickReply('Смотреть портфолио')">📂 Смотреть портфолио</button>
+                        <button onclick="quickReply('Задать вопрос мастеру')">❓ Задать вопрос</button>
+                    `;
+                    body.appendChild(newButtons);
+                }
+                body.scrollTop = body.scrollHeight;
+            }, 400);
+        }
+
+        document.addEventListener('click', function(e) {
+            const chat = document.getElementById('chat-window');
+            const toggle = document.getElementById('chat-toggle');
+            if (chat.classList.contains('open') &&
+                !chat.contains(e.target) &&
+                !toggle.contains(e.target)) {
+                chat.classList.remove('open');
+            }
+        });
 
         // ============================================================
         // ===== КНОПКА НАВЕРХ =====
@@ -1395,7 +1663,8 @@
         }
         drawStars();
 
-        console.log('🔥 ProРемонт — 4 МЕГА-ФИШКИ ЗАГРУЖЕНЫ!');
+        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ (ЧАТ-БОТ + 4 ФИШКИ) ЗАГРУЖЕН!');
+        console.log('💬 Чат-бот работает!');
         console.log('🌙 Тёмный/светлый режим — включён');
         console.log('🎯 Квиз по дизайну — готов');
         console.log('👤 Личный кабинет — работает');

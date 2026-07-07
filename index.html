@@ -1217,6 +1217,140 @@
         }
         .simulator-container .sim-result .btn:hover { transform: scale(1.04); }
 
+        /* ============================================================ */
+        /* ===== ДОМ-КОНСТРУКТОР (НОВИНКА! №152) ===== */
+        /* ============================================================ */
+        .constructor-container {
+            background: rgba(255,255,255,0.01);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 40px;
+            padding: 30px 20px;
+            margin: 10px 0;
+        }
+        .constructor-container .constructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .constructor-container .constructor-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 24px;
+            padding: 16px;
+        }
+        .constructor-container .constructor-item .label {
+            color: rgba(255,255,255,0.2);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .constructor-container .constructor-item .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+        .constructor-container .constructor-item .options button {
+            padding: 8px 14px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 16px;
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .constructor-container .constructor-item .options button:hover {
+            background: rgba(255,215,0,0.02);
+            border-color: rgba(255,215,0,0.04);
+            color: #ffffff;
+        }
+        .constructor-container .constructor-item .options button.active {
+            border-color: #ffd700;
+            background: rgba(255,215,0,0.02);
+            color: #ffd700;
+        }
+        body.light-mode .constructor-container .constructor-item .options button {
+            color: rgba(0,0,0,0.3);
+            border-color: rgba(0,0,0,0.02);
+        }
+        body.light-mode .constructor-container .constructor-item .options button:hover {
+            color: #1a1a1a;
+            background: rgba(212,175,55,0.02);
+            border-color: rgba(212,175,55,0.04);
+        }
+        body.light-mode .constructor-container .constructor-item .options button.active {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+        .constructor-container .constructor-result {
+            margin-top: 24px;
+            padding: 20px;
+            background: rgba(255,215,0,0.01);
+            border: 1px solid rgba(255,215,0,0.02);
+            border-radius: 24px;
+            display: none;
+        }
+        .constructor-container .constructor-result.show {
+            display: block;
+        }
+        .constructor-container .constructor-result .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .constructor-container .constructor-result .flex .icon {
+            font-size: 48px;
+        }
+        .constructor-container .constructor-result .flex .info {
+            text-align: left;
+        }
+        .constructor-container .constructor-result .flex .info .label2 {
+            color: rgba(255,255,255,0.3);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .constructor-container .constructor-result .flex .info .text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffd700;
+        }
+        .constructor-container .constructor-result .flex .info .sub {
+            color: rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+        .constructor-container .constructor-result .flex .btn {
+            padding: 12px 32px;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border: none;
+            border-radius: 60px;
+            color: #0a0a0f;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .constructor-container .constructor-result .flex .btn.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .constructor-container .constructor-result .flex .btn:hover {
+            transform: scale(1.04);
+        }
+        body.light-mode .constructor-container .constructor-result .flex .info .label2 {
+            color: rgba(0,0,0,0.2);
+        }
+        body.light-mode .constructor-container .constructor-result .flex .info .sub {
+            color: rgba(0,0,0,0.1);
+        }
+
         /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 44px; }
@@ -1235,16 +1369,17 @@
             .chat-quick-buttons { grid-template-columns: 1fr 1fr; }
             .wheel-container { width: 220px; height: 220px; }
             .wheel-box { padding: 30px 20px; }
-            /* Кнопки в левом углу на телефоне */
             .bottom-left-buttons { left: 16px !important; bottom: 100px !important; gap: 8px !important; }
             .bottom-left-buttons .theme-toggle { width: 44px !important; height: 44px !important; font-size: 18px !important; }
             .bottom-left-buttons .cabinet-btn { padding: 8px 16px !important; font-size: 12px !important; }
+            .constructor-container .constructor-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 400px) {
             .hero h1 { font-size: 32px; }
             .logo { font-size: 24px; }
             .header-right .phone { font-size: 18px; }
             .chat-quick-buttons { grid-template-columns: 1fr; }
+            .constructor-container .constructor-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1257,34 +1392,8 @@
     <!-- ===== КНОПКИ В ЛЕВОМ НИЖНЕМ УГЛУ ===== -->
     <!-- ============================================================ -->
     <div class="bottom-left-buttons" style="position:fixed; bottom:30px; left:30px; z-index:1000; display:flex; gap:10px; flex-wrap:wrap;">
-        <!-- КНОПКА ТЕМЫ -->
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" style="
-            width:50px;
-            height:50px;
-            border-radius:50%;
-            background:rgba(255,215,0,0.02);
-            border:1px solid rgba(255,215,0,0.04);
-            color:#fff;
-            font-size:22px;
-            cursor:pointer;
-            transition:0.4s;
-            backdrop-filter:blur(20px);
-            font-family:'Segoe UI',sans-serif;
-        ">🌙</button>
-
-        <!-- КНОПКА ЛИЧНОГО КАБИНЕТА -->
-        <button class="cabinet-btn" onclick="openCabinet()" style="
-            padding:12px 24px;
-            background:rgba(255,215,0,0.02);
-            border:1px solid rgba(255,215,0,0.04);
-            border-radius:60px;
-            color:rgba(255,255,255,0.3);
-            font-size:14px;
-            cursor:pointer;
-            transition:0.3s;
-            backdrop-filter:blur(20px);
-            font-family:'Segoe UI',sans-serif;
-        ">👤 Войти</button>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" style="width:50px;height:50px;border-radius:50%;background:rgba(255,215,0,0.02);border:1px solid rgba(255,215,0,0.04);color:#fff;font-size:22px;cursor:pointer;transition:0.4s;backdrop-filter:blur(20px);font-family:'Segoe UI',sans-serif;">🌙</button>
+        <button class="cabinet-btn" onclick="openCabinet()" style="padding:12px 24px;background:rgba(255,215,0,0.02);border:1px solid rgba(255,215,0,0.04);border-radius:60px;color:rgba(255,255,255,0.3);font-size:14px;cursor:pointer;transition:0.3s;backdrop-filter:blur(20px);font-family:'Segoe UI',sans-serif;">👤 Войти</button>
     </div>
 
     <!-- ===== КНОПКА НАВЕРХ ===== -->
@@ -1302,11 +1411,7 @@
         <div class="chat-body" id="chat-body">
             <div class="chat-message bot">
                 <span class="avatar">🤖</span>
-                <div class="bubble">
-                    👋 Здравствуйте!<br />
-                    Я помогу вам с ремонтом.<br />
-                    Что вас интересует?
-                </div>
+                <div class="bubble">👋 Здравствуйте!<br />Я помогу вам с ремонтом.<br />Что вас интересует?</div>
             </div>
             <div class="chat-quick-buttons">
                 <button onclick="quickReply('Рассчитать стоимость')">📐 Рассчитать стоимость</button>
@@ -1483,7 +1588,6 @@
         <div class="fade-section" style="text-align:center;">
             <div class="section-title">🎮 Симулятор <span class="gold-gradient">ремонта</span></div>
             <p style="color:rgba(255,255,255,0.15); margin-bottom:16px;">Пройди все этапы ремонта и получи скидку 10%!</p>
-
             <div class="simulator-container">
                 <div class="game-area">
                     <div class="progress-bar"><div class="fill" id="simProgress"></div></div>
@@ -1555,6 +1659,75 @@
             </div>
         </div>
 
+        <!-- ============================================================ -->
+        <!-- ===== ДОМ-КОНСТРУКТОР (НОВИНКА! №152) ===== -->
+        <!-- ============================================================ -->
+        <div class="fade-section" style="text-align:center;">
+            <div class="section-title">🏠 Дом-<span class="gold-gradient">конструктор</span></div>
+            <p style="color:rgba(255,255,255,0.15); margin-bottom:16px;">Собери свою идеальную комнату за 2 минуты!</p>
+
+            <div class="constructor-container">
+                <div class="constructor-grid">
+
+                    <!-- ПОЛ -->
+                    <div class="constructor-item">
+                        <p class="label">Пол</p>
+                        <div class="options">
+                            <button onclick="selectConstructor('floor', 'ламинат', this)">🟫 Ламинат</button>
+                            <button onclick="selectConstructor('floor', 'плитка', this)">⬜ Плитка</button>
+                            <button onclick="selectConstructor('floor', 'паркет', this)">🟨 Паркет</button>
+                        </div>
+                    </div>
+
+                    <!-- СТЕНЫ -->
+                    <div class="constructor-item">
+                        <p class="label">Стены</p>
+                        <div class="options">
+                            <button onclick="selectConstructor('walls', 'обои', this)">🖼️ Обои</button>
+                            <button onclick="selectConstructor('walls', 'покраска', this)">🎨 Покраска</button>
+                            <button onclick="selectConstructor('walls', 'плитка', this)">🧱 Плитка</button>
+                        </div>
+                    </div>
+
+                    <!-- ПОТОЛОК -->
+                    <div class="constructor-item">
+                        <p class="label">Потолок</p>
+                        <div class="options">
+                            <button onclick="selectConstructor('ceiling', 'натяжной', this)">✨ Натяжной</button>
+                            <button onclick="selectConstructor('ceiling', 'покраска', this)">🎨 Покраска</button>
+                            <button onclick="selectConstructor('ceiling', 'подвесной', this)">🏗️ Подвесной</button>
+                        </div>
+                    </div>
+
+                    <!-- МЕБЕЛЬ -->
+                    <div class="constructor-item">
+                        <p class="label">Мебель</p>
+                        <div class="options">
+                            <button onclick="selectConstructor('furniture', 'кухня', this)">🍳 Кухня</button>
+                            <button onclick="selectConstructor('furniture', 'спальня', this)">🛏️ Спальня</button>
+                            <button onclick="selectConstructor('furniture', 'гостиная', this)">🛋️ Гостиная</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- РЕЗУЛЬТАТ -->
+                <div class="constructor-result" id="constructorResult">
+                    <div class="flex">
+                        <div class="icon">🏠</div>
+                        <div class="info">
+                            <p class="label2">Ваш идеальный дом</p>
+                            <p class="text" id="constructorText">Выберите все элементы!</p>
+                            <p class="sub">Соберите комнату, чтобы получить скидку 7%</p>
+                        </div>
+                        <button class="btn" id="constructorBtn" onclick="constructorClaim()">🎁 Получить скидку</button>
+                    </div>
+                </div>
+
+                <p style="color:rgba(255,255,255,0.02); font-size:12px; margin-top:12px;">Выберите по одному элементу в каждой категории</p>
+            </div>
+        </div>
+
         <!-- ===== ОТЗЫВЫ ===== -->
         <div class="fade-section">
             <div class="section-title">Отзывы <span class="gold-gradient">клиентов</span></div>
@@ -1589,9 +1762,7 @@
 
     </div>
 
-    <!-- ============================================================ -->
     <!-- ===== ПОПАП ЛИЧНОГО КАБИНЕТА ===== -->
-    <!-- ============================================================ -->
     <div class="cabinet-popup" id="cabinetPopup">
         <div class="cabinet-box">
             <button class="close-popup" onclick="closeCabinet()">✕</button>
@@ -1604,51 +1775,43 @@
         </div>
     </div>
 
-    <!-- ============================================================ -->
     <!-- ===== ПОПАП КВИЗА ===== -->
-    <!-- ============================================================ -->
     <div class="quiz-popup" id="quizPopup">
         <div class="quiz-box">
             <button class="close-quiz" onclick="closeQuiz()">✕</button>
             <h2>🎯 Какой <span class="gold-gradient">дизайн</span> вам подходит?</h2>
             <div class="subtitle">Ответьте на 6 вопросов — получите стиль!</div>
             <div id="quizContent">
-                <div class="quiz-question">
-                    <div class="q">1. Какой стиль вам ближе?</div>
+                <div class="quiz-question"><div class="q">1. Какой стиль вам ближе?</div>
                     <label><input type="radio" name="q1" value="modern"> 🏙️ Современный минимализм</label>
                     <label><input type="radio" name="q1" value="classic"> 🏛️ Классика</label>
                     <label><input type="radio" name="q1" value="scandi"> 🌿 Скандинавский</label>
                     <label><input type="radio" name="q1" value="loft"> 🧱 Лофт</label>
                 </div>
-                <div class="quiz-question">
-                    <div class="q">2. Какие цвета вам нравятся?</div>
+                <div class="quiz-question"><div class="q">2. Какие цвета вам нравятся?</div>
                     <label><input type="radio" name="q2" value="light"> ☀️ Светлые, пастельные</label>
                     <label><input type="radio" name="q2" value="dark"> 🌑 Тёмные, глубокие</label>
                     <label><input type="radio" name="q2" value="warm"> 🌅 Тёплые, уютные</label>
                     <label><input type="radio" name="q2" value="cold"> ❄️ Холодные, строгие</label>
                 </div>
-                <div class="quiz-question">
-                    <div class="q">3. Что важнее в интерьере?</div>
+                <div class="quiz-question"><div class="q">3. Что важнее в интерьере?</div>
                     <label><input type="radio" name="q3" value="practical"> 🔧 Функциональность</label>
                     <label><input type="radio" name="q3" value="beauty"> 🎨 Красота и эстетика</label>
                     <label><input type="radio" name="q3" value="comfort"> 🛋️ Уют и комфорт</label>
                     <label><input type="radio" name="q3" value="space"> 🏗️ Свободное пространство</label>
                 </div>
-                <div class="quiz-question">
-                    <div class="q">4. Какой бюджет на дизайн?</div>
+                <div class="quiz-question"><div class="q">4. Какой бюджет на дизайн?</div>
                     <label><input type="radio" name="q4" value="economy"> 💰 Эконом</label>
                     <label><input type="radio" name="q4" value="standard"> 💵 Средний</label>
                     <label><input type="radio" name="q4" value="premium"> 💎 Премиум</label>
                 </div>
-                <div class="quiz-question">
-                    <div class="q">5. Что вы хотите видеть в интерьере?</div>
+                <div class="quiz-question"><div class="q">5. Что вы хотите видеть в интерьере?</div>
                     <label><input type="radio" name="q5" value="plants"> 🌿 Много растений</label>
                     <label><input type="radio" name="q5" value="art"> 🖼️ Картины и декор</label>
                     <label><input type="radio" name="q5" value="tech"> 📱 Технологии и автоматизация</label>
                     <label><input type="radio" name="q5" value="textile"> 🛋️ Текстиль и мягкость</label>
                 </div>
-                <div class="quiz-question">
-                    <div class="q">6. Как вы представляете свой идеальный дом?</div>
+                <div class="quiz-question"><div class="q">6. Как вы представляете свой идеальный дом?</div>
                     <label><input type="radio" name="q6" value="urban"> 🏙️ Современный мегаполис</label>
                     <label><input type="radio" name="q6" value="nature"> 🌳 Загородный дом</label>
                     <label><input type="radio" name="q6" value="loft"> 🏭 Стильный лофт</label>
@@ -1660,9 +1823,7 @@
         </div>
     </div>
 
-    <!-- ============================================================ -->
     <!-- ===== ПОПАП КОЛЕСА ФОРТУНЫ ===== -->
-    <!-- ============================================================ -->
     <div class="wheel-popup" id="wheelPopup">
         <div class="wheel-box">
             <button class="close-wheel" onclick="closeWheel()">✕</button>
@@ -1731,12 +1892,8 @@
         }
 
         // ===== ЛИЧНЫЙ КАБИНЕТ =====
-        function openCabinet() {
-            document.getElementById('cabinetPopup').classList.add('open');
-        }
-        function closeCabinet() {
-            document.getElementById('cabinetPopup').classList.remove('open');
-        }
+        function openCabinet() { document.getElementById('cabinetPopup').classList.add('open'); }
+        function closeCabinet() { document.getElementById('cabinetPopup').classList.remove('open'); }
         function loginUser() {
             const phone = document.getElementById('loginPhone').value;
             const pass = document.getElementById('loginPass').value;
@@ -1757,9 +1914,7 @@
             document.getElementById('quizResult').style.display = 'none';
             document.querySelectorAll('#quizContent input[type="radio"]').forEach(el => el.checked = false);
         }
-        function closeQuiz() {
-            document.getElementById('quizPopup').classList.remove('open');
-        }
+        function closeQuiz() { document.getElementById('quizPopup').classList.remove('open'); }
         function submitQuiz() {
             const q1 = document.querySelector('input[name="q1"]:checked');
             const q2 = document.querySelector('input[name="q2"]:checked');
@@ -1844,9 +1999,7 @@
         }
 
         // ===== ЧАТ-БОТ =====
-        function toggleChat() {
-            document.getElementById('chat-window').classList.toggle('open');
-        }
+        function toggleChat() { document.getElementById('chat-window').classList.toggle('open'); }
         function sendMessage() {
             const input = document.getElementById('chat-input');
             const text = input.value.trim();
@@ -2000,9 +2153,7 @@
             document.getElementById('wheelPopup').classList.add('open');
             drawWheel(currentRotation);
         }
-        function closeWheel() {
-            document.getElementById('wheelPopup').classList.remove('open');
-        }
+        function closeWheel() { document.getElementById('wheelPopup').classList.remove('open'); }
         function claimDiscount() {
             const phone = document.getElementById('phoneInput').value;
             if (!phone || phone.length < 10) {
@@ -2070,6 +2221,56 @@
             }
         }
 
+        // ============================================================
+        // ===== ДОМ-КОНСТРУКТОР (НОВИНКА! №152) =====
+        // ============================================================
+        const constructorState = {
+            floor: null,
+            walls: null,
+            ceiling: null,
+            furniture: null
+        };
+
+        function selectConstructor(category, value, btn) {
+            constructorState[category] = value;
+
+            // Визуальное выделение
+            const parent = btn.closest('.options');
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Проверяем, всё ли выбрано
+            const allSelected = constructorState.floor && constructorState.walls &&
+                constructorState.ceiling && constructorState.furniture;
+
+            const resultDiv = document.getElementById('constructorResult');
+            const text = document.getElementById('constructorText');
+            const mainBtn = document.getElementById('constructorBtn');
+
+            if (allSelected) {
+                resultDiv.classList.add('show');
+                text.textContent =
+                    `🏠 Пол: ${constructorState.floor} | Стены: ${constructorState.walls} | Потолок: ${constructorState.ceiling} | Мебель: ${constructorState.furniture}`;
+                mainBtn.classList.add('active');
+            } else {
+                resultDiv.classList.add('show');
+                const parts = [];
+                if (!constructorState.floor) parts.push('пол');
+                if (!constructorState.walls) parts.push('стены');
+                if (!constructorState.ceiling) parts.push('потолок');
+                if (!constructorState.furniture) parts.push('мебель');
+                text.textContent = `Выберите: ${parts.join(', ')}`;
+                mainBtn.classList.remove('active');
+            }
+        }
+
+        function constructorClaim() {
+            if (!document.getElementById('constructorBtn').classList.contains('active')) return;
+            const { floor, walls, ceiling, furniture } = constructorState;
+            alert(`🎉 Поздравляем! Ваш дом собран:\n🏠 Пол: ${floor}\n🧱 Стены: ${walls}\n✨ Потолок: ${ceiling}\n🛋️ Мебель: ${furniture}\n\n🔥 Скидка 7% на любой ремонт!\n📞 Звоните: +7 (900) 527 56-28`);
+        }
+
         // ===== КНОПКА НАВЕРХ =====
         window.addEventListener('scroll', function() {
             const btn = document.getElementById('backToTop');
@@ -2090,12 +2291,14 @@
         const canvas = document.getElementById('stars-canvas');
         const ctx = canvas.getContext('2d');
         let W, H;
+
         function resizeCanvas() {
             W = canvas.width = window.innerWidth;
             H = canvas.height = window.innerHeight;
         }
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
+
         const stars = [];
         for (let i = 0; i < 80; i++) {
             stars.push({
@@ -2106,6 +2309,7 @@
                 opacity: Math.random() * 0.3 + 0.03
             });
         }
+
         function drawStars() {
             ctx.clearRect(0, 0, W, H);
             stars.forEach(s => {
@@ -2121,13 +2325,10 @@
         }
         drawStars();
 
-        // Инициализация колеса и симулятора
         drawWheel(0);
         updateProgress(0);
 
-        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ ЗАГРУЖЕН!');
-        console.log('📞 Телефон теперь полностью виден!');
-        console.log('🌙 Кнопки темы и "Войти" в левом нижнем углу!');
+        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ (ЧАТ-БОТ + 4 ФИШКИ + КОЛЕСО + СИМУЛЯТОР + ДОМ-КОНСТРУКТОР) ЗАГРУЖЕН!');
     </script>
 
 </body>

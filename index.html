@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProРемонт — Тёмный</title>
+    <title>ProРемонт — Чат-бот</title>
     <style>
         /* ===== ГЛОБАЛЬНЫЕ ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,7 +15,7 @@
             min-height: 100vh;
         }
 
-        /* ===== ФОН С ЗВЁЗДАМИ ===== */
+        /* ===== ЗВЁЗДЫ ===== */
         #stars-canvas {
             position: fixed;
             top: 0;
@@ -56,7 +56,7 @@
             box-shadow: 0 30px 80px rgba(255,215,0,0.03);
         }
 
-        /* ===== ЗОЛОТОЙ ГРАДИЕНТ ДЛЯ НАЗВАНИЯ ===== */
+        /* ===== ЗОЛОТОЙ ГРАДИЕНТ ===== */
         .gold-gradient {
             background: linear-gradient(135deg, #ffd700, #f7971e, #ffd700, #f7971e);
             background-size: 300% 300%;
@@ -80,53 +80,21 @@
             flex-wrap: wrap;
             gap: 16px;
         }
-        .logo {
-            font-size: 34px;
-            font-weight: 900;
-            color: #ffffff;
-        }
+        .logo { font-size: 34px; font-weight: 900; color: #ffffff; }
         .logo span {
             background: linear-gradient(135deg, #ffd700, #f7971e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .header-right {
-            text-align: right;
-            font-size: 14px;
-            color: rgba(255,255,255,0.3);
-        }
-        .header-right .phone {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            display: block;
-            transition: 0.3s;
-        }
-        .header-right .phone:hover {
-            color: #ffd700;
-        }
-        .header-right .contact-line span {
-            color: #ffd700;
-        }
-        .header-right .contact-line a {
-            color: rgba(255,255,255,0.3);
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .header-right .contact-line a:hover {
-            color: #ffd700;
-        }
-        /* ===== ЧАСЫ — БЕЛЫЕ ===== */
-        #clock {
-            font-size: 13px;
-            color: rgba(255,255,255,0.4);
-            margin-top: 6px;
-        }
-        #clock span {
-            color: #ffffff;
-        }
+        .header-right { text-align: right; font-size: 14px; color: rgba(255,255,255,0.3); }
+        .header-right .phone { font-size: 24px; font-weight: 700; color: #ffffff; text-decoration: none; display: block; transition: 0.3s; }
+        .header-right .phone:hover { color: #ffd700; }
+        .header-right .contact-line span { color: #ffd700; }
+        .header-right .contact-line a { color: rgba(255,255,255,0.3); text-decoration: none; transition: 0.3s; }
+        .header-right .contact-line a:hover { color: #ffd700; }
+        #clock { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 6px; }
+        #clock span { color: #ffffff; }
 
         /* ===== БАННЕР СКИДКИ ===== */
         .sale-banner {
@@ -145,9 +113,7 @@
             0%, 100% { box-shadow: 0 0 20px rgba(255,215,0,0.01); }
             50% { box-shadow: 0 0 60px rgba(255,215,0,0.03); }
         }
-        .sale-banner span {
-            color: #ffd700;
-        }
+        .sale-banner span { color: #ffd700; }
 
         /* ===== ГЕРОЙ ===== */
         .hero {
@@ -155,7 +121,6 @@
             padding: 80px 20px 60px;
             border-radius: 48px;
             background: radial-gradient(ellipse at 30% 20%, rgba(255,215,0,0.02), transparent 60%);
-            position: relative;
         }
         .hero .badge {
             display: inline-block;
@@ -168,24 +133,9 @@
             color: rgba(255,255,255,0.2);
             margin-bottom: 40px;
         }
-        .hero h1 {
-            font-size: 86px;
-            font-weight: 900;
-            letter-spacing: -2px;
-            line-height: 1.05;
-            color: #ffffff;
-        }
-        .hero h1 .gold-gradient {
-            animation: liquidGold 5s ease-in-out infinite;
-        }
-        .hero p {
-            font-size: 24px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.3);
-            max-width: 600px;
-            margin: 24px auto 40px;
-            letter-spacing: 1px;
-        }
+        .hero h1 { font-size: 86px; font-weight: 900; letter-spacing: -2px; line-height: 1.05; color: #ffffff; }
+        .hero h1 .gold-gradient { animation: liquidGold 5s ease-in-out infinite; }
+        .hero p { font-size: 24px; font-weight: 300; color: rgba(255,255,255,0.3); max-width: 600px; margin: 24px auto 40px; letter-spacing: 1px; }
         .hero .btn {
             display: inline-block;
             padding: 18px 64px;
@@ -201,12 +151,9 @@
             transition: 0.4s;
             box-shadow: 0 8px 40px rgba(255,215,0,0.02);
         }
-        .hero .btn:hover {
-            transform: scale(1.04);
-            box-shadow: 0 16px 80px rgba(255,215,0,0.06);
-        }
+        .hero .btn:hover { transform: scale(1.04); box-shadow: 0 16px 80px rgba(255,215,0,0.06); }
 
-        /* ===== ЗАГОЛОВКИ (БЕЛЫЕ) ===== */
+        /* ===== ЗАГОЛОВКИ ===== */
         .section-title {
             text-align: center;
             font-size: 42px;
@@ -215,14 +162,11 @@
             letter-spacing: -0.5px;
             color: #ffffff;
         }
-        .section-title .gold-gradient {
-            animation: liquidGold 4s ease-in-out infinite;
-        }
+        .section-title .gold-gradient { animation: liquidGold 4s ease-in-out infinite; }
 
         /* ===== СЕТКИ ===== */
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 
         /* ===== КАРТОЧКИ ===== */
         .card {
@@ -259,16 +203,8 @@
             transition: 0.4s;
         }
         .card:hover .icon { transform: scale(1.1) rotate(-3deg); }
-        .card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        .card p {
-            font-size: 14px;
-            color: rgba(255,255,255,0.2);
-            margin-top: 6px;
-        }
+        .card h3 { font-size: 20px; font-weight: 700; color: #ffffff; }
+        .card p { font-size: 14px; color: rgba(255,255,255,0.2); margin-top: 6px; }
 
         /* ===== ПОРТФОЛИО ===== */
         .portfolio-item {
@@ -292,51 +228,10 @@
             transition: 0.6s;
             border-radius: 32px 32px 0 0;
         }
-        .portfolio-item:hover img {
-            opacity: 0.9;
-            transform: scale(1.02);
-        }
-        .portfolio-overlay {
-            padding: 22px 20px 26px;
-            text-align: center;
-        }
-        .portfolio-overlay h3 {
-            font-size: 19px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        .portfolio-overlay p {
-            font-size: 13px;
-            color: rgba(255,255,255,0.15);
-            margin-top: 4px;
-        }
-
-        /* ===== ПРЕИМУЩЕСТВА ===== */
-        .advantage-item {
-            text-align: center;
-            padding: 16px 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.02);
-            transition: 0.3s;
-            border-radius: 16px;
-        }
-        .advantage-item:hover {
-            border-color: rgba(255,215,0,0.03);
-            background: rgba(255,215,0,0.01);
-        }
-        .advantage-item .icon {
-            font-size: 32px;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .advantage-item h4 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        .advantage-item p {
-            font-size: 13px;
-            color: rgba(255,255,255,0.15);
-        }
+        .portfolio-item:hover img { opacity: 0.9; transform: scale(1.02); }
+        .portfolio-overlay { padding: 22px 20px 26px; text-align: center; }
+        .portfolio-overlay h3 { font-size: 19px; font-weight: 700; color: #ffffff; }
+        .portfolio-overlay p { font-size: 13px; color: rgba(255,255,255,0.15); margin-top: 4px; }
 
         /* ===== КАТАЛОГ ===== */
         .catalog-block {
@@ -371,16 +266,30 @@
             background: rgba(255,255,255,0.02);
             transform: translateY(-2px);
         }
-        .catalog-block .price-item strong {
-            display: block;
-            font-size: 16px;
-            font-weight: 700;
-            color: #ffffff;
+        .catalog-block .price-item strong { display: block; font-size: 16px; font-weight: 700; color: #ffffff; }
+        .catalog-block .price-item span { font-size: 13px; color: rgba(255,255,255,0.15); }
+
+        /* ===== ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ ===== */
+        .extra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
         }
-        .catalog-block .price-item span {
-            font-size: 13px;
-            color: rgba(255,255,255,0.15);
+        .extra-item {
+            padding: 14px 12px;
+            background: rgba(255,215,0,0.01);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.02);
+            transition: 0.3s;
         }
+        .extra-item:hover {
+            border-color: rgba(255,215,0,0.03);
+            background: rgba(255,215,0,0.02);
+        }
+        .extra-item .icon { font-size: 28px; display: block; margin-bottom: 6px; }
+        .extra-item h4 { font-size: 15px; color: #ffffff; }
+        .extra-item p { font-size: 12px; color: rgba(255,255,255,0.15); }
 
         /* ===== КАЛЬКУЛЯТОР ===== */
         .calculator {
@@ -424,10 +333,7 @@
             outline: none;
             box-shadow: 0 0 40px rgba(255,215,0,0.01);
         }
-        .calculator select option {
-            background: #0a0a0f;
-            color: #ffffff;
-        }
+        .calculator select option { background: #0a0a0f; color: #ffffff; }
         .result {
             margin-top: 28px;
             padding: 20px;
@@ -444,11 +350,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .result p {
-            font-size: 13px;
-            color: rgba(255,255,255,0.05);
-            margin-top: 4px;
-        }
+        .result p { font-size: 13px; color: rgba(255,255,255,0.05); margin-top: 4px; }
 
         /* ===== ОТЗЫВЫ ===== */
         .reviews-grid {
@@ -468,11 +370,7 @@
             background: rgba(255,255,255,0.02);
             transform: translateY(-4px);
         }
-        .review-card .stars {
-            color: #ffd700;
-            font-size: 18px;
-            letter-spacing: 3px;
-        }
+        .review-card .stars { color: #ffd700; font-size: 18px; letter-spacing: 3px; }
         .review-card p {
             font-style: italic;
             color: rgba(255,255,255,0.4);
@@ -480,14 +378,8 @@
             font-size: 16px;
             font-weight: 300;
         }
-        .review-card .author {
-            color: #ffd700;
-            font-weight: 700;
-        }
-        .review-card .date {
-            color: rgba(255,255,255,0.05);
-            font-size: 12px;
-        }
+        .review-card .author { color: #ffd700; font-weight: 700; }
+        .review-card .date { color: rgba(255,255,255,0.05); font-size: 12px; }
 
         /* ===== FAQ ===== */
         .faq-grid {
@@ -505,16 +397,8 @@
         .faq-item:hover {
             border-color: rgba(255,215,0,0.02);
         }
-        .faq-item h4 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #ffd700;
-        }
-        .faq-item p {
-            color: rgba(255,255,255,0.15);
-            font-size: 14px;
-            margin-top: 6px;
-        }
+        .faq-item h4 { font-size: 17px; font-weight: 700; color: #ffd700; }
+        .faq-item p { color: rgba(255,255,255,0.15); font-size: 14px; margin-top: 6px; }
 
         /* ===== CTA ===== */
         .cta {
@@ -540,15 +424,8 @@
             transition: 0.4s;
             box-shadow: 0 8px 40px rgba(255,215,0,0.02);
         }
-        .cta a:hover {
-            transform: scale(1.04);
-            box-shadow: 0 16px 80px rgba(255,215,0,0.06);
-        }
-        .cta p {
-            margin-top: 16px;
-            color: rgba(255,255,255,0.05);
-            font-size: 13px;
-        }
+        .cta a:hover { transform: scale(1.04); box-shadow: 0 16px 80px rgba(255,215,0,0.06); }
+        .cta p { margin-top: 16px; color: rgba(255,255,255,0.05); font-size: 13px; }
 
         .footer {
             text-align: center;
@@ -562,7 +439,7 @@
         #backToTop {
             position: fixed;
             bottom: 30px;
-            right: 30px;
+            right: 100px;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -578,15 +455,8 @@
             transform: translateY(20px);
             pointer-events: none;
         }
-        #backToTop.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-        #backToTop:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 60px rgba(255,215,0,0.04);
-        }
+        #backToTop.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+        #backToTop:hover { transform: scale(1.1); box-shadow: 0 8px 60px rgba(255,215,0,0.04); }
 
         /* ===== БЕГУЩАЯ СТРОКА ===== */
         .marquee {
@@ -605,30 +475,227 @@
             letter-spacing: 2px;
             color: rgba(255,255,255,0.1);
         }
-        .marquee span strong {
-            color: #ffd700;
-            font-weight: 700;
-        }
+        .marquee span strong { color: #ffd700; font-weight: 700; }
         @keyframes marqueeScroll {
             0% { transform: translateX(100vw); }
             100% { transform: translateX(-200%); }
         }
 
+        /* ============================================================ */
+        /* ===== ЧАТ-БОТ (НОВАЯ ФИШКА) ===== */
+        /* ============================================================ */
+
+        /* КНОПКА ЧАТА */
+        #chat-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border: none;
+            color: #0a0a0f;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 8px 40px rgba(255,215,0,0.15);
+            z-index: 1000;
+            transition: 0.4s;
+            animation: floatChat 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #chat-toggle:hover { transform: scale(1.08); box-shadow: 0 12px 60px rgba(255,215,0,0.2); }
+        @keyframes floatChat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* ОКНО ЧАТА */
+        #chat-window {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 380px;
+            max-height: 520px;
+            background: rgba(20, 20, 30, 0.95);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,215,0,0.06);
+            border-radius: 28px;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+            z-index: 1000;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        #chat-window.open { display: flex; }
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ШАПКА ЧАТА */
+        .chat-header {
+            padding: 18px 24px;
+            background: rgba(255,215,0,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .chat-header .title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chat-header .title span { color: #ffd700; }
+        .chat-header .close-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.2);
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .chat-header .close-btn:hover { color: #ffd700; }
+
+        /* ТЕЛА ЧАТА */
+        .chat-body {
+            padding: 20px 24px;
+            overflow-y: auto;
+            flex: 1;
+            max-height: 340px;
+        }
+        .chat-body::-webkit-scrollbar { width: 4px; }
+        .chat-body::-webkit-scrollbar-track { background: transparent; }
+        .chat-body::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.15); border-radius: 20px; }
+
+        .chat-message {
+            margin-bottom: 16px;
+            animation: msgIn 0.4s ease;
+        }
+        @keyframes msgIn {
+            0% { opacity: 0; transform: translateX(-10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .chat-message .avatar {
+            font-size: 20px;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .chat-message .bubble {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 15px;
+            line-height: 1.5;
+            max-width: 90%;
+        }
+        .chat-message.bot .bubble {
+            background: rgba(255,255,255,0.03);
+            color: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.02);
+        }
+        .chat-message.user .bubble {
+            background: rgba(255,215,0,0.06);
+            color: #ffffff;
+            border: 1px solid rgba(255,215,0,0.04);
+            float: right;
+            clear: both;
+        }
+        .chat-message.user { text-align: right; }
+
+        /* КНОПКИ-ПОДСКАЗКИ */
+        .chat-quick-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .chat-quick-buttons button {
+            padding: 10px 12px;
+            background: rgba(255,215,0,0.02);
+            border: 1px solid rgba(255,215,0,0.04);
+            border-radius: 16px;
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .chat-quick-buttons button:hover {
+            background: rgba(255,215,0,0.04);
+            border-color: rgba(255,215,0,0.06);
+            color: #ffffff;
+        }
+
+        /* ПОЛЕ ВВОДА */
+        .chat-footer {
+            padding: 14px 20px;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .chat-footer input {
+            flex: 1;
+            padding: 10px 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 24px;
+            color: #ffffff;
+            font-size: 15px;
+            font-family: 'Segoe UI', sans-serif;
+            outline: none;
+            transition: 0.3s;
+        }
+        .chat-footer input:focus {
+            border-color: rgba(255,215,0,0.04);
+            background: rgba(255,255,255,0.03);
+        }
+        .chat-footer input::placeholder { color: rgba(255,255,255,0.15); }
+        .chat-footer button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border: none;
+            border-radius: 24px;
+            color: #0a0a0f;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .chat-footer button:hover { transform: scale(1.04); }
+
+        /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 44px; }
             .section-title { font-size: 30px; }
-            .grid-4, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .grid-4, .grid-2 { grid-template-columns: 1fr; }
             .reviews-grid { grid-template-columns: 1fr; }
             .faq-grid { grid-template-columns: 1fr; }
             .header { flex-direction: column; text-align: center; }
             .header-right { text-align: center; }
             .sale-banner { font-size: 17px; }
             .container { padding: 0 16px 40px; }
+            #chat-window { width: 92%; right: 4%; bottom: 100px; max-height: 460px; }
+            #backToTop { right: 20px; bottom: 100px; width: 44px; height: 44px; font-size: 20px; }
+            #chat-toggle { width: 56px; height: 56px; font-size: 28px; bottom: 20px; right: 20px; }
+            .chat-quick-buttons { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 400px) {
             .hero h1 { font-size: 32px; }
             .logo { font-size: 24px; }
             .header-right .phone { font-size: 18px; }
+            .chat-quick-buttons { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -649,7 +716,6 @@
                 <a href="tel:+79005275628" class="phone">+7 (900) 527 56-28</a>
                 <div class="contact-line">✉️ <span>@ProRemont012</span></div>
                 <div class="contact-line"><a href="mailto:ProRemont012@gmail.com">ProRemont012@gmail.com</a></div>
-                <!-- ===== ЧАСЫ — БЕЛЫЕ ===== -->
                 <div id="clock">⏱️ <span id="timeDisplay">00:00</span></div>
             </div>
         </div>
@@ -724,11 +790,11 @@
                 </div>
                 <div style="margin-top:30px; padding-top:30px; border-top:1px solid rgba(255,255,255,0.02);">
                     <p style="color:rgba(255,255,255,0.05); font-size:13px; letter-spacing:2px; text-transform:uppercase;">Дополнительные услуги</p>
-                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:16px; margin-top:16px;">
-                        <div style="padding:14px 12px; background:rgba(255,215,0,0.01); border-radius:24px; border:1px solid rgba(255,255,255,0.02);"><span style="font-size:28px; display:block; margin-bottom:6px;">📐</span><h4 style="font-size:15px; color:#ffffff;">Замер и смета</h4><p style="font-size:12px; color:rgba(255,255,255,0.15);">Бесплатно</p></div>
-                        <div style="padding:14px 12px; background:rgba(255,215,0,0.01); border-radius:24px; border:1px solid rgba(255,255,255,0.02);"><span style="font-size:28px; display:block; margin-bottom:6px;">🏗️</span><h4 style="font-size:15px; color:#ffffff;">Авторский надзор</h4><p style="font-size:12px; color:rgba(255,255,255,0.15);">Личный контроль</p></div>
-                        <div style="padding:14px 12px; background:rgba(255,215,0,0.01); border-radius:24px; border:1px solid rgba(255,255,255,0.02);"><span style="font-size:28px; display:block; margin-bottom:6px;">🧹</span><h4 style="font-size:15px; color:#ffffff;">Уборка после ремонта</h4><p style="font-size:12px; color:rgba(255,255,255,0.15);">В подарок</p></div>
-                        <div style="padding:14px 12px; background:rgba(255,215,0,0.01); border-radius:24px; border:1px solid rgba(255,255,255,0.02);"><span style="font-size:28px; display:block; margin-bottom:6px;">🛡️</span><h4 style="font-size:15px; color:#ffffff;">Гарантия 5 лет</h4><p style="font-size:12px; color:rgba(255,255,255,0.15);">На все работы</p></div>
+                    <div class="extra-grid">
+                        <div class="extra-item"><span class="icon">📐</span><h4>Замер и смета</h4><p>Бесплатно</p></div>
+                        <div class="extra-item"><span class="icon">🏗️</span><h4>Авторский надзор</h4><p>Личный контроль</p></div>
+                        <div class="extra-item"><span class="icon">🧹</span><h4>Уборка после ремонта</h4><p>В подарок</p></div>
+                        <div class="extra-item"><span class="icon">🛡️</span><h4>Гарантия 5 лет</h4><p>На все работы</p></div>
                     </div>
                     <p style="color:rgba(255,255,255,0.02); font-size:12px; margin-top:20px;">*Цены примерные, точная стоимость по смете</p>
                 </div>
@@ -805,6 +871,39 @@
 
     </div>
 
+    <!-- ============================================================ -->
+    <!-- ===== КНОПКА ЧАТА ===== -->
+    <!-- ============================================================ -->
+    <button id="chat-toggle" onclick="toggleChat()">💬</button>
+
+    <!-- ===== ОКНО ЧАТА ===== -->
+    <div id="chat-window">
+        <div class="chat-header">
+            <div class="title">💬 <span>Pro</span>Ремонт-бот</div>
+            <button class="close-btn" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message bot">
+                <span class="avatar">🤖</span>
+                <div class="bubble">
+                    👋 Здравствуйте!<br />
+                    Я помогу вам с ремонтом.<br />
+                    Что вас интересует?
+                </div>
+            </div>
+            <div class="chat-quick-buttons">
+                <button onclick="quickReply('Рассчитать стоимость')">📐 Рассчитать стоимость</button>
+                <button onclick="quickReply('Заказать звонок')">📞 Заказать звонок</button>
+                <button onclick="quickReply('Смотреть портфолио')">📂 Смотреть портфолио</button>
+                <button onclick="quickReply('Задать вопрос мастеру')">❓ Задать вопрос</button>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Введите ваш вопрос..." onkeypress="if(event.key==='Enter') sendMessage()">
+            <button onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
     <script>
         // ===== КАЛЬКУЛЯТОР =====
         function calculatePrice() {
@@ -822,7 +921,7 @@
         });
         calculatePrice();
 
-        // ===== ЧАСЫ (БЕЛЫЕ) =====
+        // ===== ЧАСЫ =====
         function updateClock() {
             const now = new Date();
             const time = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
@@ -885,7 +984,98 @@
         }
         drawStars();
 
-        console.log('🔥 ProРемонт — ТЁМНЫЙ С БЕЛЫМ ТЕКСТОМ ЗАГРУЖЕН!');
+        // ============================================================
+        // ===== ЧАТ-БОТ (ЛОГИКА) =====
+        // ============================================================
+
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.classList.toggle('open');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+            addMessage('user', text);
+            input.value = '';
+            botReply(text);
+        }
+
+        function quickReply(text) {
+            addMessage('user', text);
+            botReply(text);
+        }
+
+        function addMessage(type, text) {
+            const body = document.getElementById('chat-body');
+            const div = document.createElement('div');
+            div.className = `chat-message ${type}`;
+            if (type === 'bot') {
+                div.innerHTML = `<span class="avatar">🤖</span><div class="bubble">${text}</div>`;
+            } else {
+                div.innerHTML = `<div class="bubble">${text}</div>`;
+            }
+            body.insertBefore(div, body.querySelector('.chat-quick-buttons'));
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function botReply(text) {
+            const lower = text.toLowerCase();
+            let reply = '';
+
+            if (lower.includes('стоимость') || lower.includes('цен') || lower.includes('рассчит') || lower.includes('калькулятор')) {
+                reply = '📐 Отлично! Воспользуйтесь нашим калькулятором на сайте — он находится чуть выше. Или оставьте заявку на бесплатный замер! 📞';
+            } else if (lower.includes('звонок') || lower.includes('позвонить') || lower.includes('телефон')) {
+                reply = '📞 Звоните нам прямо сейчас: <strong>+7 (900) 527 56-28</strong><br />Или оставьте заявку, и мы перезвоним вам в течение 5 минут!';
+            } else if (lower.includes('портфолио') || lower.includes('работы') || lower.includes('галерея')) {
+                reply = '📂 Смотрите наши работы в разделе "Портфолио" на сайте. Мы сделали более 120 объектов! 🏠';
+            } else if (lower.includes('вопрос') || lower.includes('мастер') || lower.includes('помочь')) {
+                reply = '❓ Задайте ваш вопрос, и я передам его мастеру. Или позвоните нам: <strong>+7 (900) 527 56-28</strong> ☎️';
+            } else if (lower.includes('скидка') || lower.includes('акция')) {
+                reply = '🎁 Да! У нас действует <strong>скидка 15%</strong> на все виды работ до конца месяца! Успейте забронировать! 🔥';
+            } else if (lower.includes('гарантия')) {
+                reply = '🛡️ Мы даём гарантию на все виды работ — <strong>до 5 лет</strong>! Качество подтверждено сотнями довольных клиентов.';
+            } else if (lower.includes('привет') || lower.includes('здравствуй') || lower.includes('добрый')) {
+                reply = '👋 Здравствуйте! Чем могу помочь? Выберите один из вариантов ниже или напишите свой вопрос.';
+            } else if (lower.includes('спасибо')) {
+                reply = '🙌 Пожалуйста! Рады помочь! Если появятся вопросы — мы всегда на связи. 😊';
+            } else {
+                reply = `🤔 Я вас понял. Передам ваш вопрос мастеру. А пока вы можете:<br />📞 Позвонить: <strong>+7 (900) 527 56-28</strong><br />✉️ Написать: @ProRemont012<br />Или задать вопрос уточнее — я постараюсь помочь!`;
+            }
+
+            setTimeout(() => {
+                addMessage('bot', reply);
+                // Показываем кнопки снова
+                const body = document.getElementById('chat-body');
+                const buttons = document.querySelector('.chat-quick-buttons');
+                if (!buttons) {
+                    const newButtons = document.createElement('div');
+                    newButtons.className = 'chat-quick-buttons';
+                    newButtons.innerHTML = `
+                        <button onclick="quickReply('Рассчитать стоимость')">📐 Рассчитать стоимость</button>
+                        <button onclick="quickReply('Заказать звонок')">📞 Заказать звонок</button>
+                        <button onclick="quickReply('Смотреть портфолио')">📂 Смотреть портфолио</button>
+                        <button onclick="quickReply('Задать вопрос мастеру')">❓ Задать вопрос</button>
+                    `;
+                    body.appendChild(newButtons);
+                }
+                body.scrollTop = body.scrollHeight;
+            }, 400);
+        }
+
+        // Закрываем чат при клике вне его
+        document.addEventListener('click', function(e) {
+            const chat = document.getElementById('chat-window');
+            const toggle = document.getElementById('chat-toggle');
+            if (chat.classList.contains('open') &&
+                !chat.contains(e.target) &&
+                !toggle.contains(e.target)) {
+                chat.classList.remove('open');
+            }
+        });
+
+        console.log('🔥 ProРемонт с ЧАТ-БОТОМ ЗАГРУЖЕН!');
     </script>
 
 </body>

@@ -25,8 +25,6 @@
             min-height: 100vh;
             transition: background 0.4s, color 0.4s;
         }
-
-        /* ===== СВЕТЛАЯ ТЕМА ===== */
         body.light-mode {
             background: #f5f3f0;
             color: #1a1a1a;
@@ -68,7 +66,6 @@
         body.light-mode .badge { color: rgba(0,0,0,0.15); border-color: rgba(0,0,0,0.04); }
         body.light-mode .result { border-color: rgba(0,0,0,0.02); }
         body.light-mode .result p { color: rgba(0,0,0,0.05); }
-
         body.light-mode .theme-toggle,
         body.light-mode .cabinet-btn,
         body.light-mode .bottom-left-buttons button {
@@ -92,7 +89,6 @@
             z-index: 0;
             pointer-events: none;
         }
-
         .container {
             position: relative;
             z-index: 1;
@@ -100,14 +96,12 @@
             margin: 0 auto;
             padding: 0 24px 40px;
         }
-
         .fade-section {
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .fade-section.visible { opacity: 1; transform: translateY(0); }
-
         .card-3d {
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             transform-style: preserve-3d;
@@ -117,7 +111,6 @@
             transform: rotateX(3deg) rotateY(5deg) translateY(-8px) scale(1.02);
             box-shadow: 0 30px 80px rgba(255,215,0,0.03);
         }
-
         .gold-gradient {
             background: linear-gradient(135deg, #ffd700, #f7971e, #ffd700, #f7971e);
             background-size: 300% 300%;
@@ -157,7 +150,6 @@
         #clock { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 6px; }
         #clock span { color: #ffffff; }
 
-        /* ===== БАННЕР ===== */
         .sale-banner {
             text-align: center;
             padding: 20px 24px;
@@ -176,7 +168,6 @@
         }
         .sale-banner span { color: #ffd700; }
 
-        /* ===== ГЕРОЙ ===== */
         .hero {
             text-align: center;
             padding: 80px 20px 60px;
@@ -530,9 +521,6 @@
             100% { transform: translateX(-200%); }
         }
 
-        /* ============================================================ */
-        /* ===== КНОПКИ В ЛЕВОМ НИЖНЕМ УГЛУ ===== */
-        /* ============================================================ */
         .bottom-left-buttons {
             position: fixed;
             bottom: 30px;
@@ -569,9 +557,6 @@
         }
         .bottom-left-buttons .cabinet-btn:hover { color: #ffd700; }
 
-        /* ============================================================ */
-        /* ===== ФИШКА 824: ПУШ-УВЕДОМЛЕНИЯ (КОЛОКОЛЬЧИК) ===== */
-        /* ============================================================ */
         .notification-bell {
             position: fixed;
             top: 20px;
@@ -699,215 +684,6 @@
         }
         body.light-mode .notification-dropdown .list .item .time { color: rgba(0,0,0,0.1); }
 
-        /* ============================================================ */
-        /* ===== ФИШКА 121: ЛИЧНЫЙ КАБИНЕТ (ПОПАП) ===== */
-        /* ============================================================ */
-        .cabinet-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(20px);
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.4s ease;
-        }
-        .cabinet-popup.open { display: flex; }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: scale(0.95); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        .cabinet-box {
-            background: rgba(20,20,30,0.95);
-            border: 1px solid rgba(255,215,0,0.04);
-            border-radius: 40px;
-            padding: 40px 30px;
-            max-width: 440px;
-            width: 92%;
-            position: relative;
-            backdrop-filter: blur(30px);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        body.light-mode .cabinet-box { background: rgba(255,255,255,0.95); }
-        .cabinet-box .close-popup {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.2);
-            font-size: 24px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        body.light-mode .cabinet-box .close-popup { color: rgba(0,0,0,0.2); }
-        .cabinet-box .close-popup:hover { color: #ffd700; }
-        .cabinet-box h2 {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 4px;
-        }
-        .cabinet-box .subtitle {
-            color: rgba(255,255,255,0.2);
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        body.light-mode .cabinet-box .subtitle { color: rgba(0,0,0,0.2); }
-
-        .cabinet-box .user-card {
-            background: rgba(255,255,255,0.02);
-            border-radius: 24px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,215,0,0.02);
-        }
-        body.light-mode .cabinet-box .user-card { background: rgba(0,0,0,0.02); }
-        .cabinet-box .user-card .name { font-size: 20px; font-weight: 700; color: #ffd700; }
-        .cabinet-box .user-card .info { font-size: 14px; color: rgba(255,255,255,0.2); margin-top: 4px; }
-        body.light-mode .cabinet-box .user-card .info { color: rgba(0,0,0,0.2); }
-        .cabinet-box .user-card .level {
-            display: inline-block;
-            margin-top: 8px;
-            padding: 4px 16px;
-            background: linear-gradient(135deg, #ffd700, #f7971e);
-            border-radius: 60px;
-            font-size: 12px;
-            font-weight: 700;
-            color: #0a0a0f;
-        }
-
-        .cabinet-box .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .cabinet-box .stats-grid .stat {
-            background: rgba(255,255,255,0.02);
-            border-radius: 16px;
-            padding: 14px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.02);
-        }
-        body.light-mode .cabinet-box .stats-grid .stat { background: rgba(0,0,0,0.02); }
-        .cabinet-box .stats-grid .stat .num {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ffd700;
-        }
-        .cabinet-box .stats-grid .stat .label {
-            font-size: 12px;
-            color: rgba(255,255,255,0.15);
-            margin-top: 2px;
-        }
-        body.light-mode .cabinet-box .stats-grid .stat .label { color: rgba(0,0,0,0.15); }
-
-        .cabinet-box .orders-list {
-            margin-bottom: 16px;
-        }
-        .cabinet-box .orders-list .order {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.02);
-            font-size: 14px;
-        }
-        body.light-mode .cabinet-box .orders-list .order { border-color: rgba(0,0,0,0.02); }
-        .cabinet-box .orders-list .order .status {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 60px;
-            font-size: 11px;
-            font-weight: 700;
-        }
-        .cabinet-box .orders-list .order .status.done { background: rgba(74,222,128,0.1); color: #4ade80; }
-        .cabinet-box .orders-list .order .status.progress { background: rgba(255,215,0,0.1); color: #ffd700; }
-        .cabinet-box .orders-list .order .status.waiting { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); }
-
-        .cabinet-box .cabinet-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .cabinet-box .cabinet-actions button {
-            flex: 1;
-            padding: 12px;
-            background: rgba(255,215,0,0.02);
-            border: 1px solid rgba(255,215,0,0.04);
-            border-radius: 60px;
-            color: rgba(255,255,255,0.3);
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: 'Segoe UI', sans-serif;
-        }
-        body.light-mode .cabinet-box .cabinet-actions button { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.02); }
-        .cabinet-box .cabinet-actions button:hover {
-            border-color: rgba(255,215,0,0.04);
-            color: #ffd700;
-        }
-        .cabinet-box .cabinet-actions button.primary {
-            background: linear-gradient(135deg, #ffd700, #f7971e);
-            color: #0a0a0f;
-            border: none;
-        }
-        .cabinet-box .cabinet-actions button.primary:hover { transform: scale(1.02); }
-
-        /* ============================================================ */
-        /* ===== ФИШКА 826: БОНУСНАЯ КАРТА (внутри кабинета) ===== */
-        /* ============================================================ */
-        .bonus-card {
-            background: linear-gradient(135deg, rgba(255,215,0,0.02), rgba(247,151,30,0.01));
-            border: 1px solid rgba(255,215,0,0.04);
-            border-radius: 24px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .bonus-card .balance {
-            font-size: 36px;
-            font-weight: 900;
-            color: #ffd700;
-        }
-        .bonus-card .balance-label {
-            font-size: 13px;
-            color: rgba(255,255,255,0.15);
-        }
-        body.light-mode .bonus-card .balance-label { color: rgba(0,0,0,0.15); }
-        .bonus-card .bonus-progress {
-            margin-top: 12px;
-            height: 6px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        .bonus-card .bonus-progress .fill {
-            height: 100%;
-            background: linear-gradient(135deg, #ffd700, #f7971e);
-            border-radius: 20px;
-            width: 65%;
-        }
-        .bonus-card .bonus-info {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-            font-size: 12px;
-            color: rgba(255,255,255,0.1);
-        }
-        body.light-mode .bonus-card .bonus-info { color: rgba(0,0,0,0.1); }
-        .bonus-card .bonus-info span { color: rgba(255,255,255,0.2); }
-        body.light-mode .bonus-card .bonus-info span { color: rgba(0,0,0,0.2); }
-
-        /* ============================================================ */
-        /* ===== ФИШКА 105: ВСПЛЫВАЮЩИЕ УВЕДОМЛЕНИЯ ===== */
-        /* ============================================================ */
         .live-notification {
             position: fixed;
             bottom: 120px;
@@ -956,9 +732,6 @@
         }
         body.light-mode .live-notification .time { color: rgba(0,0,0,0.05); }
 
-        /* ============================================================ */
-        /* ===== ЧАТ-БОТ ===== */
-        /* ============================================================ */
         #chat-toggle {
             position: fixed;
             bottom: 30px;
@@ -1155,9 +928,6 @@
         }
         .chat-footer button:hover { transform: scale(1.04); }
 
-        /* ============================================================ */
-        /* ===== КВИЗ ===== */
-        /* ============================================================ */
         .quiz-btn {
             display: inline-block;
             padding: 14px 40px;
@@ -1264,9 +1034,6 @@
         }
         .quiz-result .btn:hover { transform: scale(1.04); }
 
-        /* ============================================================ */
-        /* ===== МИНИ-ИГРА ===== */
-        /* ============================================================ */
         .game-container {
             text-align: center;
             padding: 30px 20px;
@@ -1317,9 +1084,6 @@
         }
         body.light-mode .game-container .coin-message { color: rgba(0,0,0,0.15); }
 
-        /* ============================================================ */
-        /* ===== КОЛЕСО ФОРТУНЫ ===== */
-        /* ============================================================ */
         .wheel-popup {
             position: fixed;
             top: 0;
@@ -1460,9 +1224,6 @@
         }
         .wheel-result .phone-input button:hover { transform: scale(1.04); }
 
-        /* ============================================================ */
-        /* ===== СИМУЛЯТОР РЕМОНТА ===== */
-        /* ============================================================ */
         .simulator-container {
             text-align: center;
             padding: 30px 20px;
@@ -1552,9 +1313,6 @@
         }
         .simulator-container .sim-result .btn:hover { transform: scale(1.04); }
 
-        /* ============================================================ */
-        /* ===== ДОМ-КОНСТРУКТОР ===== */
-        /* ============================================================ */
         .constructor-container {
             background: rgba(255,255,255,0.01);
             border: 1px solid rgba(255,255,255,0.02);
@@ -1677,6 +1435,253 @@
         body.light-mode .constructor-container .constructor-result .flex .info .sub {
             color: rgba(0,0,0,0.1);
         }
+
+        /* ===== ВКЛАДКИ ЛИЧНОГО КАБИНЕТА ===== */
+        .cabinet-tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            padding-bottom: 12px;
+        }
+        .cabinet-tabs .tab {
+            padding: 8px 18px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 60px;
+            color: rgba(255,255,255,0.2);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .cabinet-tabs .tab:hover {
+            border-color: rgba(255,215,0,0.04);
+            color: rgba(255,255,255,0.3);
+        }
+        .cabinet-tabs .tab.active {
+            background: rgba(255,215,0,0.02);
+            border-color: rgba(255,215,0,0.04);
+            color: #ffd700;
+        }
+        .cabinet-content { display: none; }
+        .cabinet-content.active { display: block; animation: fadeIn 0.3s ease; }
+        body.light-mode .cabinet-tabs .tab {
+            color: rgba(0,0,0,0.2);
+            border-color: rgba(0,0,0,0.02);
+        }
+        body.light-mode .cabinet-tabs .tab.active {
+            color: #d4af37;
+            border-color: rgba(212,175,55,0.04);
+        }
+        body.light-mode #tab-settings input {
+            color: #1a1a1a;
+            background: rgba(0,0,0,0.02);
+            border-color: rgba(0,0,0,0.02);
+        }
+
+        /* ===== ЛИЧНЫЙ КАБИНЕТ ===== */
+        .cabinet-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.4s ease;
+        }
+        .cabinet-popup.open { display: flex; }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .cabinet-box {
+            background: rgba(20,20,30,0.95);
+            border: 1px solid rgba(255,215,0,0.04);
+            border-radius: 40px;
+            padding: 40px 30px;
+            max-width: 440px;
+            width: 92%;
+            position: relative;
+            backdrop-filter: blur(30px);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        body.light-mode .cabinet-box { background: rgba(255,255,255,0.95); }
+        .cabinet-box .close-popup {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.2);
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        body.light-mode .cabinet-box .close-popup { color: rgba(0,0,0,0.2); }
+        .cabinet-box .close-popup:hover { color: #ffd700; }
+        .cabinet-box h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .cabinet-box .subtitle {
+            color: rgba(255,255,255,0.2);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        body.light-mode .cabinet-box .subtitle { color: rgba(0,0,0,0.2); }
+
+        .cabinet-box .user-card {
+            background: rgba(255,255,255,0.02);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,215,0,0.02);
+        }
+        body.light-mode .cabinet-box .user-card { background: rgba(0,0,0,0.02); }
+        .cabinet-box .user-card .name { font-size: 20px; font-weight: 700; color: #ffd700; }
+        .cabinet-box .user-card .info { font-size: 14px; color: rgba(255,255,255,0.2); margin-top: 4px; }
+        body.light-mode .cabinet-box .user-card .info { color: rgba(0,0,0,0.2); }
+        .cabinet-box .user-card .level {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 16px;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border-radius: 60px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #0a0a0f;
+        }
+
+        .cabinet-box .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .cabinet-box .stats-grid .stat {
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            padding: 14px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.02);
+        }
+        body.light-mode .cabinet-box .stats-grid .stat { background: rgba(0,0,0,0.02); }
+        .cabinet-box .stats-grid .stat .num {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffd700;
+        }
+        .cabinet-box .stats-grid .stat .label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.15);
+            margin-top: 2px;
+        }
+        body.light-mode .cabinet-box .stats-grid .stat .label { color: rgba(0,0,0,0.15); }
+
+        .cabinet-box .orders-list {
+            margin-bottom: 16px;
+        }
+        .cabinet-box .orders-list .order {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            font-size: 14px;
+        }
+        body.light-mode .cabinet-box .orders-list .order { border-color: rgba(0,0,0,0.02); }
+        .cabinet-box .orders-list .order .status {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 60px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .cabinet-box .orders-list .order .status.done { background: rgba(74,222,128,0.1); color: #4ade80; }
+        .cabinet-box .orders-list .order .status.progress { background: rgba(255,215,0,0.1); color: #ffd700; }
+        .cabinet-box .orders-list .order .status.waiting { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); }
+
+        .cabinet-box .cabinet-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .cabinet-box .cabinet-actions button {
+            flex: 1;
+            padding: 12px;
+            background: rgba(255,215,0,0.02);
+            border: 1px solid rgba(255,215,0,0.04);
+            border-radius: 60px;
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        body.light-mode .cabinet-box .cabinet-actions button { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.02); }
+        .cabinet-box .cabinet-actions button:hover {
+            border-color: rgba(255,215,0,0.04);
+            color: #ffd700;
+        }
+        .cabinet-box .cabinet-actions button.primary {
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            color: #0a0a0f;
+            border: none;
+        }
+        .cabinet-box .cabinet-actions button.primary:hover { transform: scale(1.02); }
+
+        .bonus-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.02), rgba(247,151,30,0.01));
+            border: 1px solid rgba(255,215,0,0.04);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .bonus-card .balance {
+            font-size: 36px;
+            font-weight: 900;
+            color: #ffd700;
+        }
+        .bonus-card .balance-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.15);
+        }
+        body.light-mode .bonus-card .balance-label { color: rgba(0,0,0,0.15); }
+        .bonus-card .bonus-progress {
+            margin-top: 12px;
+            height: 6px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .bonus-card .bonus-progress .fill {
+            height: 100%;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            border-radius: 20px;
+            width: 65%;
+        }
+        .bonus-card .bonus-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.1);
+        }
+        body.light-mode .bonus-card .bonus-info { color: rgba(0,0,0,0.1); }
+        .bonus-card .bonus-info span { color: rgba(255,255,255,0.2); }
+        body.light-mode .bonus-card .bonus-info span { color: rgba(0,0,0,0.2); }
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
@@ -2138,56 +2143,103 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== ФИШКА 121/826: ЛИЧНЫЙ КАБИНЕТ + БОНУСНАЯ КАРТА ===== -->
+    <!-- ===== ЛИЧНЫЙ КАБИНЕТ С РАБОЧИМИ НАСТРОЙКАМИ ===== -->
     <!-- ============================================================ -->
     <div class="cabinet-popup" id="cabinetPopup">
         <div class="cabinet-box">
             <button class="close-popup" onclick="closeCabinet()">✕</button>
-            <h2>👤 <span class="gold-gradient">Личный кабинет</span></h2>
-            <div class="subtitle">Управляйте своими заказами и бонусами</div>
 
-            <div class="user-card">
-                <div class="name">Александр</div>
-                <div class="info">📞 +7 (900) 527 56-28</div>
-                <div class="info">📧 remont@mail.ru</div>
-                <div class="level">🏆 Золотой уровень</div>
+            <!-- ВКЛАДКИ -->
+            <div class="cabinet-tabs">
+                <button class="tab active" data-tab="profile" onclick="switchCabinetTab('profile')">👤 Профиль</button>
+                <button class="tab" data-tab="bonus" onclick="switchCabinetTab('bonus')">💳 Бонусы</button>
+                <button class="tab" data-tab="orders" onclick="switchCabinetTab('orders')">📋 Заказы</button>
+                <button class="tab" data-tab="settings" onclick="switchCabinetTab('settings')">⚙️ Настройки</button>
             </div>
 
-            <!-- БОНУСНАЯ КАРТА (ФИШКА 826) -->
-            <div class="bonus-card">
-                <div class="balance">2 450</div>
-                <div class="balance-label">💰 Бонусов</div>
-                <div class="bonus-progress"><div class="fill" style="width:65%;"></div></div>
-                <div class="bonus-info">
-                    <span>🔥 До следующей скидки: 550 бонусов</span>
-                    <span>📊 Потрачено: 85 000 ₽</span>
+            <!-- ===== ВКЛАДКА: ПРОФИЛЬ ===== -->
+            <div class="cabinet-content active" id="tab-profile">
+                <div class="user-card">
+                    <div class="name" id="userName">Александр</div>
+                    <div class="info" id="userPhone">📞 +7 (900) 527 56-28</div>
+                    <div class="info" id="userEmail">📧 remont@mail.ru</div>
+                    <div class="level">🏆 Золотой уровень</div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat"><div class="num">3</div><div class="label">Активных заказа</div></div>
+                    <div class="stat"><div class="num">12</div><div class="label">Всего заказов</div></div>
+                    <div class="stat"><div class="num">5 200</div><div class="label">Сэкономлено</div></div>
+                    <div class="stat"><div class="num">4.9</div><div class="label">Средняя оценка</div></div>
                 </div>
             </div>
 
-            <div class="stats-grid">
-                <div class="stat"><div class="num">3</div><div class="label">Активных заказа</div></div>
-                <div class="stat"><div class="num">12</div><div class="label">Всего заказов</div></div>
-                <div class="stat"><div class="num">5 200</div><div class="label">Сэкономлено</div></div>
-                <div class="stat"><div class="num">4.9</div><div class="label">Средняя оценка</div></div>
+            <!-- ===== ВКЛАДКА: БОНУСЫ ===== -->
+            <div class="cabinet-content" id="tab-bonus">
+                <div class="bonus-card">
+                    <div class="balance" id="bonusBalance">2 450</div>
+                    <div class="balance-label">💰 Бонусов</div>
+                    <div class="bonus-progress"><div class="fill" style="width:65%;"></div></div>
+                    <div class="bonus-info">
+                        <span>🔥 До следующей скидки: 550 бонусов</span>
+                        <span>📊 Потрачено: 85 000 ₽</span>
+                    </div>
+                </div>
+                <div style="text-align:center; padding:12px; background:rgba(255,215,0,0.02); border-radius:16px; border:1px solid rgba(255,215,0,0.02);">
+                    <p style="color:rgba(255,255,255,0.15); font-size:14px;">🎁 500 бонусов = 500 ₽ скидки</p>
+                    <p style="color:rgba(255,255,255,0.15); font-size:14px;">💎 1000 бонусов = 1200 ₽ скидки</p>
+                    <p style="color:rgba(255,255,255,0.15); font-size:14px;">👑 2000 бонусов = 3000 ₽ скидки</p>
+                </div>
             </div>
 
-            <div class="orders-list">
-                <div class="order"><span>#124 Кухня 15м²</span><span class="status progress">🔄 Отделка</span></div>
-                <div class="order"><span>#123 Гостиная 22м²</span><span class="status done">✅ Готово</span></div>
-                <div class="order"><span>#122 Ванная 8м²</span><span class="status waiting">⏳ Замер</span></div>
+            <!-- ===== ВКЛАДКА: ЗАКАЗЫ ===== -->
+            <div class="cabinet-content" id="tab-orders">
+                <div class="orders-list">
+                    <div class="order"><span>#124 Кухня 15м²</span><span class="status progress">🔄 Отделка</span></div>
+                    <div class="order"><span>#123 Гостиная 22м²</span><span class="status done">✅ Готово</span></div>
+                    <div class="order"><span>#122 Ванная 8м²</span><span class="status waiting">⏳ Замер</span></div>
+                    <div class="order"><span>#121 Спальня 18м²</span><span class="status done">✅ Готово</span></div>
+                </div>
             </div>
 
-            <div class="cabinet-actions">
-                <button onclick="alert('📋 История заказов открыта')">📋 История</button>
-                <button onclick="alert('💳 Ваши бонусы: 2 450')">💳 Бонусы</button>
-                <button class="primary" onclick="alert('⚙️ Настройки профиля')">⚙️ Настройки</button>
+            <!-- ===== ВКЛАДКА: НАСТРОЙКИ (РАБОЧАЯ!) ===== -->
+            <div class="cabinet-content" id="tab-settings">
+                <div style="display:flex; flex-direction:column; gap:14px;">
+                    <div>
+                        <label style="font-size:13px; color:rgba(255,255,255,0.15); display:block; margin-bottom:4px;">📝 Имя</label>
+                        <input type="text" id="settingsName" value="Александр" style="width:100%; padding:10px 14px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); border-radius:16px; color:#fff; font-size:15px;">
+                    </div>
+                    <div>
+                        <label style="font-size:13px; color:rgba(255,255,255,0.15); display:block; margin-bottom:4px;">📞 Телефон</label>
+                        <input type="text" id="settingsPhone" value="+7 (900) 527 56-28" style="width:100%; padding:10px 14px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); border-radius:16px; color:#fff; font-size:15px;">
+                    </div>
+                    <div>
+                        <label style="font-size:13px; color:rgba(255,255,255,0.15); display:block; margin-bottom:4px;">📧 Email</label>
+                        <input type="email" id="settingsEmail" value="remont@mail.ru" style="width:100%; padding:10px 14px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); border-radius:16px; color:#fff; font-size:15px;">
+                    </div>
+                    <div>
+                        <label style="font-size:13px; color:rgba(255,255,255,0.15); display:block; margin-bottom:4px;">🔑 Новый пароль</label>
+                        <input type="password" id="settingsPassword" placeholder="Введите новый пароль" style="width:100%; padding:10px 14px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); border-radius:16px; color:#fff; font-size:15px;">
+                    </div>
+                    <div>
+                        <label style="font-size:13px; color:rgba(255,255,255,0.15); display:block; margin-bottom:4px;">🔁 Подтвердите пароль</label>
+                        <input type="password" id="settingsPasswordConfirm" placeholder="Введите пароль ещё раз" style="width:100%; padding:10px 14px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); border-radius:16px; color:#fff; font-size:15px;">
+                    </div>
+
+                    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:4px;">
+                        <button onclick="saveSettings()" style="flex:1; padding:12px; background:linear-gradient(135deg, #ffd700, #f7971e); border:none; border-radius:60px; color:#0a0a0f; font-weight:700; font-size:15px; cursor:pointer;">💾 Сохранить настройки</button>
+                        <button onclick="resetSettings()" style="padding:12px 20px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); border-radius:60px; color:rgba(255,255,255,0.2); cursor:pointer; font-size:14px;">↺ Сбросить</button>
+                    </div>
+
+                    <div style="margin-top:8px; padding:12px; background:rgba(255,215,0,0.01); border-radius:16px; border:1px solid rgba(255,215,0,0.02); text-align:center;">
+                        <p style="color:rgba(255,255,255,0.05); font-size:13px;">💡 Данные сохраняются в кеше браузера</p>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 
-    <!-- ============================================================ -->
     <!-- ===== ПОПАП КВИЗА ===== -->
-    <!-- ============================================================ -->
     <div class="quiz-popup" id="quizPopup">
         <div class="quiz-box">
             <button class="close-quiz" onclick="closeQuiz()">✕</button>
@@ -2235,9 +2287,7 @@
         </div>
     </div>
 
-    <!-- ============================================================ -->
     <!-- ===== ПОПАП КОЛЕСА ФОРТУНЫ ===== -->
-    <!-- ============================================================ -->
     <div class="wheel-popup" id="wheelPopup">
         <div class="wheel-box">
             <button class="close-wheel" onclick="closeWheel()">✕</button>
@@ -2316,7 +2366,6 @@
             dropdown.classList.toggle('open');
         }
 
-        // Закрытие при клике вне
         document.addEventListener('click', function(e) {
             const bell = document.getElementById('bellBtn');
             const dropdown = document.getElementById('notifDropdown');
@@ -2358,7 +2407,6 @@
 
             el.classList.add('show');
 
-            // Меняем иконку уведомления
             const badge = document.getElementById('notifBadge');
             let count = parseInt(badge.textContent);
             badge.textContent = Math.min(count + 1, 99);
@@ -2368,7 +2416,6 @@
             }, 6000);
         }
 
-        // Запускаем уведомления с интервалом 8-15 секунд
         function startLiveNotifications() {
             showRandomNotification();
             notifInterval = setInterval(() => {
@@ -2793,6 +2840,90 @@
         }
 
         // ============================================================
+        // ===== ЛИЧНЫЙ КАБИНЕТ: ВКЛАДКИ =====
+        // ============================================================
+        function switchCabinetTab(tab) {
+            document.querySelectorAll('.cabinet-tabs .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.cabinet-content').forEach(c => c.classList.remove('active'));
+            document.querySelector(`.cabinet-tabs .tab[data-tab="${tab}"]`).classList.add('active');
+            document.getElementById(`tab-${tab}`).classList.add('active');
+        }
+
+        // ============================================================
+        // ===== ЛИЧНЫЙ КАБИНЕТ: НАСТРОЙКИ (СОХРАНЕНИЕ) =====
+        // ============================================================
+        function saveSettings() {
+            const name = document.getElementById('settingsName').value.trim();
+            const phone = document.getElementById('settingsPhone').value.trim();
+            const email = document.getElementById('settingsEmail').value.trim();
+            const password = document.getElementById('settingsPassword').value;
+            const confirm = document.getElementById('settingsPasswordConfirm').value;
+
+            if (password && password !== confirm) {
+                alert('❌ Пароли не совпадают!');
+                return;
+            }
+            if (password && password.length < 4) {
+                alert('❌ Пароль должен быть не короче 4 символов!');
+                return;
+            }
+
+            if (name) localStorage.setItem('userName', name);
+            if (phone) localStorage.setItem('userPhone', phone);
+            if (email) localStorage.setItem('userEmail', email);
+            if (password) localStorage.setItem('userPassword', password);
+
+            document.getElementById('userName').textContent = name || 'Александр';
+            document.getElementById('userPhone').textContent = `📞 ${phone || '+7 (900) 527 56-28'}`;
+            document.getElementById('userEmail').textContent = `📧 ${email || 'remont@mail.ru'}`;
+
+            alert('✅ Настройки сохранены! Данные сохранятся на этом устройстве.');
+        }
+
+        function resetSettings() {
+            if (!confirm('🔄 Сбросить все настройки?')) return;
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userPhone');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userPassword');
+
+            document.getElementById('settingsName').value = 'Александр';
+            document.getElementById('settingsPhone').value = '+7 (900) 527 56-28';
+            document.getElementById('settingsEmail').value = 'remont@mail.ru';
+            document.getElementById('settingsPassword').value = '';
+            document.getElementById('settingsPasswordConfirm').value = '';
+
+            document.getElementById('userName').textContent = 'Александр';
+            document.getElementById('userPhone').textContent = '📞 +7 (900) 527 56-28';
+            document.getElementById('userEmail').textContent = '📧 remont@mail.ru';
+
+            alert('🔄 Настройки сброшены!');
+        }
+
+        function loadUserSettings() {
+            const name = localStorage.getItem('userName');
+            const phone = localStorage.getItem('userPhone');
+            const email = localStorage.getItem('userEmail');
+
+            if (name) {
+                document.getElementById('userName').textContent = name;
+                document.getElementById('settingsName').value = name;
+            }
+            if (phone) {
+                document.getElementById('userPhone').textContent = `📞 ${phone}`;
+                document.getElementById('settingsPhone').value = phone;
+            }
+            if (email) {
+                document.getElementById('userEmail').textContent = `📧 ${email}`;
+                document.getElementById('settingsEmail').value = email;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserSettings();
+        });
+
+        // ============================================================
         // ===== КНОПКА НАВЕРХ =====
         // ============================================================
         window.addEventListener('scroll', function() {
@@ -2855,10 +2986,10 @@
         drawWheel(0);
         updateProgress(0);
 
-        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ (ЧАТ-БОТ + 4 ФИШКИ + КОЛЕСО + СИМУЛЯТОР + ДОМ-КОНСТРУКТОР + 4 НОВЫЕ ФИШКИ) ЗАГРУЖЕН!');
+        console.log('🔥 ProРемонт — ВСЁ В ОДНОМ ЗАГРУЖЕН!');
         console.log('🔔 Пуш-уведомления — включены');
         console.log('💳 Бонусная карта — активна');
-        console.log('👤 Личный кабинет — работает');
+        console.log('👤 Личный кабинет с настройками — работает!');
         console.log('🎯 Всплывающие уведомления — запущены');
     </script>
 
